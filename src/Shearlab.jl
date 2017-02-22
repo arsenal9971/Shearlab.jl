@@ -3,17 +3,32 @@ module Shearlab
 using Images
 using Wavelets
 using PyPlot
-push!(LOAD_PATH,pwd()*"/../../FWT.jl/src") # for julia 0.5 you need to put your path
-using FWT
 
-export Shear2D, DigitalShearing2D, padArray, filt_scales,fliplr, SLupsample, fix, SLdshear, SLgetWedgeBandpassAndLowpassFilters2D, SLcheckFilterSizes, SLprepareFilters2D,SLgetShearletSystem2D, SLsheardec2D,SLload_image, SLshearrecD
+export 
+			WT, filt_gen, resize_image, load_image, imageplot, 
+			rescale, plot_wavelet,subsampling, upsampling, 
+			cconvol, reverse, clamp, perform_wavorth_transform, snr,
+			padarray, fliplr, upsample, fix, dshear, checkfiltersizes, Filterconfigs, 
+			Filterswedgebandlow, getwedgebandpasslowpassfilters2D, Preparedfilters,
+			preparefilters2D, getshearletidxs2D, Shearletsystems2D, getshearletsystem2D,
+			 sheardec2D, shearrec2D
 
+include("./util/operations.jl")
+include("./util/getshearlets2D.jl")
+include("./2D/shearletdecrec.jl")
+include("./fast_wavelet/filters.jl")
+include("./fast_wavelet/operations_wavelet.jl")
+include("./fast_wavelet/imaging.jl")
 
-#include("./2D/DigitalShear2D.jl")
-#include("./2D/ShearlabFilter2D.jl")
-include("./2D/shearletDecRec.jl")
-include("./Util/operations.jl")
-include("./Util/getShearlets2D.jl")
-
+# Alias for functions to have same names as in ShearLab3D
+const SLupsample = upsample
+const SLdshare = dshear
+const SLcheckFilterSizes = checkfiltersizes 
+const SLWedgeBandpassAndLowpassFilters2D = getwedgebandpasslowpassfilters2D
+const SLprepareFilters2D = preparefilters2D
+const SLgetShearletIdxs2D = getshearletidxs2D
+const SLgetShearletSystem2D = getshearletsystem2D
+const SLsheardec2D = sheardec2D
+const SLshearrec2D = shearrec2D
 
 end #module

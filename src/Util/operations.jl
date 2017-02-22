@@ -5,13 +5,13 @@
 # zeros 
 """
 ...
-padArray(array, newSize)
+padarray(array, newSize)
 pads array with zeros to have a new size if the input array
 is bigger than the targeted size, it will centered it at zero
 and cut it off to fit
 ...
 """
-function padArray(array,newSize)
+function padarray(array,newSize)
 		# Small patch if the array is one dimensional
 		if size([size(array)...])[1]==1
 			array = transpose(array)
@@ -44,7 +44,7 @@ function padArray(array,newSize)
     id = [(padSizes[i]+1):(padSizes[i]+size(array,i)) for i in 1:length(newSize)]
     paddedArray[id...] = array
     paddedArray
-end
+end #padarray
 
 
 
@@ -63,18 +63,18 @@ function fliplr(array)
         array_flipped[:,i]=array[:,size(array,2)-i+1]
     end
     array_flipped
-end
+end #fliplr
 
 ##################################################################
 # function that upsample an multidimensional array based on the same
 # function at the matlab version
 """
 ...
-SLupsample(array,dims,nZeros) upsample an array, in the dimensions dims
+upsample(array,dims,nZeros) upsample an array, in the dimensions dims
 with nZeros
 ...
 """
-function SLupsample(array,dims,nZeros)
+function upsample(array,dims,nZeros)
     sz = [size(array)...];
     szUpsampled = sz;
     szUpsampled[dims] = (szUpsampled[dims]-1).*(nZeros+1)+1;
@@ -86,7 +86,7 @@ function SLupsample(array,dims,nZeros)
     end
     arrayUpsampled[ids...] = array
     arrayUpsampled
-end
+end #upsample
 
 #####################################################################
 # Function that rounds a number to the nearest integer towards zero
@@ -102,18 +102,18 @@ function fix(x)
         fixed = floor(x)
     end
     convert(Int64,fixed)
-end
+end #fix
 
 #######################################################################
 # Function that shears an array in order k in the direction of axis
 # based on the same function on the Matlab version
 """
 ...
-SLdshear(array,k,axis) shears and array in order k in the direction of
+dshear(array,k,axis) shears and array in order k in the direction of
 axis
 ...
 """
-function SLdshear(array,k,axis)
+function dshear(array,k,axis)
     if k == 0
         sheared = array;
     else
@@ -132,84 +132,84 @@ function SLdshear(array,k,axis)
         end
     end
     sheared
-end
+end #dshear
 
 ######################################################################
-## Type o to check the sizes 
-type filterConfig
+## Type of filter configurations
+type Filterconfigs
     directionalFilter::Array
     scalingFilter::Array
     waveletFilter::Array
     scalingFilter2::Array
-end
+end #Filterconfigs
 
 
 #######################################################################
 # Function that check the sizes of the filters to know if it is possible 
 """
 ...
-SLcheckFilterSizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2) function that check
+checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2) function that check
 wBand
 the size of the filters and set new possible configurations
 ...
 """
-function SLcheckFilterSizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2)
+function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2)
     # Lets initialize the FilterConfig array, 
     filterSetup = []
     # Set all configurations
 
     # Configuration 1
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 2
     # Check the default configuration 
-    scalingFilter = FWT.filt_gen("scaling_shearlet");
-    directionalFilter = FWT.filt_gen("directional_shearlet");
-    waveletFilter = FWT.mirror(scalingFilter);
+    scalingFilter = filt_gen("scaling_shearlet");
+    directionalFilter = filt_gen("directional_shearlet");
+    waveletFilter = mirror(scalingFilter);
     scalingFilter2 =  scalingFilter;
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 3
     # Just change the directionalFilter
-    directionalFilter = FWT.filt_gen("directional_shearlet2");
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    directionalFilter = filt_gen("directional_shearlet2");
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 4
     # The same as 3
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 5
     # It changes the scalingFilter, the waveletFilter and the scalingFilter2
-    scalingFilter = FWT.filt_gen("Coiflet1");
-    waveletFilter = FWT.mirror(scalingFilter);
+    scalingFilter = filt_gen("Coiflet1");
+    waveletFilter = mirror(scalingFilter);
     scalingFilter2 =  scalingFilter;
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 6
     # It changes the scalingFilter, the waveletFilter and the scalingFilter2
-    scalingFilter = FWT.filt_gen(WT.db2)[2:5];
-    waveletFilter = FWT.mirror(scalingFilter);
+    scalingFilter = filt_gen(WT.db2)[2:5];
+    waveletFilter = mirror(scalingFilter);
     scalingFilter2 =  scalingFilter;
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 7
     # Just change the directionalFilter
-    directionalFilter = FWT.filt_gen("directional_shearlet3");
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    directionalFilter = filt_gen("directional_shearlet3");
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 8
     # It changes the scalingFilter, the waveletFilter and the scalingFilter2
-    scalingFilter = FWT.filt_gen(WT.haar)[2:3]
-    waveletFilter = FWT.mirror(scalingFilter);
+    scalingFilter = filt_gen(WT.haar)[2:3]
+    waveletFilter = mirror(scalingFilter);
     scalingFilter2 =  scalingFilter;
-    push!(filterSetup,filterConfig(directionalFilter,scalingFilter,
+    push!(filterSetup,Filterconfigs(directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Check the sizes of the filters in comparison with the rows and cols
@@ -246,50 +246,11 @@ function SLcheckFilterSizes(rows,cols,shearLevels,directionalFilter,scalingFilte
         break;
     end
     if success1 == 0
-        error("The specified Shearlet system was not available for data of size "* string(rows) *"x",string(cols)* ". Filters were automatically set to configuration "*string(kk)* "(see SLcheckFilterSizes.m).");
+        error("The specified Shearlet system was not available for data of size "* string(rows) *"x",string(cols)* ". Filters were automatically set to configuration "*string(kk)* "(see operations.jl).");
     end
     if success1 == 1 && kk > 1
-        warn("The specified Shearlet system was not available for data of size "*string(rows)*"x"*string(cols)*". Filters were automatically set to configuration "*string(kk)*"(see SLcheckFilterSizes.m).");
+        warn("The specified Shearlet system was not available for data of size "*string(rows)*"x"*string(cols)*". Filters were automatically set to configuration "*string(kk)*"(see operations.jl).");
     end
     filterSetup[kk]
-end #SLcheckFilterSizes
-
-
-#######################################
-# Function to resize an array representation
-# of an image to a certain number of pixeles
-function SLresize_image(f, N)
-    if size(f,1) > size(f,2)
-        f = reshape(f,size(f,2),size(f,1),size(f,3));
-    end
-	P = size(f,1);
-	# add 1 pixel boundary
-	g = f;
-	g = cat(2, g, reshape(g[:,1,:],size(g,1),1,size(g,3)));
-    g = cat(1, g, reshape(g[1,:,:],1,size(g,2),size(g,3)));
-	# interpolate
-	t = linspace(1,P,N);
-	ti = round(Int64,floor(t)) ; tj = round(Int64,ceil(t));
-	fi = round(Int64,t-floor(t)); fj = 1-fi;
-	h = zeros(N,N,size(f,3));
-	for s in 1:size(f,3)
-	    h[:,:,s] = g[ti,ti,s] .* (fj*fj') + g[tj,tj,s] .* (fi*fi') + g[ti,tj,s] .* (fj*fi') + g[tj,ti,s] .* (fi*fj');
-	end
-	return h;
-end
-
-#######################################
-# Function that load an image in a local path
-# and resize it to a certain number of pixeles
-"""
-...
-SLload_image(path::string,pixels::int) load an image in a local path 
-with N=nxn pixeles
-...
-"""
-function SLload_image(name,N)
-	g = PyPlot.imread(name);
-	g = SLresize_image(g, N);
-	return g;
-end #load_image
+end #checkfiltersizes
 
