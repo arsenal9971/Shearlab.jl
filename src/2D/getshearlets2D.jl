@@ -243,7 +243,7 @@ end
 # Function that generates the desired shearlet system 
 """
 ...
- getshearletsystem2D(rows,cols,nScales,shearLevels=ceil((1:nScales)/2),full= 0,directionalFilter = filt_gen("directional_shearlet"),quadratureMirrorFilter= filt_gen("scaling_shearlet")) generates the desired shearlet system
+ getshearletsystem2D(rows,cols,nScales,shearLevels=ceil((1:nScales)/2),full = 0,directionalFilter = filt_gen("directional_shearlet"),quadratureMirrorFilter= filt_gen("scaling_shearlet")) generates the desired shearlet system
 ...
 """
 function getshearletsystem2D(rows,cols,nScales,
@@ -295,3 +295,49 @@ function getshearletsystem2D(rows,cols,nScales,
     shearletIdxs,dualFrameWeights,RMS,0)
 end #getshearletsystem2D 
 
+# type for individual shearlets2D
+type Shearlets2D
+		shearlets
+		RMS
+		dualFrameWeights
+end
+
+#######################################################################
+# Function that generates the desired shearlets
+"""
+...
+ getshearlets2D(PreparedFilters,shearletIdxs) generates the 2D shearlets in the frequency domain
+...
+"""
+function getshearlets2D(Preparedfilters, shearletIdxs = getshearletidxs2D(Preparedfilters.shearLevels))
+    # Generate shearlets, RMS(rootmeansquare), dualFrameWeights
+    rows = Preparedfilters.size[1];
+    cols = Preparedfilters.size[2];
+    nShearlets = size(shearletIdxs,1);
+    shearlets = zeros(rows,cols,nShearlets)+im*zeros(rows,cols,nShearlets);
+    # Compute shearlets
+    for j = 1:nShearlets
+        cone = shearletIdxs[j,1];
+        scale = shearletIdxs[j,2];
+        shearing = shearletIdxs[j,3];
+
+        if cone == 0
+            shearlets[:,:,j] = Preparedfilters.cone1.lowpass;
+        elseif cone == 1
+            #here, the fft of the digital shearlet filters described in
+            #equation (23) on page 15 of "ShearLab 3D: Faithful Digital
+            #Shearlet Transforms based on Compactly Supported Shearlets" is computed.
+            #for more details on the construction of the wedge and bandpass
+            #filters, please refer to getwedgebandpasslowpassfilters2D.
+            shearlets[:,:,j] = Preparedfilters.cone1.wedge[Preparedfilters.shearLevels[scale]+1][:,:,-shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone1.bandpass[:,:,scale]);
+        else
+            shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
+        end
+    end
+    RMS = abs(shearlets).^2;
+    RMS = sum([RMS[i,:,:] for i in 1:size(RMS,1)]);
+    RMS = sum([RMS[i,:] for i in 1:size(RMS,1)]);
+    RMS = (sqrt(RMS)/sqrt(rows*cols));
+    dualFrameWeights = squeeze(sum(abs(shearlets).^2,3),3);  
+		Shearlets2D(shearlets, RMS, dualFrameWeights)
+end #getshearlets2D
