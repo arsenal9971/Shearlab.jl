@@ -1,15 +1,11 @@
 # Example that computes the full forward wavelet transform using all the
-# scales from Jmin=1, to Jmax=log2(n)-1 the coarsest scale
-
-#push path
-push!(LOAD_PATH,pwd()*"/src") # for julia 0.4 you need to put your path
 #import libraries
-using FWT
+using Shearlab
 using PyPlot
 using Images
 
 n = 1024;
-name = "data_samples/ernst_reuter_haus.bmp";
+name = "./../../data_samples/boat.bmp";
 f = load_image(name, n);
 f = rescale(sum(f,3));
 f = f[:,:,1];

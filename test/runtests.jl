@@ -1,5 +1,8 @@
-using Shearlab
-using Base.Test
+#!/usr/bin/env julia
 
-# write your own tests here
-@test 1 == 2
+using Shearlab, Base.Test
+@time @testset "Wavelet Transform Size" begin include("wavelet_trans_size.jl") end
+@time @testset "Wavelet Inverse Transform Size" begin include("wavelet_inv_size.jl") end
+@time @testset "Shearlet Transform Size" begin include("shearlet_trans_size.jl") end
+@time @testset "Shearlet Inverse Transform Size" begin include("shearlet_inv_size.jl") end
+

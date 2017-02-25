@@ -1,15 +1,12 @@
 # Example that performes a NonLinear 2-D Wavelet Approximation
-# via thresholding
-
-#push path
-push!(LOAD_PATH,pwd()*"/src") # for julia 0.4 you need to put your path
 #import libraries
+using Shearlab
 using FWT
 using PyPlot
 using Images
 
 n = 1024;
-name = "data_samples/ernst_reuter_haus.bmp";
+name = "./../../data_samples/boat.bmp";
 f = load_image(name, n);
 f = rescale(sum(f,3));
 f = f[:,:,1];
