@@ -18,8 +18,9 @@ notifications:
 
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi	
-	- julia -e 'ENV["PYTHON"]=""'
-  - julia -e 'Pkg.build("PyCall")'
+	- julia -e 'ENV["PYTHON"]="";'
+  - julia -e 'Pkg.build("PyCall");'
+  - julia -e 'using PyPlot;'
   - julia -e 'Pkg.clone(pwd()); Pkg.build("Shearlab"); Pkg.test("Shearlab"; coverage=true)'
 
 after_success:
