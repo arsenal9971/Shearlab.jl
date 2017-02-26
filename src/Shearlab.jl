@@ -16,7 +16,7 @@ export
 			Serialpreparedfilters, prepareserial2D, Sheardecserial2D, sheardecserial2D,
 			shearrecserial2D, finishserial2D
 
-include("Util/operations.jl")
+include("util/operations.jl")
 include("2D/getshearlets2D.jl")
 include("2D/shearletdecrec2D.jl")
 include("2D/shearletserialdecrec2D.jl")
