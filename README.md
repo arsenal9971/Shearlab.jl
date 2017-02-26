@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/arsenal9971/Shearlab.jl.svg?branch=master)](https://travis-ci.org/arsenal9971/Shearlab.jl)
 [![Coverage Status](https://coveralls.io/repos/arsenal9971/Shearlab.jl/badge.svg?branch=master&service=github)](https://travis-ci.org/arsenal9971/Shearlab.jl?branch=master)
 [![codecov](https://codecov.io/gh/arsenal9971/Shearlab.jl/branch/master/graph/badge.svg)](https://travis-ci.org/arsenal9971/Shearlab.j)
+[![Join the chat at https://gitter.im/arsenal9971/Shearlab.jl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/arsenal9971/Shearlab.jl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ## Installation
 Shearlab.jl is in registering process, so befor it gets registered in order to install tha package, from within Julia do 
