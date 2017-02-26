@@ -16,13 +16,13 @@ export
 			Serialpreparedfilters, prepareserial2D, Sheardecserial2D, sheardecserial2D,
 			shearrecserial2D, finishserial2D
 
-include("./Util/operations.jl")
-include("./2D/getshearlets2D.jl")
-include("./2D/shearletdecrec2D.jl")
-include("./2D/shearletserialdecrec2D.jl")
-include("./fast_wavelet/filters.jl")
-include("./fast_wavelet/operations_wavelet.jl")
-include("./fast_wavelet/imaging.jl")
+include("Util/operations.jl")
+include("2D/getshearlets2D.jl")
+include("2D/shearletdecrec2D.jl")
+include("2D/shearletserialdecrec2D.jl")
+include("fast_wavelet/filters.jl")
+include("fast_wavelet/operations_wavelet.jl")
+include("fast_wavelet/imaging.jl")
 
 # Alias for functions to have same names as in ShearLab3D
 const SLupsample = upsample
