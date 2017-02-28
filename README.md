@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/arsenal9971/Shearlab.jl.svg?branch=master)](https://travis-ci.org/arsenal9971/Shearlab.jl)
 [![Coverage Status](https://coveralls.io/repos/arsenal9971/Shearlab.jl/badge.svg?branch=master&service=github)](https://travis-ci.org/arsenal9971/Shearlab.jl?branch=master)
 [![codecov](https://codecov.io/gh/arsenal9971/Shearlab.jl/branch/master/graph/badge.svg)](https://travis-ci.org/arsenal9971/Shearlab.j)
-[![Join the chat at https://gitter.im/arsenal9971/Shearlab.jl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/arsenal9971/Shearlab.jl?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/arsenal9971/Shearlab.jl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Shearlab-jl/Lobby?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 ## Installation
 To install Shearlab.jl from within Julia do 
