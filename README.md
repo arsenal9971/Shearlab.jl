@@ -11,7 +11,7 @@ To install Shearlab.jl from within Julia do
     julia> Pkg.clone("Shearlab")
 
 ## Description 
-Shearlab is a Julia Library with toolbox for two- and threedimensional data processing using the Shearlet system as basis functions which generates an sparse representation of cartoon-like functions. It is based in the Matlab Library Shearlab3D, developed by the Applied Functional Analysis Research Group in the Technical University of Berlin lead by Professor Gita Kutyniok, for further information of the Matlab Implementation you can visit the link [Shearlab3D](http://www3.math.tu-berlin.de/numerik/www.shearlab.org/).
+Shearlab is a Julia Library with toolbox for two- and threedimensional data processing using the Shearlet system as basis functions which generates an sparse representation of cartoon-like functions. It is based in the Matlab Library Shearlab3D, developed by the [Applied Functional Analysis Research Group](http://www.math.tu-berlin.de/fachgebiete_ag_modnumdiff/angewandtefunktionalanalysis/v_menue/afg/) in the Technical University of Berlin lead by [Professor Gitta Kutyniok](http://www.tu-berlin.de/?108957), for further information of the Matlab Implementation you can visit the link [Shearlab3D](http://www3.math.tu-berlin.de/numerik/www.shearlab.org/).
 
 The Julia implementation has visible efficiency improvements which can be seen in the carpet [Benchmarks](https://github.com/arsenal9971/Shearlab.jl/tree/master/benchmarks), and some examples in [Benchmarks](https://github.com/arsenal9971/Shearlab.jl/tree/master/benchmarks).
 
