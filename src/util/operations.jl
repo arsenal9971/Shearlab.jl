@@ -5,87 +5,89 @@
 # zeros 
 """
 ...
-padarray(array, newSize)
+padarray(array, newSize,gpu)
 pads array with zeros to have a new size if the input array
 is bigger than the targeted size, it will centered it at zero
 and cut it off to fit
 ...
 """
-function padarray(array,newSize)
-		# Small patch if the array is one dimensional
-		if size([size(array)...])[1]==1
-			array = transpose(array)
-		end
-    padSizes = zeros(1,length(newSize))
-    for k = 1:length(newSize)
-        currSize = size(array,k);
-        sizeDiff = newSize[k]-currSize;       
+function padarray{T<:Number}(array::AbstractArray{T},newSize,gpu = 0)
+    # If you want to use gpu via ArrayFire array needs to be ArrayFire.AFArray{Float32,2}
+    # Small patch if the array is one dimensional
+    if size([size(array)...])[1]==1
+        array = transpose(array)
+    end
+    padSizes = zeros(Integer,1,length(newSize))
+    n = length(newSize)
+    sizes = size(array)
+    @fastmath @inbounds @simd for k = 1:n
+        sizeDiff = newSize[k]-sizes[k];       
         if mod(sizeDiff,2) == 0
-            padSizes[k] = sizeDiff/2;
+            padSizes[k] = Int(sizeDiff/2);
         else
-            padSizes[k] = ceil(sizeDiff/2)
+            padSizes[k] = Int(ceil(sizeDiff/2))
         end
     end
-    padSizes = round(Int64,padSizes)
     # Correct the matrix that is bigger than the targeted size
-    idbig = [1:size(array,i) for i in 1:length(newSize)]
-    for i in 1:length(newSize)
+    idbig = [1:sizes[i] for i in 1:n]
+    @fastmath @inbounds @simd for i in 1:length(newSize)
         if padSizes[i] < 0
             idbig[i] = (round(Int64,(size(array,i)-newSize[i])/2)+1):(round(Int64,(size(array,i)+newSize[i])/2))
             padSizes[i] = 0
         end
     end
-    array = array[idbig...] 
-    padSizes = round(Int64,padSizes)
     # We need to check if some of the padsizes are negative and cut the array from the center
     # Initialize the padded array with zeros
-    paddedArray = zeros(newSize...)
+    if gpu == 1
+        paddedArray = AFArray(zeros(typeof(array[1]), newSize...))
+    else
+        paddedArray = zeros(typeof(array[1]),newSize...)
+    end
     # lets create the indices array
-    id = [(padSizes[i]+1):(padSizes[i]+size(array,i)) for i in 1:length(newSize)]
-    paddedArray[id...] = array
-    paddedArray
+    if gpu == 1
+        paddedArray[[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...] = array[idbig...]
+    else
+        view(paddedArray,[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...) .= view(array,idbig...)
+    end
+    return paddedArray
 end #padarray
-
-
 
 ################################################################
 # Function that flips from left to right an array in the second dimension
 """
 ...
-fliplr(array) flips an array from left to right in the second dimension
+fliplr(array,gpu) flips an array from left to right in the second dimension
 ...
 """
-function fliplr(array)
-    # Initialize the flipped array 
-    array_flipped = zeros(array)
-    # Insert the values
-    for i in 1:size(array,2)
-        array_flipped[:,i]=array[:,size(array,2)-i+1]
-    end
-    array_flipped
+function fliplr{T<:Number}(array::AbstractArray{T},gpu = 0)
+    return flipdim(array,2)
 end #fliplr
 
 ##################################################################
 # function that upsample an multidimensional array based on the same
 # function at the matlab version
 """
-...
-upsample(array,dims,nZeros) upsample an array, in the dimensions dims
+..
+upsample(array,dims,nZeros,gpu) upsample an array, in the dimensions dims
 with nZeros
 ...
 """
-function upsample(array,dims,nZeros)
+function upsample{T<:Number}(array::AbstractArray{T},dims::Integer,nZeros::Integer, gpu = 0)
     sz = [size(array)...];
     szUpsampled = sz;
-    szUpsampled[dims] = (szUpsampled[dims]-1).*(nZeros+1)+1;
-    arrayUpsampled = zeros(szUpsampled...);
+    szUpsampled[dims] = (szUpsampled[dims]-1).*(nZeros+1)+(nZeros+1);
+    if gpu == 1
+        arrayUpsampled = AFArray(zeros(typeof(array[1]),szUpsampled...))
+    else
+        arrayUpsampled = zeros(typeof(array[1]),szUpsampled...);
+    end
     # Generate the indices per dimension
     ids = [1:1:size(array,i) for i in 1:length(size(array))]
-    for k in 1:length(dims)
+    @fastmath @inbounds @simd  for k in 1:length(dims)
         ids[dims[k]] = 1:(nZeros[k]+1):szUpsampled[dims[k]]
     end
     arrayUpsampled[ids...] = array
-    arrayUpsampled
+    return arrayUpsampled
 end #upsample
 
 #####################################################################
@@ -95,13 +97,13 @@ end #upsample
 fix(x) rounds a number x to the nearest integer towards zero
 ...
 """
-function fix(x)
+function fix{T<:Number}(x::T)
     if x < 0
         fixed = ceil(x)
     else 
         fixed = floor(x)
     end
-    convert(Int64,fixed)
+    return convert(Int64,fixed)
 end #fix
 
 #######################################################################
@@ -109,18 +111,20 @@ end #fix
 # based on the same function on the Matlab version
 """
 ...
-dshear(array,k,axis) shears and array in order k in the direction of
+dshear(array,k,axis,gpu) shears and array in order k in the direction of
 axis
 ...
 """
-function dshear(array,k,axis)
+function dshear{T<:Number}(array::AbstractArray{T},k::Integer,axis::Integer, gpu = 0)
+    if gpu == 1
+        array = Array(array)
+    end
     if k == 0
         sheared = array;
     else
         rows = size(array,1);
         cols = size(array,2);
-
-        sheared = zeros(size(array))+zeros(size(array))*im
+        sheared = zeros(typeof(array[1]),size(array)...)
         if axis == 1
             for col = 1:cols
                 sheared[:,col] = reshape(circshift(reshape(array[:,col],rows,1),[-k*(floor(cols/2)+1-col) 0]),(rows,));
@@ -131,18 +135,20 @@ function dshear(array,k,axis)
             end
         end
     end
-    sheared
+    if gpu == 1
+        sheared = AFArray(sheared)
+    end
+    return sheared
 end #dshear
 
 ######################################################################
 ## Type of filter configurations
-type Filterconfigs
-    directionalFilter::Array
-    scalingFilter::Array
-    waveletFilter::Array
-    scalingFilter2::Array
+immutable Filterconfigs
+    directionalFilter
+    scalingFilter
+    waveletFilter
+    scalingFilter2
 end #Filterconfigs
-
 
 #######################################################################
 # Function that check the sizes of the filters to know if it is possible 

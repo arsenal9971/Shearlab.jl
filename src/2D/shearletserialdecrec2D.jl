@@ -2,7 +2,7 @@
 
 # Type for the shearlet serial prepared filters
 
-type Serialpreparedfilters
+immutable Serialpreparedfilters
 		Xfreq
 		Xrec
 		preparedFilters
@@ -33,11 +33,11 @@ directionalFilter = filt_gen("directional_shearlet") , quadratureMirrorFilter = 
 		shearletIdxs = getshearletidxs2D(shearLevels,full);
 
 		# Assign values to the type
-		Serialpreparedfilters(Xfreq, Xrec, preparedFilters, dualFrameWeightsCurr, shearletIdxs)
+		return Serialpreparedfilters(Xfreq, Xrec, preparedFilters, dualFrameWeightsCurr, shearletIdxs)
 end #prepareserial2D
 
 # Type for the 2D serial sheralet decompostion
-type Sheardecserial2D
+immutable Sheardecserial2D
 		coeffs
 		shearlet
 		dualFrameWeightsNew
@@ -59,7 +59,7 @@ function sheardecserial2D(Xfreq, shearletIdx, preparedFilters, dualFrameWeightsC
 		dualFrameWeights = Shearlets2D.dualFrameWeights;
 		dualFrameWeightsNew = dualFrameWeightsCurr+dualFrameWeights;
 		coeffs = fftshift(ifft(ifftshift(conj(shearlet).*Xfreq)));
-		Sheardecserial2D(coeffs, shearlet, dualFrameWeightsNew, RMS)
+		return Sheardecserial2D(coeffs, shearlet, dualFrameWeightsNew, RMS)
 end # sheardecserial2D
 
 ##############################################################################
@@ -70,7 +70,7 @@ shearrecserial2D(coeffs, shearlet, Xrec) serial recovery of coefficients with ce
 ...
 """
 function shearrecserial2D(coeffs, shearlet, Xrec) 
-		Xrec+fftshift(fft(ifftshift(coeffs))).*shearlet;
+		return Xrec+fftshift(fft(ifftshift(coeffs))).*shearlet;
 end # shearrecserial2D
 
 ##############################################################################
@@ -81,6 +81,6 @@ finishserial2D(Xrec,dualFrameWeightsCurr) serial recovery of coefficients with c
 ...
 """
 function finishserial2D(Xcurr, dualFrameWeights) 
-		fftshift(ifft(ifftshift((1./dualFrameWeights).*Xcurr)))
+		return fftshift(ifft(ifftshift((1./dualFrameWeights).*Xcurr)))
 end # shearrecserial2D
 

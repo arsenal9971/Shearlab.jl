@@ -11,8 +11,13 @@ transform of the array X
 ...
 """
 function sheardec2D(X,shearletSystem)
-    # As there is no cuda implementation yet
-    coeffs = zeros(size(shearletSystem.shearlets))+im*zeros(size(shearletSystem.shearlets));
+    #Read the GPU info of the system
+    gpu = shearletSystem.gpu;
+    if gpu == 1
+        coeffs = AFArray(zeros(Complex{Float32},size(shearletSystem.shearlets)));
+    else
+        coeffs = zeros(Complex{Float64},size(shearletSystem.shearlets));
+    end
     # The fourier transform of X
     Xfreq = fftshift(fft(ifftshift(X)));
     #compute shearlet coefficients at each scale
@@ -21,8 +26,9 @@ function sheardec2D(X,shearletSystem)
     for j = 1:shearletSystem.nShearlets
         coeffs[:,:,j] = fftshift(ifft(ifftshift(Xfreq.*conj(shearletSystem.shearlets[:,:,j]))));  
     end
-    coeffs
+    return coeffs
 end # sheardec2D
+
 
 ##############################################################################
 ## Function that recovers the image with the Shearlet transform with some shearletSystem
@@ -33,10 +39,14 @@ shearrec2D(coeffs,shearletSystem) function that recovers the image with the Shea
 """
 function shearrec2D(coeffs,shearletSystem)
     # Initialize reconstructed data
-    X = zeros(size(coeffs,1),size(coeffs,2))+im*zeros(size(coeffs,1),size(coeffs,2));
-
+    gpu = shearletSystem.gpu;
+    if gpu == 1
+        X = AFArray(zeros(Complex{Float32},size(coeffs,1),size(coeffs,2)));
+    else
+        X = zeros(Complex{Float64},size(coeffs,1),size(coeffs,2));
+    end
     for j = 1:shearletSystem.nShearlets
         X = X+fftshift(fft(ifftshift(coeffs[:,:,j]))).*shearletSystem.shearlets[:,:,j];
     end
-    real(fftshift(ifft(ifftshift((1./shearletSystem.dualFrameWeights).*X))))
+    return real(fftshift(ifft(ifftshift((1./shearletSystem.dualFrameWeights).*X))))
 end# shearrec2D
