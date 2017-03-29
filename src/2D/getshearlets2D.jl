@@ -381,19 +381,12 @@ function getshearletsystem2D(rows,cols,nScales,
             shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
         end
     end
-		if gpu == 1
-				RMS1 = sum(sum(real(abs(shearlets)).^2,1),2); # need to stream to host before they fix abs of comples AFArray
-    		RMS = Float32[]
-    		for i in 1:size(RMS1,3)
-        		push!(RMS,RMS1[:,:,i])
-    		end
-		else
-			RMS = transpose(sum(squeeze(sum(abs(shearlets).^2,1),1),1));
-		end    
-	  RMS = (sqrt(RMS)/sqrt(rows*cols));	
+	RMS =  transpose(sum(reshape(sum(real(abs(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
     if gpu == 1
+        RMS = (sqrt(RMS)/convert(Float32,sqrt(rows*cols)));
         dualFrameWeights = sum(real(abs(shearlets)).^2,3); 
     else
+        RMS = (sqrt(RMS)/sqrt(rows*cols));
         dualFrameWeights = squeeze(sum(abs(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
     end
     #return the system
@@ -401,6 +394,7 @@ function getshearletsystem2D(rows,cols,nScales,
     Preparedfilters.shearLevels,full,size(shearletIdxs,1),
     shearletIdxs,dualFrameWeights,RMS,0,gpu)
 end #getshearletsystem2D 
+
 
 
 # type for individual shearlets2D
@@ -447,20 +441,13 @@ function getshearlets2D(Preparedfilters, shearletIdxs = getshearletidxs2D(Prepar
             shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
         end
     end
-		if gpu == 1
-				RMS1 = sum(sum(real(abs(shearlets)).^2,1),2); # need to stream to host before they fix abs of comples AFArray
-    		RMS = Float32[]
-    		for i in 1:size(RMS1,3)
-        		push!(RMS,RMS1[:,:,i])
-    		end
-		else
-			RMS = transpose(sum(squeeze(sum(abs(shearlets).^2,1),1),1));
-		end
-    RMS = (sqrt(RMS)/sqrt(rows*cols));
- 		if gpu == 1
+		RMS =  transpose(sum(reshape(sum(real(abs(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
+    if gpu == 1
+        RMS = (sqrt(RMS)/convert(Float32,sqrt(rows*cols)));
         dualFrameWeights = sum(real(abs(shearlets)).^2,3); 
     else
+        RMS = (sqrt(RMS)/sqrt(rows*cols));
         dualFrameWeights = squeeze(sum(abs(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
-    end
+    end		
 		return Shearlets2D(shearlets, RMS, dualFrameWeights,gpu)
 end #getshearlets2D
