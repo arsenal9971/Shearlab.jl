@@ -11,7 +11,7 @@ function resize_image(f, N)
 	# add 1 pixel boundary
 	g = f;
 	g = cat(2, g, reshape(g[:,1,:],size(g,1),1,size(g,3)));
-    g = cat(1, g, reshape(g[1,:,:],1,size(g,2),size(g,3)));
+  g = cat(1, g, reshape(g[1,:,:],1,size(g,2),size(g,3)));
 	# interpolate
 	t = linspace(1,P,N);
 	ti = round(Int64,floor(t)) ; tj = round(Int64,ceil(t));
@@ -33,11 +33,25 @@ load_image(path::string,pixels::int) load an image in a local path
 with N=nxn pixeles
 ...
 """
-function load_image(name,N)
-	g = PyPlot.imread(name);
-	g = resize_image(g, N);
-	return g;
-end #load_image
+function load_image(name,n,gpu=0)
+		if gpu == 0
+   			# Load image
+   			f = Images.load(name);
+   			# Read the old size of f
+    		old_size = size(f)
+    		# Size in y
+   			m = round(Int64,n*old_size[2]/old_size[1])
+				resized_name = split(name,"/")
+				resized_name = "resized_"*resized_name[size(resized_name)[1]]
+    		Images.save(resized_name,imresize(f,(n,m)))
+    		f = convert(Array{Float64},PyPlot.imread(resized_name));
+    		rm(resized_name)
+		else 
+				f = PyPlot.imread(name);
+				f = resize_image(f, n);
+		end
+		return f;
+end
 
 #######################################
 # Function that show the image associated
