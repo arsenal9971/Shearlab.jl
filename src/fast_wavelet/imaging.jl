@@ -40,7 +40,11 @@ function load_image(name,n,gpu=0)
    			# Read the old size of f
     		old_size = size(f)
     		# Size in y
-   			m = round(Int64,n*old_size[2]/old_size[1])
+				if n == old_size[1] || n == old_size[2]
+						m = old_size[2]
+   			else 
+						m = round(Int64,n*old_size[2]/old_size[1])
+				end
 				resized_name = split(name,"/")
 				resized_name = "resized_"*resized_name[size(resized_name)[1]]
     		Images.save(resized_name,imresize(f,(n,m)))
