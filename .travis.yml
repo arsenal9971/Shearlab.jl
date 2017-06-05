@@ -19,14 +19,14 @@ notifications:
 install:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - sudo apt-get update
-	# ArrayFire
+  # ArrayFire
   - sudo apt-get install libfreeimage-dev libatlas3gf-base libfftw3-dev cmake
   - wget http://ci.arrayfire.org/userContent/Linux/ArrayFire-no-gl-v3.4.2_Linux_x86_64.sh
   - ls -l
   - sudo chmod +x ArrayFire-no-gl-v3.4.2_Linux_x86_64.sh
   - sudo ./ArrayFire-no-gl-v3.4.2_Linux_x86_64.sh --exclude-subdir --prefix=/usr/local
-	# Conda to install matplotlib
-	- if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
+  # Conda to install matplotlib
+  - if [[ "$TRAVIS_PYTHON_VERSION" == "2.7" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -O miniconda.sh;
     else
       wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -38,7 +38,7 @@ install:
   - conda update -q conda
   # Useful for debugging any issues with conda
   - conda info -a
-	- conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION matplotlib
+  - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION matplotlib
   - source activate test-environment
   - python setup.py install
 
