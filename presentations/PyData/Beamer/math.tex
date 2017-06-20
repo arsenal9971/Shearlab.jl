@@ -1,0 +1,228 @@
+%%% Mathematische Makros
+
+%%% Umgebungen
+
+%%% Allgemeines
+% flexibler Klammerbefehl, #1=links, #2=rechts, #3=Größe (normal, auto, opauto, \[sizecmd]), #4=Inhalt
+\newcommandx{\braces}[4]{%
+\ifstrequal{#3}{normal}{#1#4#2}{%
+\ifstrequal{#3}{auto}{\left#1#4\right#2}{%
+\ifstrequal{#3}{opauto}{\opleft#1#4\opright#2}{%
+#3#1#4#3#2}}}%
+}
+% Klammern für Operatoren (entfernt das Spacing vor und nach der Klammer)
+\newcommand{\opleft}[1]{\mathopen{}\left#1}
+\newcommand{\opright}[1]{\right#1\mathclose{}}
+% Anmerkung über Operatoren
+\newcommandx{\opannot}[3][3=\downarrow]{\stackrel{\mathclap{\substack{#1 \\ #3 \vspace{2pt}}}}{#2}}
+% Anmerkung vor einer Zeile
+\newcommandx{\lineannot}[3][3=\rightarrow]{\mathllap{\boxed{\text{\textsmaller{#1}}} #3} #2}
+% Anmerkung vor einer Zeile (mehrzeilig)
+\newcommandx{\multilineannot}[4][4=\rightarrow]{\mathllap{\boxed{\parbox{#1}{\RaggedRight\textsmaller{#2}}} #4} #3}
+% Anmerkung zwischen zwei Zeilen
+\newcommand{\interannot}[1]{\boxed{\text{\textsmaller{#1}}}} 
+% Anmerkung zwischen zwei Zeilen (mehrzeilig)
+\newcommand{\multiinterannot}[2][.5\textwidth]{\boxed{\parbox{#1}{\RaggedRight\textsmaller{#2}}}} 
+
+%%% Zahlenmengen
+\newcommand{\N}{\mathbb{N}} % natürliche Zahlen
+\newcommand{\Nzero}{\mathbb{N}_0} % natürliche Zahlen mit Null
+\newcommand{\Z}{\mathbb{Z}} % ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}} % rationale Zahlen
+\newcommand{\R}{\mathbb{R}} % reelle Zahlen
+\newcommand{\Rpos}{\mathbb{R}_{>0}} % positive reelle Zahlen
+\newcommand{\C}{\mathbb{C}} % komplexe Zahlen
+\newcommand{\K}{\mathbb{K}} % reelle oder komplexe Zahlen
+%\newcommand{\H}{{H}} % reelle oder komplexe Zahlen
+
+%%% Aussagenlogik
+% \renewcommand{\mid}{:} % Trennung der Bedingung bei der Angabe von Mengen
+\renewcommand{\iff}{\Leftrightarrow} % genau dann wenn
+\renewcommand{\implies}{\Rightarrow} % impliziert
+\newcommand{\suchthat}[1][normal]{\ifstrequal{#1}{normal}{\mid}{#1|}}
+
+%%% Mengen und Topologie
+\newcommand{\setcompl}[1]{#1^c} % Mengenkomplement
+\newcommand{\cardinality}{\#}
+\newcommand{\union}{\cup} % Vereinigung
+\newcommand{\bigunion}{\bigcup} % Vereinigung
+\newcommand{\intersec}{\cap} % Schnittmenge
+\newcommand{\bigintersec}{\bigcap} % Schnittmenge
+\newcommand{\boundary}[1]{\partial#1} % Rand einer Menge
+\newcommand{\clos}[1]{\overline{#1}} % topologischer Abschluss
+\newcommand{\interior}[1]{\mathring{#1}} % das innere eine Menge
+\newcommand{\dist}[2]{\operatorname{dist}(#1, #2)} % Distanz zwischen zwei Mengen
+\newcommandx{\intvcl}[3][1=normal]{\braces{[}{]}{#1}{#2, #3}} % abgeschlossenes Intervall
+\newcommandx{\intvop}[3][1=normal]{\braces{(}{)}{#1}{#2, #3}} % offenes Intervall
+\newcommandx{\intvclop}[3][1=normal]{\braces{[}{)}{#1}{#2, #3}} % halboffenes Intervall (rechts)
+\newcommandx{\intvopcl}[3][1=normal]{\braces{(}{]}{#1}{#2, #3}} % halboffenes Intervall (links)
+\newcommand{\indcoeff}[1]{\mathds{1}_{#1}} % Indikatorfunktion für Indizes von Koeffizienten
+
+%%% Analysis
+\newcommand{\dotarg}{\ensuremath{\raisebox{.15ex}{$\scriptstyle [\cdot]$}}}
+\DeclareMathOperator*{\argmin}{argmin} % argmin
+\DeclareMathOperator*{\argmax}{argmax} % argmax
+\newcommandx{\abs}[2][1=normal]{\braces{\lvert}{\rvert}{#1}{#2}} % Absolutbetrag
+\newcommand{\conj}[1]{\overline{#1}} % komplexe Konjugation
+\newcommandx{\ceil}[2][1=normal]{\braces{\lceil}{\rceil}{#1}{#2}} % Ceil
+\newcommandx{\floor}[2][1=normal]{\braces{\lfloor}{\rfloor}{#1}{#2}} % Floor
+\newcommandx{\round}[2][1=normal]{\braces{[}{]}{#1}{#2}} % Runden
+\newcommandx{\der}[1]{D^{#1}} % Differentialoperator (#1 = Multiindex)
+\newcommandx{\partder}[4][1={},4={}]{\frac{\partial^{#4} #2}{\partial #3^{#4}}\ifargdef{#1}{\Big|_{#1}}} % partielle Abbleitung
+\newcommandx{\integ}[4][1={},2={}]{\int_{#1}^{#2} #3 \, #4} % Integral (#1op = untere Grenze, #2op = obere Grenze, #3 = Integrant, #4 = Differentialform)
+\newcommandx{\asympffaster}[2][1=normal]{o\braces{(}{)}{#1}{#2}} % Asymptotisch echt schneller
+\newcommandx{\asympfaster}[2][1=normal]{O\braces{(}{)}{#1}{#2}} % Asymptotisch schneller
+\newcommandx{\asympeq}[2][1=normal]{\Theta\braces{(}{)}{#1}{#2}} % Asymptotische Gleichheit
+\newcommandx{\asympsslower}[2][1=normal]{\omega\braces{(}{)}{#1}{#2}} % Asymptotisch echt langsamer
+\newcommandx{\asympslower}[2][1=normal]{\Omega\braces{(}{)}{#1}{#2}} % Asymptotisch langsamer
+\newcommandx{\measure}[2][1=normal]{\braces{\lvert}{\rvert}{#1}{#2}} % Maß einer Menge
+\DeclareMathOperator{\supp}{supp} % Träger
+
+%%% Lineare Algebra und Funktionalanalysis
+\DeclareMathOperator{\Id}{Id} % Identität
+\newcommand{\matr}[1]{\begin{bmatrix} #1 \end{bmatrix}} % Matrix
+\newcommandx{\norm}[2][1=normal]{\braces{\|}{\|}{#1}{#2}} % Norm
+\renewcommandx{\sp}[3][1=normal]{\braces{\langle}{\rangle}{#1}{#2, #3}} % Skalarprodukt
+\newcommand{\adj}[1]{{#1}^\ast} % Adjungierter Operator
+\newcommandx{\End}[2][2={}]{\mathcal{L}\opleft( #1 \ifargdef{#2}{, #2} \opright)} % Endomorphismen
+\newcommand{\orthsum}{\oplus} % orthogonale Summe
+\newcommand{\orthcompl}[1]{{#1}^\perp} % orthogonale Summe
+\newcommand{\tensprod}{\otimes} % Tensorprodukt
+\DeclareMathOperator{\ran}{ran} % Bild
+% \DeclareMathOperator{\ker}{ker} % Kern
+\DeclareMathOperator{\spann}{\operatorname{span}} % Spann
+\newcommand{\T}{\top} % Transpositionssymbol
+
+%%% Funktionenräume
+\newcommand{\almostev}{\text{f.ü.}} % fast überall
+\newcommand{\indset}[1]{\chi_{#1}} % Indikatorfunktion für Mengen
+% Lebesgueräume (1 - Menge. 2 - Exponent)
+\newcommandx{\Leb}[3][1={},3=normal]{L^{#2}\ifargdef{#1}{\braces{(}{)}{#3}{#1}}{}}
+\newcommandx{\Lebnorm}[4][1=normal,3={2},4={}]{\norm[#1]{#2}_{\Leb[#4]{#3}}}
+% Folgenräume (1 - Menge, 2 - Exponent)
+\renewcommandx{\l}[3][1={},3=normal]{\ell^{#2}\ifargdef{#1}{\braces{(}{)}{#3}{#1}}}
+\newcommandx{\lnorm}[4][1=normal,3={2},4={}]{\norm[#1]{#2}_{#3}}
+% Räume differenzierbarer Funktionen (#1op=Menge, #2Differenzierbarkeit, #3op=Subscript)
+\newcommandx{\Smooth}[4][1={},3={},4=normal]{C_{#3}^{#2}\ifargdef{#1}{\braces{(}{)}{#4}{#1}}} 
+% Raum der Schwartzfunktionen
+\newcommandx{\Schwartz}[2][1={},2=normal]{\mathscr{S}\ifargdef{#1}{\braces{(}{)}{#2}{#1}}} 
+\newcommandx{\Schwartzpoly}[2][1=normal]{\braces{\langle}{\rangle}{#1}{\abs[#1]{#2}} }
+\newcommand{\Schwartznorm}[3]{C_{#1,#2}(#3)}
+% temperierte Distributionen
+\newcommandx{\Tempdistr}[2][1={},2=normal]{\mathscr{S}'\ifargdef{#1}{\braces{(}{)}{#2}{#1}}}
+% Setze die Funktion #2 in die Distribution #1 ein
+\newcommandx{\distrinp}[3][1=normal]{\braces{(}{)}{#1}{#2, #3}} 
+\newcommand{\Linedistr}[1][]{\mathfrak{L}\ifargdef{#1}{_{#1}}{}} % Liniendistribution
+\newcommand{\conv}{\ast} % Faltungsoperator
+% Fouriertransformation (Hut-Notation) TODO: 'long' als Wert
+\newcommandx{\ft}[3][1=default,2=auto]{
+\ifstrequal{#1}{default}{\widehat{#3}}{
+\ifstrequal{#1}{long}{{\braces{(}{)}{#2}{#3}}^{\wedge}}{}}}
+\newcommand{\ftop}{\mathcal{F}} % FT als Operator
+% inv. Fouriertransformation (Hut-Notation) TODO: widecheck
+\newcommandx{\ift}[3][1=default,2=auto]{
+\ifstrequal{#1}{default}{\check{#3}}{
+\ifstrequal{#1}{long}{{\braces{(}{)}{#2}{#3}}^{\vee}}{}}}
+\newcommand{\iftop}{\mathcal{F}^{-1}} % inv. FT als Operator
+
+%%% Sonstiges
+\newcommand{\sinc}{\operatorname{sinc}} % sinc
+\newcommand{\eps}{\varepsilon} % Abkürzung für epsilon
+
+
+% % Aufz√§hlungen
+% % Nummerierung mit kleinen r√∂mischen Zahlen
+% \newcounter{romancnt}
+% \newenvironment{romanlist}
+%  {\setcounter{romancnt}{1}
+%  \begin{list}{(\roman{romancnt})}{\leftmargin=1.5em \itemindent=0em}
+%  \usecounter{romancnt}}
+%  {\end{list}}
+% 
+% % Nummerierung mit kleinen arabischen Ziffern
+% \newcounter{numbercnt}
+% \newenvironment{numberlist}
+%  {\setcounter{numbercnt}{1}
+%  \begin{list}{\arabic{numbercnt})}{\leftmargin=1.5em \itemindent=0em}
+%  \usecounter{numbercnt}}
+%  {\end{list}}
+% 
+% % Nummerierung mit kleinen Buchstaben
+% \newcounter{alphcnt}
+% \newenvironment{alphalist}
+%  {\setcounter{alphcnt}{1}
+%  \begin{list}{\alph{alphcnt})}{\leftmargin=1.5em \itemindent=0em}
+%  \usecounter{alphcnt}}
+%  {\end{list}}
+% 
+% % STANDARDMAKROS
+% % Zahlenmengen und Symbole
+% \newcommand{\N}{\mathbb{N}}
+% \newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\C}{\mathbb{C}}
+% \newcommand{\K}{\mathbb{K}}
+% \newcommand{\Pot}{\mathcal{P}}
+% \newcommand{\eps}{\varepsilon}
+% \renewcommand{\phi}{\varphi}
+% % Pfeile
+% \newcommand{\lra}{\Leftrightarrow}
+% \newcommand{\lraq}{\ \Leftrightarrow \ }
+% \newcommand{\ra}{\Rightarrow}
+% \newcommand{\raq}{\ \Rightarrow \ }
+% \newcommand{\la}{\Leftarrow}
+% \newcommand{\laq}{\ \Leftarrow \ }
+% \newcommand{\lral}{\Longleftrightarrow}
+% \newcommand{\lralq}{\ \Longleftrightarrow \ }
+% \newcommand{\ral}{\Longrightarrow}
+% \newcommand{\ralq}{\ \Longrightarrow \ }
+% \newcommand{\lal}{\Longleftarrow}
+% \newcommand{\lalq}{\ \Longleftarrow \ }
+% % Operatoren und Aehnliches
+% \newcommand{\ex}{\exists}
+% \newcommand{\fa}{\forall}
+% \newcommand{\com}{\complement}
+% \renewcommand{\Im}{\operatorname{Im}}
+% \renewcommand{\Re}{\operatorname{Re}}
+% \newcommand{\op}[1]{\operatorname{#1}}
+% \newcommand{\card}{\operatorname{card}}
+% \newcommand{\toper}[2][=]{\stackrel{\text{#2}}{#1}}
+% \newcommand{\eqoper}[2][=]{\stackrel{\substack{#2}}{#1}}
+% \newcommand{\inv}[1]{\frac{1}{#1}}
+% \newcommand{\argmin}[1]{\underset{#1}{\operatorname{argmin}}}
+% \newcommand{\argmax}[1]{\underset{#1}{\operatorname{argmax}}}
+% \renewcommand{\sp}[2]{\left\langle #1 , #2 \right\rangle}
+% % Matrizen
+% \newcommand{\matr}[1]{\begin{bmatrix} #1 \end{bmatrix}}
+% % Sonstiges
+% \newcommand{\relphantom}[1]{\mathrel{\phantom{#1}}} 
+% \newcommand{\flr}[1]{\begin{flushright}{#1}\end{flushright}}
+% \newenvironment{indented}[1]%
+% {\begin{list}{}%
+%          {\setlength{\leftmargin}{#1}}%
+%          \item[]%
+% }%
+% {\end{list}}
+% \newcommand{\PBox}{\hfill $_\blacksquare$}
+% 
+% \newcommand{\amatrix}[2]{\left[ \begin{array}{#1} #2 \end{array} \right]}
+% 
+% \newcommand{\norm}[1]{\left\|#1\right\|}
+% \newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+% \newcommand{\clos}[1]{\overline{#1}}
+% % \renewcommand{\span}{\operatorname{span}}
+% \newcommand{\conj}[1]{\overline{#1}}
+% \newcommand{\ran}{\op{ran}}
+% 
+% \renewcommand{\H}{\mathcal{H}}
+% \newcommand{\weak}{\rightharpoonup}
+% \renewcommand{\l}{\ell}
+% \renewcommand{\L}{\mathcal{L}}
+% \newcommand{\spec}{\sigma}
+% \newcommand{\adj}[1]{{#1}^\ast}
+% \newcommand{\dom}{\op{dom}}
+% \newcommand{\AC}{\op{AC}}
+% \newcommand{\FT}{\mathcal{F}}
+% \newcommand{\ftfact}{\frac{1}{(2\pi)^{n/2}}}
+% \newcommand{\schw}{\mathcal{S}}

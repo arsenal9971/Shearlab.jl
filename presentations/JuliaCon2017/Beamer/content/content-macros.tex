@@ -1,0 +1,105 @@
+\renewcommand{\vec}[1]{\bm{#1}}
+
+%%% Definition emph
+% \newcommand{\define}[1]{\emph{#1}}
+%%% Spacings
+\newcommand{\qspaced}[1]{\quad #1 \quad} % quad auf beiden Seiten
+%%% Draft enumeration
+\newenvironment{draft}{\begin{enumerate}[label=$\vartriangleright$]}{\end{enumerate}}
+%%% Specific Macros
+% Framework of High-dimensional Estimations
+\renewcommand{\v}{\vec{v}}
+\newcommand{\meas}{\vec{u}}
+% Observations and Non-Linear Model
+\newcommand{\y}{\vec{y}}
+\newcommand{\yrnd}{Y}
+\newcommand{\Y}{\mathcal{Y}}
+\newcommand{\fobs}{f}
+\newcommand{\Fobs}{\solu{F}}
+\newcommand{\sign}{\operatorname{sign}}
+\newcommand{\scalfac}{\mu}
+\newcommand{\modeldev}{\rho}
+\newcommand{\modeldeveta}{\eta}
+\newcommand{\modeldevconst}{R_{\modeldev,\modeldeveta}}
+\newcommand{\advfrac}{\tau}
+\newcommand{\advdev}{\eps}
+% Data, Signal, and Noise
+\newcommand{\x}{\vec{x}}
+\newcommand{\data}{\vec{x}}
+\newcommand{\datarnd}{\vec{X}}
+\newcommand{\lat}{\vec{s}}
+\newcommand{\latrnd}{\vec{S}}
+\newcommand{\latnoise}{\vec{n}}
+% \newcommand{\actind}{\tru{\mathcal{J}}}
+% \newcommand{\inactind}{\setcompl{\actind}}
+% \newcommand{\sparsity}{k}
+\newcommand{\sig}{\vec{z}}
+\newcommand{\trusig}{\tru{\sig}}
+\newcommand{\trusigmu}{\scalfac\tru{\sig}}
+\newcommand{\fv}{\vec{\beta}}
+\newcommand{\fvtru}{\tru{\vec{\beta}}}
+\newcommand{\atom}{\vec{a}}
+\newcommand{\atoms}{\vec{A}}
+% \newcommand{\dictatom}{\vec{d}}
+\newcommand{\atomnoise}{\vec{b}}
+\newcommand{\atomsnoise}{\vec{B}}
+\newcommand{\dict}{\vec{D}}
+\newcommand{\dictatom}{\vec{D}}
+\newcommand{\dictenergy}{D_{\max}}
+% \newcommand{\dictsig}{\tru{\dict}}
+\newcommand{\dictnoise}{\vec{N}}
+\newcommand{\noiseatom}{\vec{N}}
+\newcommand{\snrscal}{\lambda}
+\newcommand{\scalsig}{\tau}
+% Modifier
+\newcommand{\tru}[1]{{#1}_0}
+\newcommand{\solu}[1]{\hat{#1}}
+\newcommand{\std}[1]{\bar{#1}}
+\newcommand{\extd}[1]{\tilde{#1}}
+% Signal Set
+\newcommand{\sset}{K}
+% Loss functions
+\newcommand{\loss}{\mathcal{L}}
+\newcommand{\losssq}{\mathcal{L}^{\text{sq}}}
+\newcommand{\lossemp}[1][{}]{\bar{\mathcal{L}}_{#1}}
+\newcommand{\losssqemp}[1][{}]{\bar{\mathcal{L}}_{#1}^{\text{sq}}}
+\newcommand{\losstaylor}[3]{\delta\lossemp[#3](#1, #2)}
+\newcommand{\losssqtaylor}[3]{\delta\losssqemp[#3](#1, #2)}
+% Misc
+\newcommand{\Idm}[1]{\vec{I}_{#1}}
+\newcommand{\vnull}{\vec{0}}
+\newcommand{\h}{\vec{h}}
+\newcommand{\proj}{\vec{P}}
+\newcommand{\diag}[1]{\operatorname{diag}(#1)}
+\newcommand{\vunit}{\vec{e}}
+%%% Probability and Statistics
+\newcommandx{\prob}[2][1={},2=normal]{\mathbb{P}\ifargdef{#1}{\braces{[}{]}{#2}{#1}}}
+\newcommandx{\mean}[2][1={},2=normal]{\mathbb{E}\ifargdef{#1}{\braces{[}{]}{#2}{#1}}}
+\newcommandx{\var}[2][1={},2=normal]{\mathbb{V}\ifargdef{#1}{\braces{[}{]}{#2}{#1}}}
+
+\newcommand{\indprob}[1]{\mathds{1}[#1]} % indicator function for sequences
+\newcommand{\cov}{\operatorname{Cov}}
+\newcommand{\distributed}{\sim}
+\newcommand{\probind}[1]{\mathds{1}_{#1}}
+\newcommand{\Ber}[1]{\operatorname{Ber}(#1)}
+\newcommand{\Radem}{\operatorname{Rad}}
+\newcommand{\Normdistr}[2]{\mathcal{N}(#1, #2)}
+\newcommand{\gaussian}{\vec{g}}
+\newcommand{\gaussianuniv}{g}
+\newcommand{\stddev}{\sigma}
+\newcommand{\Covmatr}{\vec{\Sigma}}
+\newcommand{\SNR}{\operatorname{SNR}}
+\newcommand{\emp}{\text{emp}}
+
+\newcommand{\empproc}{\mathsf{F}}
+%%% Convex Geometry and Optimization
+\newcommand{\hypplane}[2]{H(#1, #2)}
+\newcommand{\pospart}[1]{\left[#1\right]_+}
+\newcommand{\negpart}[1]{\left[#1\right]_-}
+\newcommandx{\ball}[2][1={},2={}]{B_{#1}^{#2}}
+\DeclareMathOperator{\convhull}{conv}
+\renewcommand{\S}{S}
+\newcommand{\meanwidth}[2][{}]{w_{#1}(#2)}
+\newcommand{\effdim}[2][{}]{d_{#1}(#2)}
+\newcommand{\cone}[2]{\mathcal{C}(#1,#2)}
+\newcommand{\tsqrt}[1]{{\scriptstyle\sqrt{#1}}}

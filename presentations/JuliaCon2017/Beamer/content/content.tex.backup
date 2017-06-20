@@ -1,0 +1,1233 @@
+%***************************************************************************************
+
+
+\frame{\frametitle{Abel Prize 2017}
+
+\begin{figure}[h]
+\includegraphics[width=11cm]{images/YvesMeyer/Meyer2.jpg}
+\end{figure}
+
+}
+
+%************************************************************************
+
+\begin{frame}{Outline of This Talk}
+	\tableofcontents
+\end{frame}
+
+\section{Introducing Yves Meyer}
+
+\section{Research on Wavelets}
+
+\section{Further Developments}
+
+
+
+
+%************************************************************************
+
+\begin{frame}\frametitle{Introducing Yves Meyer}
+
+
+{\color{ZurichBlue} Early years:}
+
+\begin{itemize}
+\item Born 19 July 1939 in Paris.
+\item Growing up in Tunis on the North African coast.\\[1ex]
+\centerline{\it\color{TUred} ``As a child I was obsessed by the desire of}
+\centerline{\it\color{TUred}  crossing the frontiers between these distinct ethnic groups.''}
+\end{itemize}
+\vspace*{-3.5cm}
+\begin{figure}[h]
+\hspace*{8cm}
+\includegraphics[width=2.5cm]{images/YvesMeyer/Tunis.jpg}
+\end{figure}
+\vspace*{.7cm}\pause
+\begin{itemize}
+\item 1957: Entering the \'{E}cole normale sup\'{e}rieure in Paris by coming first in the entrance examination.
+\item 1966: PhD under the supervision of Jean-Pierre Kahane.
+\item 1960--1963: Teaching at Prytan\'{e}e national militaire.\\[1ex]
+\centerline{\it\color{TUred} ``A good teacher needs to be much more metho-}
+\centerline{\it\color{TUred}    dical and organised than I was.''}
+\centerline{\it\color{TUred}  ``To do research is to be ignorant most of the time}
+\centerline{\it\color{TUred}   and often to make mistakes.''}
+\end{itemize}
+\vspace*{-4cm}
+\begin{figure}[h]
+\hspace*{9.8cm}
+\includegraphics[width=1.5cm]{images/YvesMeyer/Paris.jpg}
+\end{figure}
+\vspace*{.7cm}
+
+\end{frame}
+
+%************************************************************************
+
+\frame{\frametitle{Introducing Yves Meyer}
+
+{\color{ZurichBlue} Academic positions:}
+
+{\small \begin{itemize}
+\item 1963--1966: Universit\'{e} de Strasbourg (Teaching Assistant).\\[-3ex]
+\item 1966--1980: Universit\'{e} Paris-Sud (Professor).\\[-3ex]
+\item 1980--1986: \'{E}cole Polytechnique (Professor).\\[-3ex]
+\item 1986--1995: Universit\'{e} Paris-Dauphine (Professor).\\[-3ex]
+\item 1995--1999: Centre national de la recherche scientifique (Senior Researcher).\\[-3ex]
+\item 1999--2003: \'{E}cole Normale Sup\'{e}rieure de Cachan (Professor).\\[-3ex]
+\item Since 2003: \'{E}cole Normale Sup\'{e}rieure de Cachan (Professor Emeritus).
+\end{itemize}
+}
+\vspace*{-4.2cm}
+\begin{figure}[h]
+\hspace*{9.6cm}
+\includegraphics[width=2.2cm]{images/YvesMeyer/Meyer3.jpg}
+\end{figure}
+\vspace*{1.8cm}
+
+\centerline{\it\color{TUred} ``You must dig deeply into your own self in order to do something}
+\centerline{\it\color{TUred}  as difficult as research in mathematics.''}
+\centerline{\it\color{TUred} ``You need to believe that you possess a treasure hidden in the depths}
+\centerline{\it\color{TUred}  of your mind, a treasure which has to be unveiled.''}
+
+}
+
+%************************************************************************
+
+\frame{\frametitle{Harmonic Analysis and Number Theory (1964--1973)}
+
+{\color{ZurichBlue} Results in the following areas:} 
+\begin{itemize}
+\item Ditkin sets.
+\item Diophantine approximations.
+\end{itemize}
+
+\vspace*{0.15cm}
+
+{\color{ZurichBlue} Definition (Meyer; 1972):} 
+A set $\Lambda \subset \R^n$ is a {\color{green} model set}, if there
+exist a finite set $F \subset \R^n$ and a constant $C > 0$ such that
+\begin{enumerate}
+\item[(1)] $\Lambda - \Lambda \subset \Lambda + F$, and
+\item[(2)] $\inf_{\lambda \in \Lambda} |x-\lambda| \le C \;$ for all $x \in \R^n$.
+\end{enumerate}
+
+\vspace*{0.25cm}\pause
+
+{\color{ZurichBlue} Theorem (Meyer; 1972):}
+
+If $\Lambda$ is a model set and if $\theta \Lambda \subset \Lambda$, then $\theta$ is a Pisot or a Salem number.\\
+{\it\small (A {\color{green}Pisot number} is a real algebraic integer greater than 1 all of whose Galois conjugates 
+are less than 1 in absolute value.)}
+
+\vspace*{0.25cm}
+
+{\color{ZurichBlue} Impact:}
+Paved the road to the mathematical theory of {\color{green}quasicrystals}.\\
+$\leadsto$ Non-period patterns in quasicrystals can be identified\\ \hspace*{0.43cm} with specific model sets.
+%\item Predates and impacted first constructions of {\color{green}Penrose tilings}.
+
+\vspace*{-1.25cm}
+\begin{figure}[h]
+\hspace*{8.3cm}
+\includegraphics[height=1cm, width=1.6cm]{images/YvesMeyer/quasi.jpg}
+\end{figure}
+
+\vspace*{-0.35cm}
+
+}
+
+%************************************************************************
+
+\frame{\frametitle{Singular Integral Operators (1974--1984)}
+
+{\color{ZurichBlue} Definition:}
+\begin{enumerate}
+\item[(1)] A function $K : \R^n \times \R^n \to \R$ is a {\color{green} Calder\'{o}n-Zygmund kernel},
+ if it satisfies certain decay and cancellation conditions.
+\item[(2)] $T$ is a {\color{green} singular integral operator of non-convolution type} ass. to $K$, if
+\[
+\int_{\R^n} g(x) T(f)(x) dx = \int_{\R^n} \int_{\R^n} g(x) K(x,y) f(y) dy dx,
+\]
+whenever $f$ and $g$ are smooth and have disjoint support.
+\item[(3)]  Such a $T$ is a {\color{green} Calder\'{o}n–Zygmund operator} when it is bounded on $L^2$.
+\end{enumerate}
+
+\vspace*{0.25cm}\pause
+
+{\color{ZurichBlue} Theorem (Coifman, McIntosh, Meyer; 1982):}
+
+Calder\'{o}n-Zygmund operators are bounded for Lipschitz curves or surfaces.
+
+\vspace*{0.2cm}
+
+{\color{ZurichBlue} Impact:}\\
+{\small $\leadsto$ The $T(1)$ theorem (David, Journ\'{e}; 1984).\\
+%$\leadsto$ Boundedness of Calder\'{o}n-Zygmund operators under weak conditions\\ \hspace*{0.43cm} (David, Journ\'{e}, Semmes; 1985).\\
+$\leadsto$ Solution of the Dirichlet problem in any Lipschitz domain (Fabes; 1988).\\
+$\leadsto$ Solution of the Kato's conjecture (Auscher, Tchamitchian; 1998).}
+
+}
+
+%************************************************************************
+
+\frame{\frametitle{Wavelet Theory (1983--1993)}
+
+\center{\Large\it {\color{TUred} ...see Philipp's talk...}}
+
+}
+
+%************************************************************************
+
+\frame{\frametitle{Navier-Stokes Equations (1994--1999)}
+
+
+{\color{ZurichBlue} Switching to yet another area:}
+
+Farge, Battle, and Federbush suggested that {\color{green} wavelet transforms} might yield better results
+than previous methods for numerical approximation of turbulent flow.\\
+$\leadsto$ This got Yves interested in {\color{green} Navier-Stokes equations}!
+
+\vspace*{-1cm}
+\begin{figure}[h]
+\hspace*{8.9cm}
+\includegraphics[width=2.5cm]{images/YvesMeyer/Navier.png}
+\end{figure}
+
+\vspace*{-0.1cm}
+
+{\color{ZurichBlue} Theorem (Cannone, Meyer, Planchon, Lemari\'{e}-Rieusset; 1994):}
+
+There exists a global solution to the Navier-Stokes equation in the space $C(\R^+,L^2(\R^3))$, when the
+initial condition is oscillating in the sense that it belongs to a Besov space of negative order.
+
+\vspace*{0.25cm}
+
+{\color{ZurichBlue} Proof:} ...uses wavelet-like decompositions.
+
+}
+
+%************************************************************************
+
+\frame{\frametitle{Recent Work (2000--2017)}
+
+{\color{ZurichBlue} Current range of topics:}
+
+\begin{itemize}
+\item Imaging Sciences.
+\begin{itemize}
+\item Theoretical and numerical analysis of separating\\ geometric (``cartoon'') content from texture\\
+ (Meyer; 2006).
+\end{itemize}
+
+\vspace*{-2.7cm}
+\begin{figure}[h]
+\hspace*{6.8cm}
+\includegraphics[width=4.5cm]{images/Sep_CarTex-eps-converted-to.pdf}
+\end{figure}
+\vspace*{-.9cm}
+\item Compressed Sensing
+\begin{itemize}
+\item Deterministic construction of an optimal sensing system based on the theory of model sets. (Matei, Meyer; 2009).
+\end{itemize}
+\end{itemize}
+
+
+
+}
+
+%************************************************************************
+
+\frame{\frametitle{Awards}
+
+\begin{itemize}
+\item 1970/1983/1990: Invited Speaker at ICM.
+\item 1993: Member of the Acad\'{e}mie des Sciences.
+\item 2010: Carl Friedrich Gauss Prize.
+\item 2012: Fellow of the American Mathematical Society.
+\item 2017: Abel Prize for his pivotal role in developing the mathematical theory of wavelets.
+\end{itemize}
+\vspace*{-4cm}
+\begin{figure}[h]
+\hspace*{9.2cm}
+\includegraphics[width=1.5cm]{images/YvesMeyer/Abel1.jpg}
+\end{figure}
+\vspace*{1cm}
+\begin{figure}[h]
+\includegraphics[width=8cm]{images/YvesMeyer/Abel2.jpg}
+\end{figure}
+
+}
+
+
+
+
+
+\begin{frame}
+\addtocounter{framenumber}{-1}
+ \begin{center}
+  \huge
+  {\color{TUred}
+  Meyer's Motivation
+  }
+ \end{center}
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Meyer's Motivation}
+{\color{ZurichBlue} Seismic reflection method:}
+\begin{center}
+\includegraphics[width = 0.7\textwidth]{images/TUBetter.png}
+\end{center}
+
+{\color{ZurichBlue}Problem:} Wavelength sometimes much larger than layers.
+\end{frame}
+
+
+\begin{frame}\frametitle{Meyer's Motivation}
+{\color{ZurichBlue} Gabor transform:} 
+ At that time standard wave model is given by shifted and modulated {\color{green} Gaussians} $g = e^{-x^2/2}$
+$$
+ G_{t,v}(x) = e^{i t x} g(x-v), \quad t,v,x \in \R,
+$$
+which goes back to a work of D. Gabor (1946). 
+
+All $G_{t,v}$ have {\color{green}fixed length}.
+
+\includegraphics[width = 0.3\textwidth]{images/Gabor3.png} \ \includegraphics[width = 0.3\textwidth]{images/Gabor2.png} \ \includegraphics[width = 0.3\textwidth]{images/Gabor1.png}
+
+{\color{ZurichBlue} Morlet's idea:} Make also the {\color{green}length} of these functions {\color{green}variable}.
+\end{frame}
+
+\begin{frame}\frametitle{Meyer's Motivation}
+ \includegraphics[width = 0.7\textwidth]{images/Morlet1.png}
+ 
+ {\vspace{-6.5cm} \hspace{4cm} \includegraphics[width = 0.6\textwidth]{images/Morlet2.png}}
+\end{frame}
+
+
+\begin{frame}\frametitle{Meyer's Motivation}
+ 
+{\color{ZurichBlue} Morlet's wavelets:}
+$$
+g_{u,v}(x) = 2^{u} g(2^u x - v), 
+$$
+$g \in L^2(\R)$ satisfies certain admissibility conditions, usually a shifted Gaussian. These functions have {\color{green}variable length}.
+
+\begin{multicols}{2}
+\begin{center}
+\includegraphics[width = 0.5\textwidth]{images/WaveletsLogarithmic.png}  
+\end{center}
+\columnbreak
+\centering
+\includegraphics[width = 0.4\textwidth]{images/MorletsWavelets.eps} 
+
+\end{multicols}
+
+
+
+
+
+\begin{center}
+ \textit{"A 'wavelet' oscillates for 'a little while' like a wave, but is then localized by damping"}
+\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Meyer's Motivation}
+
+{\color{ZurichBlue} Wavelet transform:}
+$$
+\mathcal{W}(f)(u,v) = 2^{u/2} \langle f, g_{u,v}\rangle = 2^{u/2} \int_{-\infty}^\infty f(x) g(2^{u} x - v) dx,
+$$
+for $f \in L^2(\R)$.
+
+{\color{ZurichBlue} Reconstruction and energy preservation:}
+Under certain assumptions on $g$:
+$$
+\|f\|_2= \|\mathcal{W} f\|_{2},
+$$
+and $f$ can be uniquely recovered from $\mathcal{W}(f)$ by
+$$
+f(x) = \int \int 2^{u/2} g(2^{u} x - v) \mathcal{W}(f)(u,v) du dv.
+$$
+\end{frame}
+
+\begin{frame}\frametitle{Calderon's Reproducing Formula}
+{\color{ZurichBlue} Meyer and operators:} 
+Yves Meyer has been working on singular integral operators until this point.
+
+{\color{ZurichBlue} Calderon's identity:}
+If $g$ satisfies an admissibility condition, then, with $g_u(x) = u^{-1}g(x/u)$, we have for all $f\in L^2(\R)$ 
+$$
+{\color{green}f = \int f * g_u *g_u du/u},
+$$
+where $f*g(x) = \int f(y) g(x-y)dy$. 
+
+Compare with the reproducing formula of Morlet's wavelets:
+\color{green}
+\begin{align*}
+  f(x)  &= \int \int 2^{u/2} g(2^{u} x - v) \mathcal{W}(f)(u,v) dv du\\
+	&= \int \int 2^{u/2} g(2^{u} x - v) \int f(y) 2^{u/2} g(2^{u} y - v) dy dv du.
+\end{align*}
+\color{black}
+\end{frame}
+
+\begin{frame}
+\addtocounter{framenumber}{-1}
+ \begin{center}
+  \huge
+    {\color{TUred}
+Discrete Wavelet Systems
+}
+ \end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Discretization}
+{\color{ZurichBlue} Recall:}
+Energy conservation:
+\begin{align*}
+ \|f\|_2= \|\mathcal{W} f\|_{2}
+\end{align*}
+and simple reconstruction like an {\color{green}orthonormal basis}.
+    
+\medskip
+
+{\color{ZurichBlue} Discrete wavelets:}
+Can one construct a {\color{green}discrete wavelet system}
+\begin{align*}
+ W(\psi) = \{ \psi_{j,m} = 2^{j}\psi(2^{j}x - m): (j,m) \in \Lambda\},
+\end{align*}
+where $\Lambda \subset \R^2$ is a lattice and $W(\psi)$ is an orthonormal basis?
+\begin{align*}
+ f = \sum_{(j,m) \in \Lambda} \langle f,\psi_{j,m} \rangle \psi_{j,m}.
+\end{align*}
+
+
+\begin{center}
+\includegraphics[width = 0.2\textwidth]{images/wavelets1.png} \quad \includegraphics[width = 0.2\textwidth]{images/wavelets2.png} \quad \includegraphics[width = 0.2\textwidth]{images/wavelets3.png}
+\end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Gabor Systems}
+
+To understand the research on wavelet bases it is impotant to understand what was the standard then.
+
+{\color{ZurichBlue} Gabor systems:}
+$$
+\Gamma_{\alpha, \beta}(g) = \{g_{n,m}(x) :=  e^{2 \pi i \alpha n x} g(x-\beta m), \quad m,n \in \Z\},
+$$
+were $\alpha, \beta >0$, $g\in L^2(\R)$. 
+\begin{center}
+\includegraphics[width = 0.2\textwidth]{images/Gabor3.png} \ \includegraphics[width = 0.2\textwidth]{images/Gabor2.png} \ \includegraphics[width = 0.2\textwidth]{images/Gabor1.png}
+\end{center}
+
+\
+
+{\color{ZurichBlue} Typical question:}
+What conditions do we need to impose on $\alpha, \beta, g$ so that $\Gamma_{\alpha, \beta}(g)$ is an orthonormal basis?
+
+\end{frame}
+
+\begin{frame}\frametitle{Balian-Low Theorem}
+
+{\color{ZurichBlue} Orthonomal bases of Gabor systems:}
+It turns out all orthonormal bases or Gabor systems have {\color{green}bad time-frequency localization}.
+
+\medskip
+
+{\color{ZurichBlue} {Theorem:} (Balian-Low Theorem)}\\
+ If $\alpha, \beta >0$, $g\in L^2(\R)$ and $\Gamma_{\alpha, \beta}(g)$ is an orthonormal basis, then
+ \begin{align*}
+  \int x^2 |g(x)|^2 dx= \infty \quad \text{ or }   \int \xi^2 |\hat{g}(\xi)|^2 d\xi= \infty.
+ \end{align*}
+
+
+\medskip
+
+Meyer wanted to prove the same result for orthonormal wavelet bases...
+
+\end{frame}
+
+\begin{frame}[t]{The Meyer Wavelet}
+... but he "failed":
+
+\medskip
+
+Meyer found the following function $\psi$:
+\begin{align}
+ \hat{\psi}=\begin{cases}
+             (2\pi)^{-1/2}{\color{green}e^{i\xi/2}}\sin\left[\frac{\pi}{2}{\color{green}\vartheta\left(\frac{3}{2\pi}\abs{\xi}-1
+             \right)}\right],& \text{ if }\frac{2\pi}{3}\le\abs{\xi}\le\frac{4\pi}{3}\vspace*{0.3cm}\\
+             (2\pi)^{-1/2}{\color{green}e^{i\xi/2}}\cos\left[\frac{\pi}{2}{\color{green}\vartheta\left(\frac{3}{4\pi}\abs{\xi}-1
+             \right)}\right],& \text{ if }\frac{4\pi}{3}\le\abs{\xi}\le\frac{8\pi}{3}\vspace*{0.3cm}\\
+             0&\text{ otherwise},
+            \end{cases}
+\end{align}
+
+\only<1>{
+\vspace*{0.5cm}
+where $\vartheta$ is a function satisfying
+\begin{align}
+ \vartheta(x)=\begin{cases}
+               0 &\text{ if } x\le 0\\
+               1 & \text{ if }x\ge 0,
+              \end{cases}\hspace*{2cm}
+\end{align}
+
+\vspace*{0.5cm}
+with the additional property
+\begin{align}\hspace*{0.1cm}
+ {\color{green}\vartheta(x)+\vartheta(1-x)=1.}\hspace*{2cm}
+\end{align}
+
+
+\begin{textblock*}{5cm}(8.5cm,5.5cm) % {block width} (coords)
+\includegraphics[scale=0.33]{images/meyer1.jpg}
+\end{textblock*}}
+
+
+\only<2>{\begin{center}\includegraphics[scale=0.5]{images/meyer2.jpg}\end{center}}
+
+\end{frame}
+
+\begin{frame}{A Coincident?}
+
+Using the interplay between the phase of $\psi$ and the assumption
+\begin{align}
+  {\color{green}\vartheta(x)+\vartheta(1-x)=1}
+\end{align}
+"quasi-miraculous cancellations`` (Ingrid Daubechies) yield
+\begin{enumerate}
+ \item $\|\psi\|=1$
+ \item $\sum_{j,m}\abs{\langle f, \psi_{j,m}\rangle}^2=\|f\|^2$,
+\end{enumerate}
+and, hence, that the system
+\begin{align}
+ \{\psi_{j,m}=2^{j}\psi(2^{j}x - m):j,m \in \mathbb{Z}\}
+\end{align}
+is an {\color{green}ONB} for $L^2(\R)$.
+
+
+\begin{center}
+ {\color{green}Not by Coincidence! $\leadsto$ multiresolution approximation}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\addtocounter{framenumber}{-1}
+ \begin{center}
+  \huge
+    {\color{TUred}
+Multiresolution Approximation 
+}
+ \end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Multiresolution Approximation}
+{\color{ZurichBlue} Multiresolution approximation:} Formalization of approximation of functions by nested spaces which are connected by dyadic scaling of their elements.\\
+\vspace*{0.3cm}
+
+{\color{ZurichBlue} Definition: (Mallat, Meyer; 1988)}\\
+ A multiresolution approximation (MRA) of $L^2(\R)$ is a nested sequence $V_j$, $j\in \Z$ of closed linear subspaces of $L^2(\R)$ with the properties:
+ \begin{itemize}
+  \item $\bigcap_{-\infty}^\infty V_j = \{0\}$, and $\bigcup_{-\infty}^\infty V_j$ is dense in $L^2(\R)$;
+  \item for all $j\in \Z$ we have that $f \in V_j$ iff $f(2\cdot) \in V_{j+1}$;
+  \item for all $m\in \Z$ we have that $f \in V_j$ iff $f(\cdot -m) \in V_{j}$;
+  \item there exists a function $\phi\in V_0$ such that $\{\phi(\cdot - m): m\in \Z\}$ is an orthonormal basis of the space $V_0$. 
+ \end{itemize}
+
+\end{frame}
+
+\begin{frame}\frametitle{Multiresolution Approximation}
+
+\textit{An example:} The Haar multiresolution approximation
+\begin{itemize}
+\item Haar scaling function: $\phi = \chi_{[0,1]}$.
+\item $V_0 = \spann\{ \phi(\cdot - m): m\in \Z \}$.
+\item $V_j = \spann\{ \phi(2^{j}\cdot - m): m\in \Z \}$.
+\end{itemize}
+\includegraphics[width = \textwidth]{images/HaarWavelets.png}
+\end{frame}
+
+\begin{frame}\frametitle{Multiresolution Approximation}
+ 
+ {\color{ZurichBlue} Wavelet spaces:}
+ The nestedness $V_j \subset V_{j+1}$ allows us to define the "wavelet spaces" $W_j$:
+ $$
+ V_{j+1} = W_j \oplus V_j.
+ $$
+ As a consequence, we have that 
+ $$
+ L^2(\R) = V_0 \oplus W_1 \oplus W_2 \oplus \dots .
+ $$
+\begin{itemize}
+ \item Assume, that there exists $\psi$ such that $\{\psi(\cdot -m) : m\in \Z \}$ is an ONB for $W_0$.
+ \item Then, the dyadic scaling relation yields that $\{2^{j/2}\psi(2^{j} \cdot -m) : m\in \Z \}$ is an ONB for $W_j$ for all $j\in \N$.
+ \item We obtain that $\{2^{j/2}\psi(2^{j} \cdot -m) : m\in \Z, j\in \N \} \cup \{\phi(\cdot - m): m\in \Z\}$ is an ONB for $L^2(\R)$.
+\end{itemize}
+ \end{frame}
+
+
+\begin{frame}\frametitle{Multiresolution Approximation}
+ {\color{ZurichBlue} Back to our example:}
+
+What is $W_0$ for the Haar multiresolution approximation?
+\begin{itemize}
+\item The Haar wavelet $\psi = \chi_{[0,1/2]} - \chi_{[1/2,1]}$.
+\item $\langle \phi(\cdot-m), \psi(\cdot-m) \rangle  = 0$ is clear. 
+\item Define $W_0 := \spann\{\psi(\cdot-m): m\in \Z\}$.
+\item $V_{1} = V_0 \oplus W_0$ holds.
+\end{itemize}
+\includegraphics[width = \textwidth]{images/HaarWavelet2.png}
+\end{frame} 
+
+\begin{frame}\frametitle{How to Find the Wavelet in General?}
+{\color{ZurichBlue} Question:} How do we find $\psi$?
+\vspace*{0.3cm}
+
+{\color{ZurichBlue} Theorem: (Daubechies; 1988)}
+Let $\{V_j:j\in \mathbb{Z}\}$ be a multiresolution approximation with scaling function $\phi$, i.e. such that
+\begin{align}
+ \{\phi(\cdot-m):m\in \mathbb{Z}\}
+\end{align}
+forms an ONB for $V_0$. Then there exists a $2\pi$-periodic, square integrable function $m_0$ such that
+\begin{align}
+ \hat{\phi}(\xi)=m_0(\xi/2)\hat{\phi}(\xi/2).
+\end{align}
+One possibility to construct a wavelet $\psi$ is
+\begin{align}
+\hat{\psi}={\color{green}e^{i\xi/2}}\overline{m_0(\xi/2+\pi)}\hat{\phi}(\xi/2). 
+\end{align}
+
+\end{frame}
+
+\begin{frame}{The Meyer Basis}
+Define
+\begin{align}
+  \hat{\phi}(\xi)=\begin{cases}
+             (2\pi)^{-1/2} &\text{ if }\abs{\xi}\le\frac{2\pi}{3}\vspace*{0.15cm}\\
+             (2\pi)^{-1/2}\cos\left[\frac{\pi}{2}{\color{green}\vartheta\left(\frac{3}{2\pi}\abs{\xi}-1
+             \right)}\right],& \text{ if }\frac{2\pi}{3}\le\abs{\xi}\le\frac{4\pi}{3}\vspace*{0.15cm}\\
+             0&\text{ otherwise},
+            \end{cases}
+\end{align}
+with $\vartheta$ such that ${\color{green}\vartheta(x)+\vartheta(1-x)=1}$, then $$\{\phi(\cdot-m): m\in \mathbb{Z}\}$$ is an orthonormal system and 
+
+\only<1>{\begin{center}\includegraphics[scale=0.3]{images/meyer3.jpg}\end{center}}
+\only<2>{
+\begin{align}
+  \hat{\psi}(\xi)&=\begin{cases}
+             (2\pi)^{-1/2}{\color{green}e^{i\xi/2}}\sin\left[\frac{\pi}{2}{\color{green}\vartheta\left(\frac{3}{2\pi}\abs{\xi}-1
+             \right)}\right],& \text{ if }\frac{2\pi}{3}\le\abs{\xi}\le\frac{4\pi}{3}\vspace*{0.15cm}\\
+             (2\pi)^{-1/2}{\color{green}e^{i\xi/2}}\cos\left[\frac{\pi}{2}{\color{green}\vartheta\left(\frac{3}{4\pi}\abs{\xi}-1
+             \right)}\right],& \text{ if }\frac{4\pi}{3}\le\abs{\xi}\le\frac{8\pi}{3}\vspace*{0.15cm}\\
+             0&\text{ otherwise},
+            \end{cases}\\&= {\color{green}e^{i\xi/2}}\overline{m_0(\xi/2+\pi)}\hat{\phi}(\xi/2). \\&{\color{green}\leadsto \text{ Phase factor and interaction with $\vartheta$ not coincidental.}}
+\end{align}}
+\end{frame}
+
+\begin{frame}
+\addtocounter{framenumber}{-1}
+  \begin{center}
+    \huge
+      {\color{TUred}
+  The Aftermath
+  }
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{Consequences}
+{\color{ZurichBlue} The wavelet revolution:}
+The developement of the MRA and a construction of compactly supported wavelets triggered a huge body of further works:
+
+\begin{itemize}
+ \item \only<2>{\color{green}}Image and audio denoising,\color{black}
+ \item \only<2>{\color{green}}Image compression, e.g. JPEG2000,\color{black}
+ \item Calderon's programm, T(1) Theorem, (David and Journe; 1984, Meyer; 1986) 
+ \item Inverse problems, e.g. MRI (Lustig, Donoho, Pauly; 2007)
+ \item Optimal adaptive discretizations of partial differential equations (Cohen, Dahmen, Devore; 2001),
+ \item Deconvolution of astronomical images e.g. of Hubble telescope,
+ \item Theory of regularity structures (Hairer; 2013),
+ \item \only<2>{\color{green}}Function space characterization (Cohen, Dahmen, Devore, Triebel)\color{black},
+ \item Observation of gravitational waves (Abbott; 2016, Cornish, Littenberg; 2015)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Tools for Applications}
+ 
+Let $\psi \in L^2(\R)$ be a wavelet and $\phi\in L^2(\R)$ the corresponding scaling function such that 
+$$
+\{\phi(\cdot - m): m\in \Z\} \cup \{\psi_{j,m} := 2^{j/2}\psi(2^{j} \cdot - m): j\geq 0, m\in \Z\}
+$$
+is an ONB for $L^2(\R)$. \qquad 
+\includegraphics[width = 0.4 \textwidth]{images/WaveFreq.pdf}\put(-5, -10){$\hat{\R}$}
+
+{\color{ZurichBlue} Tensor products yield bases for $\R^2$:}
+\begin{align*}
+&\{\phi^{(1)}(\cdot - m): m\in \Z^2\}\\
+&\qquad \cup \{\psi_{j,m}^{(l)} := 2^{j/2}\psi^{(l)}(2^{j} \cdot - m): l = 1,2,3 ,j\geq 0, m\in \Z^2\}
+\end{align*}
+\flushleft
+with
+\begin{flalign*}
+ \phi^{(1)} &= \phi\otimes \phi, \qquad \begin{array}{c}
+                                  \psi^{(1)} = \phi \otimes \psi\\
+				    \psi^{(2)} = \psi \otimes \phi\\
+				    \psi^{(3)} = \psi \otimes \psi\\
+                                \end{array}. &
+\end{flalign*}
+
+\vspace{-2.5cm}\hspace{8cm}
+\includegraphics[width = 0.3\textwidth]{images/WaveFreq2.pdf}
+\put(-2,20){$\hat{\R}^2$}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Tools for Applications}
+
+Let 
+$$
+\{\phi_m = \phi(\cdot - m): m\in \Z\} \cup \{\psi_{j,m} := 2^{j/2}\psi(2^{j} \cdot - m): j\geq 0, m\in \Z\}
+$$
+be a orthonormal wavelet basis. Then 
+$$
+f = \sum_{m\in \Z}\langle \phi_m, f \rangle \phi_m + \sum_{j\geq 0, m\in \Z}\langle \psi_{j,m}, f \rangle \psi_{j,m}.
+$$
+We  are very interested in the coefficient sequences $(\langle \phi_m, f \rangle)_{m\in \Z}$ and $(\langle \psi_{j,m}, f \rangle)_{(j,m) \in \N \times \Z}$.
+
+
+{\color{ZurichBlue} Fast wavelet transform:}
+
+Filter based method to compute all coefficients up to a fixed upper scale $J\in \N$, i.e.
+$$
+(\langle \phi_m, f \rangle)_{m\in \Z} \text{ and }(\langle \psi_{j,m}, f \rangle)_{(j,m) \in \N \times \{1, \dots, J\}}
+$$
+ 
+\end{frame}
+
+\begin{frame}{Fast Wavelet Transform}
+{\color{ZurichBlue} Fast wavelet transform:}
+
+Since $W_j, V_j \subset V_{j+1}$ we have that there exist sequences $c = (c_n)_{n\in \Z}$ and $d = (d_n)_{n\in \Z}$:
+\begin{align*}
+ \psi_{j,m} = \sum_{\ell\in \Z} c_\ell \phi_{j+1,m+\ell}, \quad \phi_{j,m} = \sum_{\ell\in \Z} d_\ell \phi_{j+1,m+\ell},
+\end{align*}
+holds for all $m\in \Z$. One can compute all coefficients 
+$$
+(\langle \phi_m, f \rangle)_{m\in \Z} \text{ and }(\langle \psi_{j,m}, f \rangle)_{(j,m) \in \N \times \{1, \dots, J\}}
+$$
+from $(\langle \phi_{J,m}, f \rangle)_{m\in \Z}$:
+
+\includegraphics[width = \textwidth]{images/fwt.png}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Audio Denoising}
+
+{\color{ZurichBlue} Noisy music:}
+Assume we have an audio signal given by a function $f$ such that
+\begin{align*}
+ f = f_0 + n,
+\end{align*}
+where $f_0$ is the clean signal and $n$ is some noise.
+
+\begin{center}
+ \includegraphics[width = 0.6\textwidth]{images/NoisyAndCleanImage.png}
+\end{center}
+\end{frame}
+
+\begin{frame}\frametitle{Audio Denoising}
+{\color{ZurichBlue} Wavelet transform of noisy signal:}
+
+We take a wavelet transform of the noisy signal and perform {\color{green}Hard threshholding:}
+\begin{align*}
+ (T_\lambda(x))_i = \left\{ \begin{array}{c c}
+                         x_i &\text{ if } |x| >\lambda,\\
+                         0 &\text{ otherwise}.\\
+                        \end{array}\right.
+\end{align*}
+
+\begin{center}
+ \includegraphics[width = 0.6\textwidth]{images/waveletCoefficients.png}
+\end{center}
+
+At least the wavelet coefficients appear less noisy now...
+
+\end{frame}
+
+\begin{frame}\frametitle{Audio Denoising}
+{\color{ZurichBlue} Reconstruction:}
+Using the inverse wavelet transform we obtain a signal back:
+
+\begin{center}
+ \includegraphics[width = 0.6 \textwidth]{images/DenoisedImage.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}\frametitle{Image Compression}
+\small
+
+{\color{ZurichBlue} Image compression using sparse wavelet representation:}
+
+\vspace{0.3cm}
+\centering
+\begin{tikzpicture}
+\visible<1-3>{
+\node[inner sep=0pt] (Cam) at (0,0)
+    {\includegraphics[width=4cm]{images/GLPU.png}};
+    
+\node[below] at   (Cam.south) {\small $x \in \R^{256 \times256}$};}  
+\visible<2-4>{
+\node[inner sep=0pt] (Fourier) at (6,0)
+    {\includegraphics[width=4cm]{images/WaveletGLPU.png}};}
+\visible<2-4>{
+\node (temp) at (Fourier.west) {};
+       
+\draw[->,thick] (Cam.east)+(0.2,0) -- (temp) 
+    node[midway,fill=white,name=scanner] {\texttt{fwt}};}
+
+\visible<2->{ 
+
+\node[below] at   (Fourier.south) {\small $Wx\in \R^{256 \times256}$}; 
+    }
+    
+\visible<4->{
+\node[inner sep=0pt] (Cam) at (0,0)
+    {\includegraphics[width=4cm]{images/GLPUThresh.png}};
+    
+\node[below] at   (Cam.south) {\small $x_{\text{rec}} \in \R^{256 \times256}$};  
+\node (temp) at (Fourier.west) {};
+\draw[<-,thick] (Cam.east)+(0.2,0) -- (temp)
+    node[midway,fill=white,name=scanner] {\texttt{ifwt}};
+}       
+\end{tikzpicture}
+\begin{itemize}
+\item<3-> $Wx \in \R^{256^2}$ is very sparse, i.e., only few coefficients are large.
+\item<4-> We reconstruct using only the largest 16\% of the coefficients.
+\begin{itemize}
+\item<3-> Relative error $\norm{x-x_{\text{rec}}}/\norm{x} < 2\%$ 
+\end{itemize}
+\end{itemize}
+
+\begin{flushright}
+        \tiny
+        \color{gray}
+    \visible<1->{\tiny Courtesy of Maximilian Maerz} \\
+\end{flushright}
+\end{frame}
+
+
+
+\begin{frame}\frametitle{Function Space Characterization}
+\small
+{\color{ZurichBlue} Norm characterization:}
+
+Given an orthonormal (wavelet) basis $(\psi_{j,m})_{(j,m)\in \N \times \Z}$ for $L^2(\R)$ we have that 
+\begin{align*}
+ \|f\|_{L^2(\R)} = \|\langle f, \psi_{j,m} \rangle \|_{\ell_2}, \text{ for all } f\in L^2(\R).
+\end{align*}
+Is it possible to replace $L^2(\R)$ and $\ell_2$ by different spaces in the above statement?
+
+\
+
+{\color{ZurichBlue} Weighted $\ell_2$ spaces:}
+
+Indeed, under some assumptions on $\psi$ we obtain for example:
+\begin{align*}
+ \|f\|_{H^s(\R)} \sim \|2^{sj} \langle f, \psi_{j,m}\rangle \|_{\ell_2} =: \|\langle f, \psi_{j,m}\rangle \|_{\ell_{2,w}}, \text{ for all } f\in H^s(\R).
+\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{Function Space Characterization}
+{\color{ZurichBlue} Intuitive explanation:}
+By definition we have that
+\begin{align*}
+ \|f\|_{H^s(\R)} = \| (1+|\cdot|^2)^{s/2} \hat{f} \|_{L^2(\R)} = \|\langle (1+|\cdot|^2)^{s/2} \hat{f}, \widehat{\psi_{j,m}} \rangle \|_{\ell_2}.
+\end{align*}
+Recall shape of wavelets in frequency:
+\begin{center}
+\includegraphics[width = \textwidth]{images/WaveFrequ.png}
+\end{center}
+Hence $(1+|\cdot|^2)^{s/2} \sim 2^{sj}$ on $\supp \widehat{\psi_{j,m}}$, i.e., 
+$$
+ \|\langle (1+|\cdot|^2)^{s/2} \hat{f}, \widehat{\psi_{j,m}} \rangle \|_{\ell_2} \sim  \|2^{js} \langle f, \psi_{j,m} \rangle \|_{\ell_2}
+ $$
+\end{frame}
+
+\begin{frame}
+\addtocounter{framenumber}{-1}
+ \begin{center}
+  \huge  {\color{TUred}
+Some Shameless Advertisement of our Own Work
+}
+ \end{center}
+
+\end{frame}
+
+\begin{frame}\frametitle{Wavelets and Images}
+{\color{ZurichBlue}Natural images:} 
+
+\includegraphics[height=0.2\linewidth]{images/Brandenburger_Tor_abends.jpg} \  \includegraphics[height=0.2\linewidth]{images/window.jpg} \ \includegraphics[height = 0.16\textwidth]{images/Cartoon-eps-converted-to.pdf} \  \includegraphics[height=0.2\linewidth]{images/frauenkirche-kl.jpg}
+ 
+ \begin{center}
+  \textit{Natural images exhibit jumps along piecewise smooth curves.}
+ \end{center}
+{\color{ZurichBlue}Wavelet approximation:}
+\begin{center}
+\includegraphics[width  =0.5 \textwidth]{images/ShearletsVsWavelets.pdf}
+
+Anisotropic elements could be better than isotropic.
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Shearlets}
+{\color{ZurichBlue} Ingredients:} Function $\psi \in L^2(\R^2)$ and scaling and shearing matrices:
+\begin{align*}
+ A_a := \left( \begin{array}{l l}
+               a & 0 \\ 0 &\sqrt{a}
+              \end{array}\right ), \qquad  S_s := \left( \begin{array}{l l}
+               1 & s \\ 0 &1
+              \end{array}\right ), a \in \R^+, s \in \R.
+\end{align*}
+We define for $j,k \in \Z, m\in \Z^2$:
+\begin{align*}
+ \psi_{j,k,m}: = \only<3-3>{\color{green}} 2^{\frac{3j}{4}}\color{black}\psi(\only<4-4>{\color{green}} S_k \color{black} \only<3-3>{\color{green}} A_{2^j} \color{black}\cdot - \only<2-2>{\color{green}}m \color{black})
+\end{align*}
+\begin{minipage}{0.30\textwidth}
+\only<2-2>{
+\fcolorbox{green}{white}{  
+\begin{animateinline}[autoplay, loop]{1}
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp1.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp2.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp3.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp4.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp5.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp4.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp3.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp2.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp1.eps}
+\end{animateinline}
+}}
+\only<1, 3->{\fcolorbox{white}{white}{
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp3.eps}
+}
+}
+\end{minipage}
+\
+\begin{minipage}{0.30\textwidth}
+\only<1,2, 4>{\fcolorbox{white}{white}{
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp7.eps}
+}
+}
+\only<3-3>{\fcolorbox{green}{white}{ 
+\begin{animateinline}[autoplay, loop]{1}
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp7.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp8.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp9.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp8.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp7.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp6.eps}
+% \newframe
+% \includegraphics[width = 0.90\textwidth]{ShearletOp7a.pdf}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp6.eps}
+\end{animateinline}}
+}
+\end{minipage}
+\
+\begin{minipage}{0.30\textwidth}
+\only<1-3>{
+\fcolorbox{white}{white}{
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp10.eps}
+}
+}
+\only<4-4>{\fcolorbox{green}{white}{
+\begin{animateinline}[autoplay, loop]{1}
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp11.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp12.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp13.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp12.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp11.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp10.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp14.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp15.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp14.eps}
+\newframe
+\includegraphics[width = 0.90\textwidth]{images/ShearletOp10.eps}
+\end{animateinline}}
+}
+\end{minipage}
+\end{frame}
+
+\begin{frame}\frametitle{Cone-Adapted Shearlet Systems}
+ \begin{figure}[b!]
+ {\color{ZurichBlue} Time domain:}
+\smallskip
+
+\includegraphics[width=0.24\textwidth]{images/ShearTimeLow.pdf}~\includegraphics[width=0.24\textwidth]{images/ShearTime2.pdf}~\includegraphics[width=0.24\textwidth]{images/ShearTime13.pdf}~\includegraphics[width=0.24\textwidth]{images/ShearTime19.pdf}\\
+{\color{ZurichBlue} Frequency domain:}
+\smallskip
+
+\includegraphics[width=0.24\textwidth]{images/ShearFrequencyLow.pdf}~\includegraphics[width=0.24\textwidth]{images/ShearFrequency2.pdf}~\includegraphics[width=0.24\textwidth]{images/ShearFrequency13.pdf}~\includegraphics[width=0.24\textwidth]{images/ShearFrequency19.pdf}
+\end{figure}
+\end{frame}
+
+
+\def\diag{{\text{\rm diag}}}
+
+\begin{frame}\frametitle{Cone-Adapted Shearlet Systems}
+{\color{ZurichBlue} Definition: (Kittipoom, Kutyniok, Lim; 2012)}\\
+Let $\phi, \psi, \tilde{\psi} \in L^2(\R^2)$, $c= [c_1,c_2]^T \in \R^2$ with $c_1,c_2>0$. Then the {\color{green}cone-adapted shearlet
+system} is defined by $(\psi_{j,k,m,\iota})_{(j,k,m,\iota)\in \Lambda},$
+where
+$$
+\Lambda:= \{(j,k,m,\iota): \iota \in \{-1,0,1\}, |\iota| j\geq j \geq 0, |k| \leq |\iota| \lceil2^{\frac{j}{2}}\rceil, m \in \Z^2\}
+$$
+and
+\vspace{-1cm}
+\begin{multicols}{2}
+\begin{align*}
+\psi_{j,0,m,0} = & \ \phi(\cdot - c_1 m),\\
+\psi_{j,k,m,1}  = & \ 2^{\frac{3j}{4}}\psi(S_k A_{j}\cdot -  M_c m ),\\
+\psi_{j,k,m,-1} = &  \ 2^{\frac{3j}{4}}\tilde{\psi}(S_k^T \tilde{A}_{j}\cdot -  M_{\tilde{c}} m ),
+\end{align*}
+\columnbreak
+\centering
+
+\
+
+\includegraphics[width = 3cm]{images/tilingcones.jpg}
+\end{multicols}
+
+\vspace{-0.3cm}
+with $M_c:= \diag( c_1 , c_2 )$, $M_{\tilde{c}}= \diag( c_2 ,c_1)$, and $\tilde{A}_{2^j} = \diag(2^{\frac{j}{2}},2^{j})$.
+
+\end{frame}
+
+
+\begin{frame}\frametitle{Cone-Adapted Shearlet Systems}
+
+ {\color{ZurichBlue} Shearlet bases?}
+ 
+ Unlike wavelet systems, the cone-adapted shearlet systems are not orthonormal bases. But we still have:
+ \vspace*{0.3cm}
+ 
+{\color{ZurichBlue} Theorem: (Kittipoom, Kutyniok, Lim; 2012)}\\
+Let $\phi, \psi, \tilde{\psi} \in L^2(\R^2)$ satisfy a number of vanishing moments and smoothness conditions. Then $(\psi_{j,k,m,\iota})_{(j,k,m,\iota)\in \Lambda}$ satisfies
+\begin{align*}
+ \|f\|_{L^2(\R^2)} \sim \| (\langle f, \psi_{j,k,m,\iota}\rangle )_{(j,k,m,\iota)\in \Lambda}\|_{\ell_2}.
+\end{align*}
+\end{frame}
+
+\begin{frame}\frametitle{Approximation Rates}
+
+Functions $f = f_1 + \chi_Bf_2$ with $B \subset (0,1)^2$ and $\partial B \in C^2$, $f_i \in C^2$, $\supp f_i \subset (0,1)^2$ are called {\color{green}cartoon-like functions}.
+\begin{center}
+\includegraphics[width = 0.25\textwidth]{images/Cartoon-eps-converted-to.pdf} \qquad \includegraphics[width=0.35\linewidth]{images/window.jpg}
+\end{center}
+
+
+{\color{ZurichBlue} Theorem: (Labate, Guo; 2007/ Kutyniok, Lim; 2011)}\\
+The error of the best $N$-term approximation for cartoon-like images with the shearlet frame decays as {\color{green}$O(N^{-1}( \log(N))^\frac{3}{2})$}.\\
+\vspace*{0.1cm}
+
+This rate is optimal up to the log factors, [Donoho; 2001].
+\end{frame}
+
+\begin{frame}\frametitle{Approximation Rates}
+{\color{ZurichBlue} Comparisson to wavelets:} Wavelets do not achieve the optimal $N$-term approximation of shearlets
+
+{\color{ZurichBlue} Approximation rates for cartoon-like functions:}
+\begin{multicols}{2}
+\begin{itemize}
+ \item Shearlets: $N^{-1} \log(N))^\frac{3}{2}$,
+ \item Wavelets: $N^{-\frac{1}{2}}$,
+ \item Fourier basis: $N^{-\frac{1}{4}}$.
+\end{itemize}
+\columnbreak
+\includegraphics[width  =0.5 \textwidth]{images/ShearletsVsWavelets.pdf}
+\end{multicols}
+\end{frame}
+
+\begin{frame}\frametitle{Applications}
+{\color{ZurichBlue} Some applications of shearlets:}
+\begin{itemize}
+  \item Image processing, e.g. denoising, inpainting;
+  \item Resolution of wavefront set;
+  \item \only<2>{\color{green}}Edge detection / classification\color{black};
+  \item Regularization of inverse problems, e.g. inverse acoustic scattering, MRI;
+  \item Adaptive discretization and solution of PDEs;
+  \item Characterization of smoothness spaces;
+  \item \only<2>{\color{green}}Theoretical analysis of approximation with neural networks\color{black}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}\frametitle{Edge Detection}
+ 
+{\color{ZurichBlue} Observation:}
+
+\
+
+Shearlet coefficients $\langle f, \psi_{j,k,m}\rangle $ react to geometric structures:
+
+\
+
+\includegraphics[width = \textwidth]{images/ShearletTypesDecay.eps}
+\small
+ \put(-340,-10){Large coefficients }
+ \put(-200,-10){Small coefficients}
+ \put(-80,-10){Small coefficients}
+
+ \
+ 
+ \
+ 
+ 
+ {\color{green}$\rightsquigarrow$ Direction and position of discontinuities can be found by analyzing large shearlet coefficients. }
+ 
+ \end{frame}
+
+\begin{frame}\frametitle{Edge Detection}
+
+{\color{ZurichBlue} Complex shearlet-based ridge and edge measure (CoShREM) toolbox:}
+
+\
+
+\includegraphics[width = 0.49\textwidth]{images/churchandcapitol.jpg} \ \includegraphics[width = 0.49\textwidth]{images/churchandcapitol_edges_overlay_small.png} 
+\end{frame}
+
+\begin{frame}\frametitle{Approximation with Neural Networks}
+
+A common model for neural networks is given by
+
+\begin{multicols}{2}
+\begin{itemize}
+ \item $d\in \N$: dimension of the input layer,
+ \item $L$: number of layers,
+ \item $N$ number of neurons,
+ \item $\rho: \R \to \R$ rectifier,
+ \item $W_\ell:\R^{N_{\ell-1}} \to \R^{N_{\ell}}$, $\ell = 1, \dots, L$: Affine linear maps.
+\end{itemize}
+\columnbreak
+
+\
+
+\includegraphics[width = 0.4\textwidth]{images/dnnExpl.eps}
+\end{multicols}
+Then $\Phi: \R^d \to \R^{N_L}$ given by
+\[
+\Phi(x) = W_L\rho( W_{L-1}\rho( \dots \rho (W_{1}(x))), \quad x\in \R^d,
+\]
+is called a {\color{green}neural network}. 
+\end{frame}
+
+\begin{frame}\frametitle{Approximation with Neural Networks}
+{\color{ZurichBlue} Approximation properties:}
+\textit{How well can an arbitrary function be approximated by a neural network?}
+
+\
+
+{\color{ZurichBlue} Universal approximation:}
+For any continuous function $f:K\to \R$ and any $\epsilon>0$ there exists a neural network approximating $f$ up to an error $\epsilon$. [Cybenko; 1989, Hornik et al.; 1991].
+
+\
+
+{\color{ZurichBlue} Rate of approximation:}
+It is unclear how complex the neural network needs to be.
+\end{frame}
+
+\begin{frame}\frametitle{Approximation with Neural Networks}
+ {\color{ZurichBlue} Approximation by sparsely connected networks:}
+ 
+Sparsely connected networks have few non-zero weights.
+ 
+ \begin{center}
+  \includegraphics[width = 0.7\textwidth]{images/Weights.png}
+ \end{center}
+ 
+ {\color{ZurichBlue} Fundamental lower bound:}
+ 
+ There exists a {\color{green}fundamental lower bound} on the uniform approximation of function classes by sparsely connected neural networks [ Bölcskei, Grohs, Kutyniok, P.; 2017]. 
+ 
+\end{frame}
+
+
+\begin{frame}\frametitle{Approximation with Neural Networks}
+{\color{ZurichBlue} Observation towards an upper bound:}
+Let $t\in \R^d$, $A \in GL(d)$, $a \neq 0$, $\psi\in L^2(\R^d)$, then the following are equivalent: 
+ \begin{itemize}
+ \item $a \psi(A(\cdot) - t)$ can be realized by a neural network $\Phi$.
+ \item $a \psi$ can be realized by a neural network $\tilde{\Phi}$.
+ \item $\psi$ can be realized by a neural network $\tilde{\tilde{\Phi}}$.
+\end{itemize}
+Moreover, $\tilde{\Phi}$, $\tilde{\Phi}$, $\Phi$ all have the same number of edges up to a constant factor.
+
+\vspace*{0.1cm}
+{\color{ZurichBlue} Proposition:}\\
+ If a neural network can represent a wavelet $\psi$, then it can represent sums of $N$ wavelets/shearlets with $O(N)$ edges.
+\vspace*{0.1cm}
+
+{\color{green}$N$-term Approximation rates of wavelets and shearlets carry over to $N$-edge approximations of networks.}
+
+{\color{green}$\rightsquigarrow$ Lower bound is sharp for many function classes.}
+ 
+\end{frame}
+
+\begin{frame}\frametitle{Conclusion}
+ {\color{ZurichBlue} Meyer and wavelets:}
+ \begin{itemize}
+  \item Meyer started his work on wavelets inspired by developements in geophysics;
+  \item He developed one of the first orthogonal wavelet bases;
+  \item He introduced the concept of multiresolution analysis;
+  \item These developements started a wavelet revolution which led to break-through results in various areas.
+ \end{itemize}
+  
+\end{frame}
+
+
+\begin{frame}
+\addtocounter{framenumber}{-1}
+ \begin{center}
+  \huge
+  {\color{TUred}
+Thank you for the attention!
+  }
+  \end{center}
+\end{frame}
+
+
