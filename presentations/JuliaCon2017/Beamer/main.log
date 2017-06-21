@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  13 JUN 2017 20:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 JUN 2017 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1801,8 +1801,12 @@ LaTeX Info: Redefining \includegraphics on input line 18.
 \c@lstlisting=\count291
  (./main.nav)
 (./content/title.tex
-LaTeX Font Info:    Try loading font information for U+msa on input line 22.
+Overfull \hbox (1.63219pt too wide) in paragraph at lines 22--22
+ []\OT1/cmss/m/it/10.95 https://github.com/arsenal997/Shearlab.jl/presentations
+/JuliaCon2017 
+ []
 
+LaTeX Font Info:    Try loading font information for U+msa on input line 22.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -1829,24 +1833,24 @@ File: Images/bms-logo-button.png Graphic file (type png)
 Package pdftex.def Info: Images/bms-logo-button.png used on input line 22.
 (pdftex.def)             Requested size: 28.45216pt x 28.45274pt.
 
-<images/tub_afg.jpg, id=21, 1318.9275pt x 407.5225pt>
+<images/tub_afg.jpg, id=21, 2005.4925pt x 445.665pt>
 File: images/tub_afg.jpg Graphic file (type jpg)
  <use images/tub_afg.jpg>
 Package pdftex.def Info: images/tub_afg.jpg used on input line 22.
-(pdftex.def)             Requested size: 92.07272pt x 28.45274pt.
+(pdftex.def)             Requested size: 128.03589pt x 28.45274pt.
 
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Image
 s/bms-logo-button.png> <./images/tub_afg.jpg>]) (./content/content.tex
-<./Images/digita_signal.png, id=35, 1204.5pt x 679.53876pt>
+<./Images/digita_signal.png, id=37, 1204.5pt x 679.53876pt>
 File: ./Images/digita_signal.png Graphic file (type png)
 
 <use ./Images/digita_signal.png>
 Package pdftex.def Info: ./Images/digita_signal.png used on input line 19.
 (pdftex.def)             Requested size: 154.03183pt x 86.89148pt.
 
-<./Images/white_noise.jpg, id=37, 1927.2pt x 1084.05pt>
+<./Images/white_noise.jpg, id=39, 1927.2pt x 1084.05pt>
 File: ./Images/white_noise.jpg Graphic file (type jpg)
 
 <use ./Images/white_noise.jpg>
@@ -1856,6 +1860,11 @@ Package pdftex.def Info: ./Images/white_noise.jpg used on input line 19.
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 19.
+
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
 
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
@@ -1875,6 +1884,11 @@ File: ./Images/white_noise.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/white_noise.jpg used on input line 19.
 (pdftex.def)             Requested size: 154.03183pt x 86.64307pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1891,18 +1905,28 @@ File: ./Images/white_noise.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/white_noise.jpg used on input line 19.
 (pdftex.def)             Requested size: 154.03183pt x 86.64307pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [4
 
-] <./Images/sparse_data.png, id=57, 251.94125pt x 168.63pt>
+] <./Images/sparse_data.png, id=60, 251.94125pt x 168.63pt>
 File: ./Images/sparse_data.png Graphic file (type png)
 
 <use ./Images/sparse_data.png>
 Package pdftex.def Info: ./Images/sparse_data.png used on input line 30.
 (pdftex.def)             Requested size: 239.60567pt x 160.37512pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -1916,18 +1940,28 @@ File: ./Images/sparse_data.png Graphic file (type png)
 Package pdftex.def Info: ./Images/sparse_data.png used on input line 30.
 (pdftex.def)             Requested size: 239.60567pt x 160.37512pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [6
 
-] <./Images/fourier.png, id=72, 903.375pt x 523.9575pt>
+] <./Images/fourier.png, id=75, 903.375pt x 523.9575pt>
 File: ./Images/fourier.png Graphic file (type png)
 
 <use ./Images/fourier.png>
 Package pdftex.def Info: ./Images/fourier.png used on input line 41.
 (pdftex.def)             Requested size: 239.60567pt x 138.968pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -1941,18 +1975,28 @@ File: ./Images/fourier.png Graphic file (type png)
 Package pdftex.def Info: ./Images/fourier.png used on input line 41.
 (pdftex.def)             Requested size: 239.60567pt x 138.968pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [8
 
-] <./Images/STFT.png, id=93, 461.725pt x 338.26375pt>
+] <./Images/STFT.png, id=96, 461.725pt x 338.26375pt>
 File: ./Images/STFT.png Graphic file (type png)
 
 <use ./Images/STFT.png>
 Package pdftex.def Info: ./Images/STFT.png used on input line 52.
 (pdftex.def)             Requested size: 232.75829pt x 170.51988pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -1966,18 +2010,28 @@ File: ./Images/STFT.png Graphic file (type png)
 Package pdftex.def Info: ./Images/STFT.png used on input line 52.
 (pdftex.def)             Requested size: 232.75829pt x 170.51988pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [10
 
-] <./Images/wavelet.jpg, id=107, 376.40625pt x 115.18031pt>
+] <./Images/wavelet.jpg, id=110, 376.40625pt x 115.18031pt>
 File: ./Images/wavelet.jpg Graphic file (type jpg)
 
 <use ./Images/wavelet.jpg>
 Package pdftex.def Info: ./Images/wavelet.jpg used on input line 70.
 (pdftex.def)             Requested size: 342.2953pt x 104.74919pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -1991,18 +2045,28 @@ File: ./Images/wavelet.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/wavelet.jpg used on input line 70.
 (pdftex.def)             Requested size: 342.2953pt x 104.74919pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [12
 
-] <./Images/cartoon-like.jpg, id=121, 274.02374pt x 261.97874pt>
+] <./Images/cartoon-like.jpg, id=124, 274.02374pt x 261.97874pt>
 File: ./Images/cartoon-like.jpg Graphic file (type jpg)
 
 <use ./Images/cartoon-like.jpg>
 Package pdftex.def Info: ./Images/cartoon-like.jpg used on input line 81.
 (pdftex.def)             Requested size: 136.91603pt x 130.9011pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2016,19 +2080,29 @@ File: ./Images/cartoon-like.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/cartoon-like.jpg used on input line 81.
 (pdftex.def)             Requested size: 136.91603pt x 130.9011pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [14
 
-] <./Images/anisotropic_isotropic.jpg, id=135, 720.6925pt x 373.395pt>
+] <./Images/anisotropic_isotropic.jpg, id=138, 720.6925pt x 373.395pt>
 File: ./Images/anisotropic_isotropic.jpg Graphic file (type jpg)
 
 <use ./Images/anisotropic_isotropic.jpg>
 Package pdftex.def Info: ./Images/anisotropic_isotropic.jpg used on input line 
 101.
 (pdftex.def)             Requested size: 136.91603pt x 70.93439pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2044,6 +2118,11 @@ Package pdftex.def Info: ./Images/anisotropic_isotropic.jpg used on input line
 101.
 (pdftex.def)             Requested size: 136.91603pt x 70.93439pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2057,6 +2136,11 @@ Package pdftex.def Info: ./Images/anisotropic_isotropic.jpg used on input line
 101.
 (pdftex.def)             Requested size: 136.91603pt x 70.93439pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2068,14 +2152,14 @@ Overfull \hbox (17.33473pt too wide) detected at line 165
 \OT1/mathkerncmss/m/sl/10.95 A[] []\OT1/cmss/m/n/10.95 = []
  []
 
-<./Images/circle.png, id=154, 477.7047pt x 355.5684pt>
+<./Images/circle.png, id=157, 477.7047pt x 355.5684pt>
 File: ./Images/circle.png Graphic file (type png)
 
 <use ./Images/circle.png>
 Package pdftex.def Info: ./Images/circle.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 74.51964pt.
 
-<./Images/circle_scaled.png, id=155, 462.528pt x 346.896pt>
+<./Images/circle_scaled.png, id=158, 462.528pt x 346.896pt>
 File: ./Images/circle_scaled.png Graphic file (type png)
 
 <use ./Images/circle_scaled.png>
@@ -2086,18 +2170,23 @@ Overfull \hbox (3.22728pt too wide) detected at line 165
 \OT1/mathkerncmss/m/sl/10.95 S[] []\OT1/cmss/m/n/10.95 = []
  []
 
-<./Images/square.png, id=156, 462.528pt x 346.896pt>
+<./Images/square.png, id=159, 462.528pt x 346.896pt>
 File: ./Images/square.png Graphic file (type png)
  <use ./Images/square.png>
 Package pdftex.def Info: ./Images/square.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
 
-<./Images/square_sheared.png, id=157, 462.528pt x 346.896pt>
+<./Images/square_sheared.png, id=160, 462.528pt x 346.896pt>
 File: ./Images/square_sheared.png Graphic file (type png)
 
 <use ./Images/square_sheared.png>
 Package pdftex.def Info: ./Images/square_sheared.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2133,6 +2222,11 @@ File: ./Images/square_sheared.png Graphic file (type png)
 Package pdftex.def Info: ./Images/square_sheared.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2165,6 +2259,11 @@ File: ./Images/square_sheared.png Graphic file (type png)
  <use ./Images/square_sheared.png>
 Package pdftex.def Info: ./Images/square_sheared.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2199,6 +2298,11 @@ File: ./Images/square_sheared.png Graphic file (type png)
 Package pdftex.def Info: ./Images/square_sheared.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2231,6 +2335,11 @@ File: ./Images/square_sheared.png Graphic file (type png)
  <use ./Images/square_sheared.png>
 Package pdftex.def Info: ./Images/square_sheared.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2265,18 +2374,28 @@ File: ./Images/square_sheared.png Graphic file (type png)
 Package pdftex.def Info: ./Images/square_sheared.png used on input line 165.
 (pdftex.def)             Requested size: 100.11975pt x 75.08932pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [23
 
-] <./Images/tiling_nocone.jpg, id=201, 461.725pt x 342.27875pt>
+] <./Images/tiling_nocone.jpg, id=203, 461.725pt x 342.27875pt>
 File: ./Images/tiling_nocone.jpg Graphic file (type jpg)
 
 <use ./Images/tiling_nocone.jpg>
 Package pdftex.def Info: ./Images/tiling_nocone.jpg used on input line 183.
 (pdftex.def)             Requested size: 136.91603pt x 101.49362pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2290,6 +2409,11 @@ File: ./Images/tiling_nocone.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/tiling_nocone.jpg used on input line 183.
 (pdftex.def)             Requested size: 136.91603pt x 101.49362pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2302,18 +2426,28 @@ File: ./Images/tiling_nocone.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/tiling_nocone.jpg used on input line 183.
 (pdftex.def)             Requested size: 136.91603pt x 101.49362pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [26
 
-] <./Images/tiling_cone.jpg, id=221, 812.03375pt x 424.58624pt>
+] <./Images/tiling_cone.jpg, id=223, 812.03375pt x 424.58624pt>
 File: ./Images/tiling_cone.jpg Graphic file (type jpg)
 
 <use ./Images/tiling_cone.jpg>
 Package pdftex.def Info: ./Images/tiling_cone.jpg used on input line 194.
 (pdftex.def)             Requested size: 308.06367pt x 161.07234pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2327,19 +2461,29 @@ File: ./Images/tiling_cone.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/tiling_cone.jpg used on input line 194.
 (pdftex.def)             Requested size: 308.06367pt x 161.07234pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [28
 
-] <./Images/separable_nonseparable.jpg, id=234, 677.53125pt x 260.975pt>
+] <./Images/separable_nonseparable.jpg, id=236, 677.53125pt x 260.975pt>
 File: ./Images/separable_nonseparable.jpg Graphic file (type jpg)
 
 <use ./Images/separable_nonseparable.jpg>
 Package pdftex.def Info: ./Images/separable_nonseparable.jpg used on input line
  226.
 (pdftex.def)             Requested size: 239.60567pt x 92.29434pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2355,6 +2499,11 @@ Package pdftex.def Info: ./Images/separable_nonseparable.jpg used on input line
  226.
 (pdftex.def)             Requested size: 239.60567pt x 92.29434pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2368,6 +2517,11 @@ Package pdftex.def Info: ./Images/separable_nonseparable.jpg used on input line
  226.
 (pdftex.def)             Requested size: 239.60567pt x 92.29434pt.
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2380,6 +2534,11 @@ File: ./Images/separable_nonseparable.jpg Graphic file (type jpg)
 Package pdftex.def Info: ./Images/separable_nonseparable.jpg used on input line
  226.
 (pdftex.def)             Requested size: 239.60567pt x 92.29434pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2397,6 +2556,11 @@ LaTeX Font Warning: Font shape `OT1/fvm/m/n' undefined
 (Font)              using `OT1/cmr/m/n' instead on input line 247.
 
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2404,6 +2568,11 @@ Overfull \hbox (29.08844pt too wide) has occurred while \output is active
 [33
 
 ]
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2411,6 +2580,11 @@ Overfull \hbox (29.08844pt too wide) has occurred while \output is active
 [34
 
 ]
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2418,6 +2592,11 @@ Overfull \hbox (29.08844pt too wide) has occurred while \output is active
 [35
 
 ]
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2425,6 +2604,11 @@ Overfull \hbox (29.08844pt too wide) has occurred while \output is active
 [36
 
 ]
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2432,6 +2616,11 @@ Overfull \hbox (29.08844pt too wide) has occurred while \output is active
 [37
 
 ]
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2439,34 +2628,39 @@ Overfull \hbox (29.08844pt too wide) has occurred while \output is active
 [38
 
 ]
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [39
 
-] <./Images/dices.jpg, id=322, 743.77875pt x 264.99pt>
+] <./Images/dices.jpg, id=323, 743.77875pt x 264.99pt>
 File: ./Images/dices.jpg Graphic file (type jpg)
 
 <use ./Images/dices.jpg>
 Package pdftex.def Info: ./Images/dices.jpg used on input line 290.
 (pdftex.def)             Requested size: 308.06367pt x 109.75853pt.
 
-<./Images/EPI_sparse.jpg, id=323, 166.6225pt x 169.63374pt>
+<./Images/EPI_sparse.jpg, id=324, 166.6225pt x 169.63374pt>
 File: ./Images/EPI_sparse.jpg Graphic file (type jpg)
 
 <use ./Images/EPI_sparse.jpg>
 Package pdftex.def Info: ./Images/EPI_sparse.jpg used on input line 290.
 (pdftex.def)             Requested size: 109.537pt x 111.51857pt.
 
-<./Images/EPI_wavelet.jpg, id=324, 164.615pt x 166.6225pt>
+<./Images/EPI_wavelet.jpg, id=325, 164.615pt x 166.6225pt>
 File: ./Images/EPI_wavelet.jpg Graphic file (type jpg)
 
 <use ./Images/EPI_wavelet.jpg>
 Package pdftex.def Info: ./Images/EPI_wavelet.jpg used on input line 290.
 (pdftex.def)             Requested size: 109.537pt x 110.8763pt.
 
-<./Images/EPI_shearlet.jpg, id=325, 166.6225pt x 168.63pt>
+<./Images/EPI_shearlet.jpg, id=326, 166.6225pt x 168.63pt>
 File: ./Images/EPI_shearlet.jpg Graphic file (type jpg)
 
 <use ./Images/EPI_shearlet.jpg>
@@ -2474,6 +2668,11 @@ Package pdftex.def Info: ./Images/EPI_shearlet.jpg used on input line 290.
 (pdftex.def)             Requested size: 109.537pt x 110.8587pt.
 
 Overfull \vbox (14.00653pt too high) detected at line 290
+ []
+
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
@@ -2508,6 +2707,11 @@ Overfull \vbox (14.00653pt too high) detected at line 290
  []
 
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -2534,6 +2738,11 @@ Package pdftex.def Info: ./Images/EPI_shearlet.jpg used on input line 290.
 (pdftex.def)             Requested size: 109.537pt x 110.8587pt.
 
 Overfull \vbox (14.00653pt too high) detected at line 290
+ []
+
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
  []
 
 
@@ -2566,18 +2775,28 @@ Overfull \vbox (14.00653pt too high) detected at line 290
  []
 
 
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
+
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [43
 
-] <./Images/obama_compressed.jpg, id=351, 662.475pt x 173.64874pt>
+] <./Images/obama_compressed.jpg, id=352, 662.475pt x 173.64874pt>
 File: ./Images/obama_compressed.jpg Graphic file (type jpg)
 
 <use ./Images/obama_compressed.jpg>
 Package pdftex.def Info: ./Images/obama_compressed.jpg used on input line 300.
 (pdftex.def)             Requested size: 342.2953pt x 89.72289pt.
+
+Overfull \hbox (305.08987pt too wide) has occurred while \output is active
+ [][]  \OT1/cmss/m/n/6 ([])  
+ []
+
 
 Overfull \hbox (29.08844pt too wide) has occurred while \output is active
  [][][][]  
@@ -2614,11 +2833,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 28.
  ) 
 Here is how much of TeX's memory you used:
- 33703 strings out of 493089
- 672062 string characters out of 6134842
+ 33706 strings out of 493089
+ 672098 string characters out of 6134842
  793997 words of memory out of 5000000
- 36375 multiletter control sequences out of 15000+600000
- 26577 words of font info for 87 fonts, out of 8000000 for 9000
+ 36377 multiletter control sequences out of 15000+600000
+ 27222 words of font info for 89 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  58i,18n,78p,10410b,1255s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
@@ -2637,10 +2856,10 @@ al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local
 exlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loc
 al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb></usr/
 local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (44 pages, 1362573 bytes).
+Output written on main.pdf (44 pages, 1415745 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 326 compressed objects within 4 object streams
+ 435 PDF objects out of 1000 (max. 8388607)
+ 328 compressed objects within 4 object streams
  89 named destinations out of 1000 (max. 500000)
  177 words of extra memory for PDF output out of 10000 (max. 10000000)
 
