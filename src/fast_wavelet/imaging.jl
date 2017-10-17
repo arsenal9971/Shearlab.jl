@@ -1,4 +1,4 @@
-# Submodule for imaging functions 
+# Submodule for imaging functions
 
 #######################################
 # Function to resize an array representation
@@ -14,7 +14,7 @@ function resize_image(f, N)
   g = cat(1, g, reshape(g[1,:,:],1,size(g,2),size(g,3)));
 	# interpolate
 	t = linspace(1,P,N);
-	ti = round(Int64,floor(t)) ; tj = round(Int64,ceil(t));
+	ti = round(Int64,floor(t)) ; tj = round(Int64,ceil.(t));
 	fi = round(Int64,t-floor(t)); fj = 1-fi;
 	h = zeros(N,N,size(f,3));
 	for s in 1:size(f,3)
@@ -29,7 +29,7 @@ end # resize_image
 # and resize it to a certain number of pixeles
 """
 ...
-load_image(path::string,pixels::int) load an image in a local path 
+load_image(path::string,pixels::int) load an image in a local path
 with N=nxn pixeles
 ...
 """
@@ -40,7 +40,7 @@ function load_image(name,n, m = n, gpu=0,square = 0 )
    			# Read the old size of f
     		old_size = size(f)
     		# Size in y
-				if m == n 
+				if m == n
 					if square == 0
 						m1 = round(Int64,n*old_size[2]/old_size[1])
 					else
@@ -54,7 +54,7 @@ function load_image(name,n, m = n, gpu=0,square = 0 )
     		Images.save(resized_name,imresize(f,(n,m1)))
     		f = convert(Array{Float64},PyPlot.imread(resized_name));
     		rm(resized_name)
-		else 
+		else
 				f = PyPlot.imread(name);
 				f = resize_image(f, n);
 		end
@@ -92,7 +92,7 @@ end #imageplot
 # Function that rescales date in a,b
 """
 ...
-rescale(x::Array,a=0,b=1) rescales data in 
+rescale(x::Array,a=0,b=1) rescales data in
 [a,b]
 ...
 """
@@ -112,7 +112,7 @@ end ## rescale
 #####################################################
 # Function that rescales a wavelet transform in an array A
 function rescaleWav(A)
-    v = maximum( abs(A[:]) );
+    v = maximum( abs.(A[:]) );
     B = copy(A)
     if v > 0
         B = .5 + .5 * A / v;
@@ -125,7 +125,7 @@ end
 """
 ...
 plot_wavelet(fW::Array, Jmin=0) plot of the wavelet
-transform with the transformed image data fW an the 
+transform with the transformed image data fW an the
 minimum scale
 ...
 """
