@@ -2,7 +2,7 @@
 
 
 ######################################################################
-## ype of Filterconfigsuration to check the sizes 
+## ype of Filterconfigsuration to check the sizes
 immutable Filterswedgebandlow
     wedge::AbstractArray
     bandpass::AbstractArray
@@ -13,38 +13,38 @@ end
 # Function that generates the whole Shearlet System filters (wedge, bandpass and lowpass) of size rows x cols
 """
 ...
-getwedgebandpasslowpassfilters2D(rows,cols,directionalFilter = filt_gen("directional_shearlet"), scalingFilter = filt_gen("scaling_shearlet"),gpu = 0) 
+getwedgebandpasslowpassfilters2D(rows,cols,directionalFilter = filt_gen("directional_shearlet"), scalingFilter = filt_gen("scaling_shearlet"),gpu = 0)
 generates the Wedge, Bandpass and LowspassFilter of size rows x cols
 ...
 """
 function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,directionalFilter = filt_gen("directional_shearlet"),scalingFilter = filt_gen("scaling_shearlet"),waveletFilter = mirror(scalingFilter),
-                                                   scalingFilter2 = scalingFilter,gpu = 0)     
+                                                   scalingFilter2 = scalingFilter,gpu = 0)
     FFTW.set_num_threads(Sys.CPU_CORES)
     # Make shearLevels integer
     shearLevels = map(Int,shearLevels);
     # The number of scales
     NScales = length(shearLevels);
-    
+
     # Initialize the bandpass and wedge filter
     # Bandpass filters partion the frequency plane into different scales
     if gpu == 1
-        bandpass = zeros(Float32,rows,cols,NScales); 
-        bandpass = AFArray(bandpass+im*zeros(bandpass)); 
+        bandpass = zeros(Float32,rows,cols,NScales);
+        bandpass = AFArray(bandpass+im*zeros(bandpass));
     else
-        bandpass = zeros(Float64,rows,cols,NScales); 
-        bandpass = bandpass+im*zeros(bandpass); 
+        bandpass = zeros(Float64,rows,cols,NScales);
+        bandpass = bandpass+im*zeros(bandpass);
     end
-    
+
     # Wedge filters partition the frequency plane into different directions
     wedge = Array{Any}(1,round(Int64,maximum(shearLevels)+1));
-    
+
     # normalize the directional filter directional filter
     if gpu == 1
-        directionalFilter = AFArray(convert(Array{Float32},directionalFilter/sum(abs(directionalFilter[:]))));
-    else 
-        directionalFilter = directionalFilter/sum(abs(directionalFilter[:]));
+        directionalFilter = AFArray(convert(Array{Float32},directionalFilter/sum(abs.(directionalFilter[:]))));
+    else
+        directionalFilter = directionalFilter/sum(abs.(directionalFilter[:]));
     end
-        
+
     # Compute 1D high and lowpass filters at different scales
 
     # filterHigh{NScales} = g, and filterHigh{1} = g_J (analogous with filterLow)
@@ -57,19 +57,19 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
         filterHigh[size(filterHigh,2)] = AFArray(convert(Array{Float32},waveletFilter));
         filterLow[size(filterLow,2)] = AFArray(convert(Array{Float32},scalingFilter));
         filterLow2[size(filterLow2,2)] = AFArray(convert(Array{Float32},scalingFilter2));
-        
+
         # Lets compute the filters in the other scales
         for j = (size(filterHigh)[2]-1):-1:1
             filterLow[j] = convolve(filterLow[size(filterLow,2)],upsample(filterLow[j+1],1,1,1))
             filterHigh[j] = convolve(filterLow[size(filterLow,2)],upsample(filterHigh[j+1],1,1,1))
         end
-        
+
         # Lets compute the filters in the other scales
         for j=(size(filterLow2)[2]-1):-1:1
             filterLow2[j] = convolve(filterLow2[size(filterLow2,2)],upsample(filterLow2[j+1],1,1,1))
         end
         # Construct the bandpassfilter
-        # Need to convert first to complex array since 
+        # Need to convert first to complex array since
         for j = 1:size(filterHigh,2)
            bandpass[:,:,j] = -fftshift(fft(ifftshift(padarray(filterHigh[j],[rows,cols],1))));
         end
@@ -90,36 +90,36 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
         end
 
         # Construct the bandpassfilter
-        # Need to convert first to complex array since 
+        # Need to convert first to complex array since
         for j = 1:size(filterHigh,2)
            bandpass[:,:,j] = -fftshift(fft(ifftshift(padarray(filterHigh[j],[rows,cols]))));
         end
     end
 
-    
+
 
     ## construct wedge filters for achieving directional selectivity.
-    # as the entries in the shearLevels array describe the number of differently 
-    # sheared atoms on a certain scale, a different set of wedge 
+    # as the entries in the shearLevels array describe the number of differently
+    # sheared atoms on a certain scale, a different set of wedge
     # filters has to be constructed for each value in shearLevels.
     if gpu == 1
         for shearLevel = unique(shearLevels)
             #preallocate a total of floor(2^(shearLevel+1)+1) wedge filters, where
             #floor(2^(shearLevel+1)+1) is the number of different directions of
             #shearlet atoms associated with the horizontal (resp. vertical)
-            #frequency cones.    
-            wedge[shearLevel+1] = AFArray(zeros(Complex{Float32},rows,cols,floor(2^(shearLevel+1)+1))); 
+            #frequency cones.
+            wedge[shearLevel+1] = AFArray(zeros(Complex{Float32},rows,cols,floor(2^(shearLevel+1)+1)));
             #upsample directional filter in y-direction. by upsampling the directional
             #filter in the time domain, we construct repeating wedges in the
-            #frequency domain ( compare abs(fftshift(fft2(ifftshift(directionalFilterUpsampled)))) and 
-            #abs(fftshift(fft2(ifftshift(directionalFilter)))) ). 
+            #frequency domain ( compare abs.(fftshift(fft2(ifftshift(directionalFilterUpsampled)))) and
+            #abs.(fftshift(fft2(ifftshift(directionalFilter)))) ).
             directionalFilterUpsampled = upsample(directionalFilter,1,2^(shearLevel+1)-1,1);
 
             #remove high frequencies along the y-direction in the frequency domain.
             #by convolving the upsampled directional filter with a lowpass filter in y-direction, we remove all
-            #but the central wedge in the frequency domain. 
+            #but the central wedge in the frequency domain.
             wedgeHelp = conv2(directionalFilterUpsampled',
-                        filterLow2[size(filterLow2,2)-shearLevel]')';
+                        [filterLow2[size(filterLow2,2)-shearLevel]'; zeros(size(directionalFilterUpsampled,1)-1, length(filterLow2[size(filterLow2,2)-shearLevel]))])';
             wedgeHelp = padarray(wedgeHelp,[rows,cols],1);
             #please note that wedgeHelp now corresponds to
             #conv(p_j,h_(J-j*alpha_j/2)') in the language of the paper. to see
@@ -136,7 +136,7 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
             wedgeUpsampled = upsample(wedgeHelp,2,2^shearLevel-1,1);
             #convolve wedge filter with lowpass filter, again following equation
             #(21) on page 14.
-            lowpassHelp = padarray(filterLow2[size(filterLow2,2)-max(shearLevel-1,0)],size(wedgeUpsampled),1);    
+            lowpassHelp = padarray(filterLow2[size(filterLow2,2)-max(shearLevel-1,0)],size(wedgeUpsampled),1);
             if shearLevel >= 1
                 wedgeUpsampled = fftshift(ifft(ifftshift(fftshift(fft(ifftshift(lowpassHelp))).*fftshift(fft(ifftshift(wedgeUpsampled))))));
             end
@@ -161,20 +161,23 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
             #preallocate a total of floor(2^(shearLevel+1)+1) wedge filters, where
             #floor(2^(shearLevel+1)+1) is the number of different directions of
             #shearlet atoms associated with the horizontal (resp. vertical)
-            #frequency cones.    
-            wedge[shearLevel+1] = zeros(rows,cols,floor(2^(shearLevel+1)+1))+zeros(rows,cols,floor(2^(shearLevel+1)+1))*im; 
+            #frequency cones.
+            wedge[shearLevel+1] = zeros(rows,cols,floor(2^(shearLevel+1)+1))+zeros(rows,cols,floor(2^(shearLevel+1)+1))*im;
 
             #upsample directional filter in y-direction. by upsampling the directional
             #filter in the time domain, we construct repeating wedges in the
-            #frequency domain ( compare abs(fftshift(fft2(ifftshift(directionalFilterUpsampled)))) and 
-            #abs(fftshift(fft2(ifftshift(directionalFilter)))) ). 
+            #frequency domain ( compare abs.(fftshift(fft2(ifftshift(directionalFilterUpsampled)))) and
+            #abs.(fftshift(fft2(ifftshift(directionalFilter)))) ).
             directionalFilterUpsampled = upsample(directionalFilter,1,2^(shearLevel+1)-1);
 
             #remove high frequencies along the y-direction in the frequency domain.
             #by convolving the upsampled directional filter with a lowpass filter in y-direction, we remove all
-            #but the central wedge in the frequency domain. 
+            #but the central wedge in the frequency domain.
+            println("size(directionalFilterUpsampled'')=$(size(directionalFilterUpsampled''))")
+            println("size(filterLow2[size(filterLow2,2)-shearLevel]'')=$(size(filterLow2[size(filterLow2,2)-shearLevel]''))")
+
             wedgeHelp = conv2(directionalFilterUpsampled'',
-                            filterLow2[size(filterLow2,2)-shearLevel]'');
+                            [filterLow2[size(filterLow2,2)-shearLevel]'' zeros(length(filterLow2[size(filterLow2,2)-shearLevel]),size(directionalFilterUpsampled,2)-1)]);
             wedgeHelp = padarray(wedgeHelp,[rows,cols]);
             #please note that wedgeHelp now corresponds to
             #conv(p_j,h_(J-j*alpha_j/2)') in the language of the paper. to see
@@ -220,7 +223,7 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
     else
         lowpass = fftshift(fft(ifftshift(padarray(transpose(filterLow[1]')*filterLow[1]',[rows,cols]))));
     end
-    
+
     # Generate the final array
     return Filterswedgebandlow(wedge,bandpass,lowpass)
 end #getwedgebandpasslowpassfilters2D
@@ -235,10 +238,10 @@ immutable Preparedfilters
 end
 
 #######################################################################
-# Function that prepare the filters 
+# Function that prepare the filters
 """
 ...
-SlprepareFilters2D(rows, cols, nScales, shearLevels = ceil((1:nScales)/2), 
+SlprepareFilters2D(rows, cols, nScales, shearLevels = ceil.((1:nScales)/2),
     directionalFilter = filt_gen("directional_shearlet"),
     scalingFilter = filt_gen("scaling_shearlet"),
     waveletFilter = mirror(scalingFilter),
@@ -246,29 +249,29 @@ SlprepareFilters2D(rows, cols, nScales, shearLevels = ceil((1:nScales)/2),
 		 the shearlet system
 ...
 """
-function preparefilters2D(rows, cols, nScales, shearLevels = ceil((1:nScales)/2), 
+function preparefilters2D(rows, cols, nScales, shearLevels = ceil.((1:nScales)/2),
     directionalFilter = filt_gen("directional_shearlet"),
     scalingFilter = filt_gen("scaling_shearlet"),
     waveletFilter = mirror(scalingFilter),
     scalingFilter2 = scalingFilter, gpu = 0)
-    
+
     #Make sure the shearLevles are integer
     shearLevels = map(Int,shearLevels)
-    # check filter sizes 
-    filters = checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2);    
-    
+    # check filter sizes
+    filters = checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2);
+
     # Save the new filters
     directionalFilter = filters.directionalFilter;
     scalingFilter = filters.scalingFilter;
     waveletFilter = filters.waveletFilter;
     scalingFilter2 = filters.scalingFilter2;
-    
+
     # Define the cones
-    cone1 = getwedgebandpasslowpassfilters2D(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2,gpu);     
+    cone1 = getwedgebandpasslowpassfilters2D(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2,gpu);
     if rows == cols
     	cone2 = cone1;
     else
-    	cone2 = getwedgebandpasslowpassfilters2D(cols,rows,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2,gpu);  
+    	cone2 = getwedgebandpasslowpassfilters2D(cols,rows,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2,gpu);
     end
     return Preparedfilters([rows,cols],shearLevels,cone1,cone2)
 end # preparefilters2D
@@ -277,7 +280,7 @@ end # preparefilters2D
 # Function compute a index set describing a 2D shearlet system
 """
 ...
-getshearletidxs2D(shearLevels, full=0, restriction_type = [],restriction_value = []) Compute a index set describing a 2D shearletsystem, with restriction_type in 
+getshearletidxs2D(shearLevels, full=0, restriction_type = [],restriction_value = []) Compute a index set describing a 2D shearletsystem, with restriction_type in
 ["cones","scales","shearings"], where shearLevels is a 1D array spcifying the level of shearing on each scale, and full is a boolean that orders to generate the full shearlet indices.
 ...
 """
@@ -299,12 +302,12 @@ function getshearletidxs2D(shearLevels, full=0, restriction_type = [],restrictio
         elseif restriction_type[i] == "cones"
             cones = restriction_value[i];
         end
-    end       
+    end
 
     for cone = intersect(1:2,cones)
         for scale = intersect(1:length(shearLevels),scales)
             for shearing = intersect(-2^shearLevels[scale]:2^shearLevels[scale],shearings)
-                if convert(Bool,full) || cone == 1 || abs(shearing)<2^(shearLevels[scale])
+                if convert(Bool,full) || cone == 1 || abs.(shearing)<2^(shearLevels[scale])
                     shearletIdxs=[shearletIdxs;[cone,scale,shearing]];
                 end
             end
@@ -334,14 +337,14 @@ immutable Shearletsystem2D
 end
 
 #######################################################################
-# Function that generates the desired shearlet system 
+# Function that generates the desired shearlet system
 """
 ...
- getshearletsystem2D(rows,cols,nScales,shearLevels=ceil((1:nScales)/2),full = 0,directionalFilter = filt_gen("directional_shearlet"),quadratureMirrorFilter= filt_gen("scaling_shearlet"), gpu = 0) generates the desired shearlet system
+ getshearletsystem2D(rows,cols,nScales,shearLevels=ceil.((1:nScales)/2),full = 0,directionalFilter = filt_gen("directional_shearlet"),quadratureMirrorFilter= filt_gen("scaling_shearlet"), gpu = 0) generates the desired shearlet system
 ...
 """
 function getshearletsystem2D(rows,cols,nScales,
-                                shearLevels=ceil((1:nScales)/2),
+                                shearLevels=ceil.((1:nScales)/2),
                                 full= 0,
                                 directionalFilter = filt_gen("directional_shearlet"),
                                 quadratureMirrorFilter= filt_gen("scaling_shearlet"),gpu=0)
@@ -381,19 +384,19 @@ function getshearletsystem2D(rows,cols,nScales,
             shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
         end
     end
-	RMS =  transpose(sum(reshape(sum(real(abs(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
+	RMS =  transpose(sum(reshape(sum(real(abs.(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
     if gpu == 1
-        RMS = (sqrt(RMS)/convert(Float32,sqrt(rows*cols)));
-        dualFrameWeights = sum(real(abs(shearlets)).^2,3); 
+        RMS = (sqrt.(RMS)/convert(Float32,sqrt.(rows*cols)));
+        dualFrameWeights = sum(real(abs.(shearlets)).^2,3);
     else
-        RMS = (sqrt(RMS)/sqrt(rows*cols));
-        dualFrameWeights = squeeze(sum(abs(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
+        RMS = (sqrt.(RMS)/sqrt.(rows*cols));
+        dualFrameWeights = squeeze(sum(abs.(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
     end
     #return the system
     return Shearletsystem2D(shearlets,Preparedfilters.size,
     Preparedfilters.shearLevels,full,size(shearletIdxs,1),
     shearletIdxs,dualFrameWeights,RMS,0,gpu)
-end #getshearletsystem2D 
+end #getshearletsystem2D
 
 
 
@@ -419,7 +422,7 @@ function getshearlets2D(Preparedfilters, shearletIdxs = getshearletidxs2D(Prepar
     nShearlets = size(shearletIdxs,1);
 		if gpu == 1
     	shearlets = AFArray(zeros(Complex{Float32},rows,cols,nShearlets));
-		else		
+		else
     	shearlets = zeros(rows,cols,nShearlets)+im*zeros(rows,cols,nShearlets);
 		end
     # Compute shearlets
@@ -441,13 +444,13 @@ function getshearlets2D(Preparedfilters, shearletIdxs = getshearletidxs2D(Prepar
             shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
         end
     end
-		RMS =  transpose(sum(reshape(sum(real(abs(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
+		RMS =  transpose(sum(reshape(sum(real(abs.(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
     if gpu == 1
-        RMS = (sqrt(RMS)/convert(Float32,sqrt(rows*cols)));
-        dualFrameWeights = sum(real(abs(shearlets)).^2,3); 
+        RMS = (sqrt.(RMS)/convert(Float32,sqrt.(rows*cols)));
+        dualFrameWeights = sum(real(abs.(shearlets)).^2,3);
     else
-        RMS = (sqrt(RMS)/sqrt(rows*cols));
-        dualFrameWeights = squeeze(sum(abs(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
-    end		
+        RMS = (sqrt.(RMS)/sqrt.(rows*cols));
+        dualFrameWeights = squeeze(sum(abs.(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
+    end
 		return Shearlets2D(shearlets, RMS, dualFrameWeights,gpu)
 end #getshearlets2D

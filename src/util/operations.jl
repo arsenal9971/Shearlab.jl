@@ -2,7 +2,7 @@
 
 ###################################################
 # Padding array function to resize an array padding
-# zeros 
+# zeros
 """
 ...
 padarray(array, newSize,gpu)
@@ -21,11 +21,11 @@ function padarray{T<:Number}(array::AbstractArray{T},newSize,gpu = 0)
     n = length(newSize)
     sizes = size(array)
     @fastmath @inbounds @simd for k = 1:n
-        sizeDiff = newSize[k]-sizes[k];       
+        sizeDiff = newSize[k]-sizes[k];
         if mod(sizeDiff,2) == 0
             padSizes[k] = Int(sizeDiff/2);
         else
-            padSizes[k] = Int(ceil(sizeDiff/2))
+            padSizes[k] = Int(ceil.(sizeDiff/2))
         end
     end
     # Correct the matrix that is bigger than the targeted size
@@ -100,7 +100,7 @@ fix(x) rounds a number x to the nearest integer towards zero
 function fix{T<:Number}(x::T)
     if x < 0
         fixed = ceil(x)
-    else 
+    else
         fixed = floor(x)
     end
     return convert(Int64,fixed)
@@ -151,7 +151,7 @@ immutable Filterconfigs
 end #Filterconfigs
 
 #######################################################################
-# Function that check the sizes of the filters to know if it is possible 
+# Function that check the sizes of the filters to know if it is possible
 """
 ...
 checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2) function that check
@@ -160,7 +160,7 @@ the size of the filters and set new possible configurations
 ...
 """
 function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,waveletFilter,scalingFilter2)
-    # Lets initialize the FilterConfig array, 
+    # Lets initialize the FilterConfig array,
     filterSetup = []
     # Set all configurations
 
@@ -169,7 +169,7 @@ function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Configuration 2
-    # Check the default configuration 
+    # Check the default configuration
     scalingFilter = filt_gen("scaling_shearlet");
     directionalFilter = filt_gen("directional_shearlet");
     waveletFilter = mirror(scalingFilter);
@@ -259,4 +259,3 @@ function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,
     end
     filterSetup[kk]
 end #checkfiltersizes
-

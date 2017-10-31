@@ -4,16 +4,17 @@ using Images
 using Wavelets
 using PyPlot
 using ArrayFire
+using DSP
 
-export 
-			WT, filt_gen, resize_image, load_image, imageplot, 
-			rescale, plot_wavelet,subsampling, upsampling, 
+export
+			WT, filt_gen, resize_image, load_image, imageplot,
+			rescale, plot_wavelet,subsampling, upsampling,
 			cconvol, reverse, clamp, perform_wavorth_transform, snr,
-			padarray, fliplr, upsample, fix, dshear, checkfiltersizes, Filterconfigs, 
+			padarray, fliplr, upsample, fix, dshear, checkfiltersizes, Filterconfigs,
 			Filterswedgebandlow, getwedgebandpasslowpassfilters2D, Preparedfilters,
 			preparefilters2D, getshearletidxs2D, Shearletsystems2D, getshearletsystem2D,
 			Shearlets2D, getshearlets2D,
-			sheardec2D, shearrec2D, 
+			sheardec2D, shearrec2D,
 			Serialpreparedfilters, prepareserial2D, Sheardecserial2D, sheardecserial2D,
 			shearrecserial2D, finishserial2D,
 			AFArray
@@ -29,7 +30,7 @@ include("fast_wavelet/imaging.jl")
 # Alias for functions to have same names as in ShearLab3D
 const SLupsample = upsample
 const SLdshare = dshear
-const SLcheckFilterSizes = checkfiltersizes 
+const SLcheckFilterSizes = checkfiltersizes
 const SLWedgeBandpassAndLowpassFilters2D = getwedgebandpasslowpassfilters2D
 const SLprepareFilters2D = preparefilters2D
 const SLgetShearletIdxs2D = getshearletidxs2D
