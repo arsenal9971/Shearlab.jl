@@ -12,7 +12,7 @@ To install Shearlab.jl from within Julia do
 
 Note that for the julia-0.6.x there is no official release yet, although the newest version on the repository already works, one should then clone the library doing
 
-    julia> Pkg.clone("Shearlab")
+    julia> Pkg.clone("https://github.com/arsenal9971/Shearlab.jl")
 
 
 ## Description 
