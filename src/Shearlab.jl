@@ -1,8 +1,8 @@
 module Shearlab
 
-using Images
+# using Images
 using Wavelets
-using PyPlot
+# using PyPlot
 using ArrayFire
 using DSP
 

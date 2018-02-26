@@ -47,6 +47,8 @@ function padarray{T<:Number}(array::AbstractArray{T},newSize,gpu = 0)
     if gpu == 1
         paddedArray[[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...] = array[idbig...]
     else
+        # println("size(paddedArray)=$(size(paddedArray))")
+        # println("idbig[1]=$(idbig[1])")
         view(paddedArray,[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...) .= view(array,idbig...)
     end
     return paddedArray

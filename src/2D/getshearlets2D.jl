@@ -173,8 +173,6 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
             #remove high frequencies along the y-direction in the frequency domain.
             #by convolving the upsampled directional filter with a lowpass filter in y-direction, we remove all
             #but the central wedge in the frequency domain.
-            println("size(directionalFilterUpsampled'')=$(size(directionalFilterUpsampled''))")
-            println("size(filterLow2[size(filterLow2,2)-shearLevel]'')=$(size(filterLow2[size(filterLow2,2)-shearLevel]''))")
 
             wedgeHelp = conv2(directionalFilterUpsampled'',
                             [filterLow2[size(filterLow2,2)-shearLevel]'' zeros(length(filterLow2[size(filterLow2,2)-shearLevel]),size(directionalFilterUpsampled,2)-1)]);
