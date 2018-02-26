@@ -11,7 +11,7 @@ function trim_dim(x)
 		end
 	end
 	return x;
-end # trim_dim 
+end # trim_dim
 
 ###################################################
 # Function that make a subsampling of an array
@@ -47,30 +47,30 @@ factor of p, for d≤3
 """
 function upsampling(x,d=1,p=2)
 	if d==1
-	        y = zeros(p*size(x,1),size(x,2),size(x,3)); 
+	        y = zeros(p*size(x,1),size(x,2),size(x,3));
 	        y[1:p:end,:,:] = x;
 	elseif d==2
-	        y = zeros(size(x,1),p*size(x,2),size(x,3)); 
+	        y = zeros(size(x,1),p*size(x,2),size(x,3));
 	        y[:,1:p:end,:] = x;
 	elseif d==3
-	        y = zeros(size(x,1),size(x,2),p*size(x,3)); 
+	        y = zeros(size(x,1),size(x,2),p*size(x,3));
 	        y[:,:,1:p:end] = x;
 	else
 	        error("Not implemented");
 	end
 	y = trim_dim(y);
-	
+
 	return y;
 end # upsampling
 
 
 ###################################################
 # Function to compute the spatial domain circular
-# convolution of two signals 
+# convolution of two signals
 """
 ...
-cconv(x,h,d=1) circular convolution along dimension d, of 
-signals x and h 
+cconv(x,h,d=1) circular convolution along dimension d, of
+signals x and h
 ...
 """
 function cconvol(x,h,d=1)
@@ -80,7 +80,7 @@ function cconvol(x,h,d=1)
 	    return ( cconvol( x',h, 1 )' );
 	elseif d==3
 		# permute do not exists in python
-	    return permute( cconvol( permute(x,[3, 2, 1]),h), [3 2 1]);  
+	    return permute( cconvol( permute(x,[3, 2, 1]),h), [3 2 1]);
 	end
 	p = length(h);
 	if mod(p,2)==0
@@ -90,7 +90,7 @@ function cconvol(x,h,d=1)
 	end
 	y = zeros(size(x));
 	for i=1:length(h)
-	    y = y + h[i]*circshift(x,i-pc);  
+	    y = y + h[i]*circshift(x,i-pc);
 	end
 	return y;
 end # cconvol
@@ -107,7 +107,7 @@ function reverse(x)
 end  # function x = reverse(x)
 
 #####################################
-# Function that computes the mirror 
+# Function that computes the mirror
 # filter
 """
 ...
@@ -116,7 +116,8 @@ g[n] = (-1)^(1-n) h[1-n]
 ...
 """
 function mirror(h)
-	cat(1, 0, h[length(h):-1:2]) .* ( (-1).^(1:length(h)) )
+	# cat(1, 0, h[length(h):-1:2]) .* ( (-1).^(0:(length(h)-1)) )
+        h.*(-1).^(0:(length(h)-1))
 end #mirror
 
 #####################################
@@ -134,7 +135,7 @@ function clamp(x,a=0,b=1)
 end # clamp
 
 #########################################
-# Function to subselect dimensions in an 
+# Function to subselect dimensions in an
 # array
 function subselectdim(f,sel,d)
 	g = [];
@@ -186,14 +187,14 @@ end
 """
 ...
 perform_wavortho_transform(f0:::Array, Jmin:::int,dir,h) computes
-the wavelet transform of a signal f0, with Jmin as the minimum 
-scale in the direction dir∈{-1,1} 
+the wavelet transform of a signal f0, with Jmin as the minimum
+scale in the direction dir∈{-1,1}
 ...
 """
 function perform_wavortho_transf(f0,Jmin,dir,h)
 
-	n = size(f0,1); 
-	Jmax = round(Int64,log2(n))-1; 
+	n = size(f0,1);
+	Jmax = round(Int64,log2(n))-1;
 
 	g = [0; h[length(h):-1:2]] .* (-1).^(1:length(h));
 
@@ -219,7 +220,7 @@ function perform_wavortho_transf(f0,Jmin,dir,h)
 	            a = cconvol(upsampling(a,d),reverse(h),d) + cconvol(upsampling(w,d),reverse(g),d);
 	        end
 	        f = subassign(f,sel,a);
-	    end    
+	    end
 	end
 	return f;
 end # perform_wavortho_transf
