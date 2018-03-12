@@ -257,7 +257,36 @@ function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,
         error("The specified Shearlet system was not available for data of size "* string(rows) *"x",string(cols)* ". Filters were automatically set to configuration "*string(kk)* "(see operations.jl).");
     end
     if success1 == 1 && kk > 1
-        warn("The specified Shearlet system was not available for data of size "*string(rows)*"x"*string(cols)*". Filters were automatically set to configuration "*string(kk)*"(see operations.jl).");
+        warn("The specified Shearlet system was not available for data of size $(rows)×$(cols). Filters were automatically set to configuration $(kk), which uses $(describeConfig(kk)).");
     end
     filterSetup[kk]
 end #checkfiltersizes
+
+
+function describeConfig(kk::Int)
+    if kk==1
+        # the requested settings are available
+        return "you shouldn't see this"
+    elseif kk==2
+        # Configuration 2
+        return "the scaling shearlet as both scaling function and  and and directional shearlet"
+    elseif kk==3
+        # Configuration 3
+        return "the scaling shearlet and the 2nd directional shearlet"
+    elseif kk==4
+        # Configuration 4
+        return "the scaling shearlet and the 2nd directional shearlet"
+    elseif kk==5
+        # Configuration 5
+        return "the Coiflet1 scaling function, the mirrored scaling shearlet as the wavelet, and the 2nd directional shearlet"
+    elseif kk==6
+        # Configuration 6
+        return "the Daubechies2 scaling function, the mirrored version as the wavelet, and the 2nd directional shearlet"
+    elseif kk==7
+        # Configuration 7
+        return "the Daubechies2 scaling function, the mirrored version as the wavelet, and the 3nd directional shearlet"
+    elseif kk==8
+        # Configuration 8
+        return "the Haar scaling function, the mirrored version as the wavelet, and the 3nd directional shearlet"
+    end
+end
