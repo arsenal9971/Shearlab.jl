@@ -3,7 +3,7 @@ module Shearlab
 using Images
 using Wavelets
 using PyPlot
-using ArrayFire
+#using ArrayFire
 using DSP
 
 export

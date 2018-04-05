@@ -83,7 +83,7 @@ shearrecadjoint2D(X,shearletSystem) compute the coefficient matrix of the adjoin
 transform of the array X
 ...
 """
-function sheardec2D(X,shearletSystem)
+function shearrecadjoint2D(X,shearletSystem)
     #Read the GPU info of the system
     gpu = shearletSystem.gpu;
     if gpu == 1
