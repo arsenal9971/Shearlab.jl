@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/arsenal9971/Shearlab.jl/badge.svg?branch=master&service=github)](https://travis-ci.org/arsenal9971/Shearlab.jl?branch=master)
 [![codecov](https://codecov.io/gh/arsenal9971/Shearlab.jl/branch/master/graph/badge.svg)](https://travis-ci.org/arsenal9971/Shearlab.j)
 [![Join the chat at https://gitter.im/arsenal9971/Shearlab.jl](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Shearlab-jl/Lobby)
+[![Shearlab](http://pkg.julialang.org/badges/Shearlab_0.6.svg)](http://pkg.julialang.org/?pkg=Shearlab&ver=0.6)
 
 ## Installation
 To install Shearlab.jl from within Julia do 
@@ -36,3 +37,5 @@ SLsheardec2D(X,shearletSystem)
 ```julia
 SLshearrec2D(coeffs,shearletSystem) 
 ```
+
+For more detailed usage functionalities check the original [Shearlab manual](http://shearlab.org/files/documents/ShearLab3Dv10_Manual.pdf), for scientific reference one can also read ["ShearLab 3D: Faithful Digital Shearlet Transforms Based on Compactly Supported Shearlets"](http://www.math.tu-berlin.de/fileadmin/i26_fg-kutyniok/Kutyniok/Papers/ShearLab3D.pdf).
