@@ -31,8 +31,8 @@ before_script:
 
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - if [[ `uname` = "Darwin" ]]; then JULIA="julia"; else JULIA="xvfb-run julia"; fi;
-   $JULIA -e 'ENV["PYTHON"]=""; Pkg.clone(pwd()); Pkg.build("Shearlab"); Pkg.test("Shearlab"; coverage=true)';
+  #- if [[ `uname` = "Darwin" ]]; then JULIA="julia"; else JULIA="xvfb-run julia"; fi;
+   $julia -e 'ENV["PYTHON"]=""; Pkg.clone(pwd()); Pkg.build("Shearlab"); Pkg.test("Shearlab"; coverage=true)';
 
 after_success:
 - julia -e 'cd(Pkg.dir("Shearlab")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder()); Codecov.submit(process_folder())'
