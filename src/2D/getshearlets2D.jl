@@ -92,7 +92,7 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
         # Construct the bandpassfilter
         # Need to convert first to complex array since
         for j = 1:size(filterHigh,2)
-           bandpass[:,:,j] = -fftshift(fft(ifftshift(padarray(filterHigh[j],[rows,cols]))));
+           bandpass[:,:,j] = fftshift(fft(ifftshift(padarray(filterHigh[j],[rows,cols]))));
         end
     end
 
@@ -118,8 +118,7 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
             #remove high frequencies along the y-direction in the frequency domain.
             #by convolving the upsampled directional filter with a lowpass filter in y-direction, we remove all
             #but the central wedge in the frequency domain.
-            wedgeHelp = conv2(directionalFilterUpsampled',
-                        [filterLow2[size(filterLow2,2)-shearLevel]'; zeros(size(directionalFilterUpsampled,1)-1, length(filterLow2[size(filterLow2,2)-shearLevel]))])';
+            wedgeHelp = conv2(directionalFilterUpsampled, filterLow2[size(filterLow2,2)-shearLevel][:,:])
             wedgeHelp = padarray(wedgeHelp,[rows,cols],1);
             #please note that wedgeHelp now corresponds to
             #conv(p_j,h_(J-j*alpha_j/2)') in the language of the paper. to see
@@ -173,11 +172,8 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
             #remove high frequencies along the y-direction in the frequency domain.
             #by convolving the upsampled directional filter with a lowpass filter in y-direction, we remove all
             #but the central wedge in the frequency domain.
-            println("size(directionalFilterUpsampled'')=$(size(directionalFilterUpsampled''))")
-            println("size(filterLow2[size(filterLow2,2)-shearLevel]'')=$(size(filterLow2[size(filterLow2,2)-shearLevel]''))")
 
-            wedgeHelp = conv2(directionalFilterUpsampled'',
-                            [filterLow2[size(filterLow2,2)-shearLevel]'' zeros(length(filterLow2[size(filterLow2,2)-shearLevel]),size(directionalFilterUpsampled,2)-1)]);
+            wedgeHelp = conv2(directionalFilterUpsampled, filterLow2[size(filterLow2,2)-shearLevel][:,:])
             wedgeHelp = padarray(wedgeHelp,[rows,cols]);
             #please note that wedgeHelp now corresponds to
             #conv(p_j,h_(J-j*alpha_j/2)') in the language of the paper. to see

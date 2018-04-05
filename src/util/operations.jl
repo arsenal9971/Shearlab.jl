@@ -73,9 +73,9 @@ with nZeros
 ...
 """
 function upsample{T<:Number}(array::AbstractArray{T},dims::Integer,nZeros::Integer, gpu = 0)
-    sz = [size(array)...];
-    szUpsampled = sz;
-    szUpsampled[dims] = (szUpsampled[dims]-1).*(nZeros+1)+(nZeros+1);
+    sz = [size(array)...]
+    szUpsampled = sz
+    szUpsampled[dims] = (szUpsampled[dims]-1).*(nZeros+1)+1
     if gpu == 1
         arrayUpsampled = AFArray(zeros(typeof(array[1]),szUpsampled...))
     else
