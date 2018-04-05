@@ -14,8 +14,8 @@ function resize_image(f, N)
   g = cat(1, g, reshape(g[1,:,:],1,size(g,2),size(g,3)));
 	# interpolate
 	t = linspace(1,P,N);
-	ti = round(Int64,floor(t)) ; tj = round(Int64,ceil.(t));
-	fi = round(Int64,t-floor(t)); fj = 1-fi;
+	ti = round.(Int64,floor.(t)) ; tj = round.(Int64,ceil.(t));
+	fi = round.(Int64,t-floor.(t)); fj = 1-fi;
 	h = zeros(N,N,size(f,3));
 	for s in 1:size(f,3)
 	    h[:,:,s] = g[ti,ti,s] .* (fj*fj') + g[tj,tj,s] .* (fi*fi') + g[ti,tj,s] .* (fj*fi') + g[tj,ti,s] .* (fi*fj');
@@ -42,7 +42,7 @@ function load_image(name,n, m = n, gpu=0,square = 0 )
     		# Size in y
 				if m == n
 					if square == 0
-						m1 = round(Int64,n*old_size[2]/old_size[1])
+						m1 = round.(Int64,n*old_size[2]/old_size[1])
 					else
 						m1 = n
 					end
@@ -131,7 +131,7 @@ minimum scale
 """
 function plot_wavelet(fW, Jmin=0)
     n = size(fW,1);
-    Jmax = round(Int64,log2(n)) - 1;
+    Jmax = round.(Int64,log2(n)) - 1;
     U = copy(fW);
     for j = Jmax:-1:Jmin
     	L = 1:2^j; H = (2^j)+1:2^(j+1);

@@ -60,13 +60,13 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
 
         # Lets compute the filters in the other scales
         for j = (size(filterHigh)[2]-1):-1:1
-            filterLow[j] = convolve(filterLow[size(filterLow,2)],upsample(filterLow[j+1],1,1,1))
-            filterHigh[j] = convolve(filterLow[size(filterLow,2)],upsample(filterHigh[j+1],1,1,1))
+            filterLow[j] = conv2(filterLow[size(filterLow,2)],upsample(filterLow[j+1],1,1,1))
+            filterHigh[j] = conv(filterLow[size(filterLow,2)],upsample(filterHigh[j+1],1,1,1))
         end
 
         # Lets compute the filters in the other scales
         for j=(size(filterLow2)[2]-1):-1:1
-            filterLow2[j] = convolve(filterLow2[size(filterLow2,2)],upsample(filterLow2[j+1],1,1,1))
+            filterLow2[j] = conv(filterLow2[size(filterLow2,2)],upsample(filterLow2[j+1],1,1,1))
         end
         # Construct the bandpassfilter
         # Need to convert first to complex array since
