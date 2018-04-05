@@ -32,7 +32,7 @@ before_script:
 script:
   #- if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   #- if [[ `uname` = "Darwin" ]]; then JULIA="julia"; else JULIA="xvfb-run julia"; fi;
-	 - LD_PRELOAD=${HOME}/.julia/v0.6/Conda/deps/usr/lib/libz.so
+   - LD_PRELOAD=${HOME}/.julia/v0.6/Conda/deps/usr/lib/libz.so
    - julia -e 'ENV["PYTHON"]="";Pkg.build("PyCall"); Pkg.build("PyPlot") ;Pkg.clone(pwd()); Pkg.build("Shearlab"); Pkg.test("Shearlab"; coverage=true)';
 
 after_success:
