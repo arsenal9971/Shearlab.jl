@@ -1,1 +1,3 @@
 *.ipynb linguist-documentation
+presentations/* linguist-documentation
+*.md linguist-documentation
