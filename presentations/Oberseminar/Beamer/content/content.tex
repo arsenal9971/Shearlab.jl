@@ -5,7 +5,7 @@ Given by the X-ray transform $\mathcal{R}$:
 $$
 g = \mathcal{R}f(\theta,s)= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\delta(x\cos\theta+y\sin\theta-s)dxdy
 $$
-in this parametrization $g$ is known as the \textbf{sinogram}.
+where $f\in \mathcal{D}'(\mathbb{R}^2)$.
 \end{block}
 
 \pause
@@ -13,31 +13,41 @@ in this parametrization $g$ is known as the \textbf{sinogram}.
 
 \textbf{Ill-posedness:}    
 \begin{itemize}
-\item Filtered back projection ($R^{-1}$) involves differentiation $\longrightarrow$ increases singularities, even more with images with noise. 
-\item $R^{-1}$ is unbounded $\longrightarrow$ two far apart images can have very close Radon transform (a non-zero image can have a zero Radon transform).
+\item Filtered back projection ($R^{-1}$) involves differentiation $\longrightarrow$ increases singularities and noise.
+ 
+\item $R^{-1}$ is unbounded $\longrightarrow$ two far apart images can have very close X-ray transform.
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}{Shepp-Logan phantom}
 \begin{figure}[!tbp]
   \centering
   \begin{minipage}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../phantom.png}
+    \includegraphics[width=\textwidth]{Images/phantom.png}
   \end{minipage}
-	\pause
   \hfill
   \begin{minipage}[b]{0.45\textwidth}
-    \includegraphics[width=\textwidth]{../phantom_measured.png}
+    \includegraphics[width=\textwidth]{Images/phantom_measured.png}
   \end{minipage}
-\end{figure}
-\pause
-\begin{figure}[!tbp]
-\includegraphics[width=0.45\textwidth]{../sinogram.png}
 \end{figure}
 \end{frame}
 
-\begin{frame}{How to solve ill-posed inverse problems?}
+\begin{frame}{Sinogram}
+\begin{figure}[!tbp]
+\includegraphics[width=0.9\textwidth]{../sinogram.png}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Solving inverse problems}
+\begin{block}{First approach}
+Minimizing the miss-fit against data:
+$$
+\min_{f} \mathcal{L}(\mathcal{R}(f),g)
+$$
+e.g. $\mathcal{L}(\mathcal{R}(f),g)=||\mathcal{R}(f)-g||_2^2$.
+\end{block}
+
 \textbf{Three classical techniques:}
 \begin{itemize}
 \item Pseudo-inverse of $\mathcal{T}$ using a mollifier.
