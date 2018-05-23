@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.2.19)  22 MAY 2018 20:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.2.19)  23 MAY 2018 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1889,7 +1889,7 @@ with page group included in a single page
 <./Images/TU_logo.pdf, id=44, 4742.41782pt x 3529.24529pt>
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 27.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 19.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -1906,7 +1906,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
  <./Images/TU_logo.pdf>]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 27.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 19.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -1921,9 +1921,28 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 [3
 
 ]
+<../phantom.png, id=66, 397.485pt x 327.2225pt>
+File: ../phantom.png Graphic file (type png)
+<use ../phantom.png>
+Package pdftex.def Info: ../phantom.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
+<../phantom_measured.png, id=67, 397.485pt x 327.2225pt>
+File: ../phantom_measured.png Graphic file (type png)
+<use ../phantom_measured.png>
+Package pdftex.def Info: ../phantom_measured.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
+<../sinogram.png, id=68, 562.1pt x 421.575pt>
+File: ../sinogram.png Graphic file (type png)
+<use ../sinogram.png>
+Package pdftex.def Info: ../sinogram.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
+
+Overfull \vbox (7.84596pt too high) detected at line 38
+ []
+
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 27.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 38.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -1937,10 +1956,27 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 
 [4
 
-]
+ <../phantom.png (PNG copy)> <../phantom_measured.png (PNG copy)> <../sinogram.
+png (PNG copy)>]
+File: ../phantom.png Graphic file (type png)
+<use ../phantom.png>
+Package pdftex.def Info: ../phantom.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
+File: ../phantom_measured.png Graphic file (type png)
+<use ../phantom_measured.png>
+Package pdftex.def Info: ../phantom_measured.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
+File: ../sinogram.png Graphic file (type png)
+<use ../sinogram.png>
+Package pdftex.def Info: ../sinogram.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
+
+Overfull \vbox (7.84596pt too high) detected at line 38
+ []
+
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 41.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 38.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -1955,9 +1991,25 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 [5
 
 ]
+File: ../phantom.png Graphic file (type png)
+<use ../phantom.png>
+Package pdftex.def Info: ../phantom.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
+File: ../phantom_measured.png Graphic file (type png)
+<use ../phantom_measured.png>
+Package pdftex.def Info: ../phantom_measured.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
+File: ../sinogram.png Graphic file (type png)
+<use ../sinogram.png>
+Package pdftex.def Info: ../sinogram.png  used on input line 38.
+(pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
+
+Overfull \vbox (7.84596pt too high) detected at line 38
+ []
+
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 41.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 38.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -1974,7 +2026,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 58.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 51.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -1991,7 +2043,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 58.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 71.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2006,28 +2058,9 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 [8
 
 ]
-<../phantom.png, id=98, 397.485pt x 327.2225pt>
-File: ../phantom.png Graphic file (type png)
-<use ../phantom.png>
-Package pdftex.def Info: ../phantom.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
-<../phantom_measured.png, id=99, 397.485pt x 327.2225pt>
-File: ../phantom_measured.png Graphic file (type png)
-<use ../phantom_measured.png>
-Package pdftex.def Info: ../phantom_measured.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
-<../sinogram.png, id=100, 562.1pt x 421.575pt>
-File: ../sinogram.png Graphic file (type png)
-<use ../sinogram.png>
-Package pdftex.def Info: ../sinogram.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
-
-Overfull \vbox (7.84596pt too high) detected at line 77
- []
-
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 77.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 71.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2041,27 +2074,10 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 
 [9
 
- <../phantom.png (PNG copy)> <../phantom_measured.png (PNG copy)> <../sinogram.
-png (PNG copy)>]
-File: ../phantom.png Graphic file (type png)
-<use ../phantom.png>
-Package pdftex.def Info: ../phantom.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
-File: ../phantom_measured.png Graphic file (type png)
-<use ../phantom_measured.png>
-Package pdftex.def Info: ../phantom_measured.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
-File: ../sinogram.png Graphic file (type png)
-<use ../sinogram.png>
-Package pdftex.def Info: ../sinogram.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
-
-Overfull \vbox (7.84596pt too high) detected at line 77
- []
-
+]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 77.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 71.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2076,25 +2092,9 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 [10
 
 ]
-File: ../phantom.png Graphic file (type png)
-<use ../phantom.png>
-Package pdftex.def Info: ../phantom.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
-File: ../phantom_measured.png Graphic file (type png)
-<use ../phantom_measured.png>
-Package pdftex.def Info: ../phantom_measured.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 126.80739pt.
-File: ../sinogram.png Graphic file (type png)
-<use ../sinogram.png>
-Package pdftex.def Info: ../sinogram.png  used on input line 77.
-(pdftex.def)             Requested size: 154.03183pt x 115.51857pt.
-
-Overfull \vbox (7.84596pt too high) detected at line 77
- []
-
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 77.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 81.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2111,7 +2111,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 90.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 81.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2128,7 +2128,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 110.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 97.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2145,7 +2145,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 110.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 128.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2160,9 +2160,18 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 [14
 
 ]
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 148
+.
+LaTeX Font Info:    No file OMScmss.fd. on input line 148.
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 148.
+
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 110.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 148.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2179,7 +2188,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 120.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 148.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2196,7 +2205,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 120.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 163.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2213,7 +2222,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 136.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 163.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2230,7 +2239,7 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 167.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 169.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 Overfull \hbox (213.99744pt too wide) has occurred while \output is active
@@ -2243,100 +2252,6 @@ Overfull \hbox (7.25706pt too wide) has occurred while \output is active
  []
 
 [19
-
-]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 187
-.
-LaTeX Font Info:    No file OMScmss.fd. on input line 187.
-
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 187.
-
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 187.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-Overfull \hbox (213.99744pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (7.25706pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[20
-
-]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 187.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-Overfull \hbox (213.99744pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (7.25706pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[21
-
-]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 202.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-Overfull \hbox (213.99744pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (7.25706pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[22
-
-]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 202.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-Overfull \hbox (213.99744pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (7.25706pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[23
-
-]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 208.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-Overfull \hbox (213.99744pt too wide) has occurred while \output is active
- [][]  \OT1/cmss/m/n/6 ([])  
- []
-
-
-Overfull \hbox (7.25706pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[24
 
 ])
 \tf@nav=\write6
@@ -2370,11 +2285,11 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 36013 strings out of 494158
- 721332 string characters out of 6164931
- 857815 words of memory out of 5000000
- 38639 multiletter control sequences out of 15000+600000
- 546846 words of font info for 75 fonts, out of 8000000 for 9000
+ 36002 strings out of 494158
+ 721221 string characters out of 6164931
+ 858815 words of memory out of 5000000
+ 38638 multiletter control sequences out of 15000+600000
+ 546552 words of font info for 74 fonts, out of 8000000 for 9000
  523 hyphenation exceptions out of 8191
  56i,18n,70p,10410b,616s stack positions out of 5000i,500n,10000p,200000b,80000s
 </net/TeXLive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></net
@@ -2390,10 +2305,10 @@ cmssi8.pfb></net/TeXLive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb></net/TeXLive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></ne
 t/TeXLive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></net/
 TeXLive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (24 pages, 316773 bytes).
+Output written on main.pdf (19 pages, 306579 bytes).
 PDF statistics:
- 266 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 50 named destinations out of 1000 (max. 500000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 175 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
  103 words of extra memory for PDF output out of 10000 (max. 10000000)
 

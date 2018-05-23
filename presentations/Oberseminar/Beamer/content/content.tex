@@ -1,10 +1,12 @@
-\begin{frame}{Our problem}
+\begin{frame}{CT Reconstruction}
 
-In 2D X-ray tomography the forward operator is given by the Radon transform $\mathcal{R}$:
+\begin{block}{Forward model}
+Given by the X-ray transform $\mathcal{R}$:
 $$
-\mathcal{R}f(\theta,s)= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\delta(x\cos\theta+y\sin\theta-s)dxdy
+g = \mathcal{R}f(\theta,s)= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\delta(x\cos\theta+y\sin\theta-s)dxdy
 $$
-in this parametrization $\mathcal{R}f$ is known as the \textbf{sinogram}.
+in this parametrization $g$ is known as the \textbf{sinogram}.
+\end{block}
 
 \pause
 \bigskip
