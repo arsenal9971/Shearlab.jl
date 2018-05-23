@@ -1,0 +1,222 @@
+% ------------- Packages
+
+%--------------------------------------------------------------------------------
+%---- Julia highlighting settings
+%--------------------------------------------------------------------------------
+\usepackage{beramono}
+\usepackage{listings}
+
+\lstdefinelanguage{julia}{morekeywords={abstract,break,case,catch,const,continue,do,else,elseif,%
+      end,export,false,for,function,immutable,import,importall,if,in,%
+      macro,module,otherwise,quote,return,switch,true,try,type,typealias,%
+      using,while},%
+   sensitive=true,%
+   morecomment=[l]\#,%
+   morecomment=[n]{\#=}{=\#},%
+   morestring=[s]{"}{"},%
+   morestring=[m]{'}{'},%
+}[keywords,comments,strings]%
+
+
+% \usepackage{default}
+
+%%% Doc: http://mirror.informatik.uni-mannheim.de/pub/mirrors/tex-archive/macros/latex/contrib/xargs/xargs.pdf
+% More than one optional argument
+\usepackage{xargs}
+
+%%%
+% IfThenElse
+\usepackage{ifthen}
+
+%%% Doc: ftp://ftp.mpi-sb.mpg.de/pub/tex/mirror/ftp.dante.de/pub/tex/macros/latex/contrib/etoolbox/etoolbox.pdf
+% Programming in LaTeX
+\usepackage{etoolbox}
+
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/babel/babel.pdf
+% Language setting
+\usepackage[
+%	german,
+% 	ngerman,
+	english,
+%	french,
+]{babel}
+
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/required/graphics/grfguide.pdf
+% Graphics
+\usepackage[%
+	%final,
+	%draft % do not include images (faster)
+]{graphicx}
+
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{wrapfig}
+
+% \usepackage{memh­fixc}
+% \usepackage{memoir}
+
+\usepackage{relsize}
+
+\usepackage{mdframed}
+
+% \usepackage{enumitem}
+
+%%%
+% This package is used to create two-sided presentations with notes
+\usepackage{pgfpages}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes,calc}
+\newcommand{\tikzmark}[2]{\tikz[overlay,remember picture] \node[minimum width=1.5em] (#1) {#2};}
+\newcommand{\tikzcoord}[1]{\tikz[overlay,remember picture] \coordinate (#1);}
+\makeatletter
+\protected\def\tikz@nonactivecolon{\ifmmode\mathrel{\mathop\ordinarycolon}\else:\fi} 
+\makeatother
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+% Put text somewhere on the slide
+% \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
+\usepackage[absolute,overlay]{textpos}
+
+%%% Doc: ftp://tug.ctan.org/pub/tex-archive/macros/latex/contrib/mh/doc/mathtools.pdf
+% Erweitert amsmath und behebt einige Bugs
+\usepackage[fixamsmath,disallowspaces]{mathtools}
+% Formelnummern nur anzeigen, wenn auch eine Referenz existiert
+\mathtoolsset{showonlyrefs}
+\mathtoolsset{centercolon=true}
+% \usepackage{autonum}
+
+\usepackage{mathrsfs}
+
+\usepackage{bm}
+
+\usepackage{dsfont}
+\usepackage{animate}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+% ------------- Definitions
+
+%%% Programming
+% Falls #2 definiert/nichtleer ist, so schreibe #3, sonst #1
+\newcommand{\ifargdef}[3][{}]{\ifthenelse{\equal{#2}{}}{#1}{#3}}
+
+%%% Colors
+\definecolor{red}{rgb}{1,0,0}
+\definecolor{blue}{rgb}{0,0,1}
+\definecolor{green}{rgb}{0.2,0.6,0.15}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\definecolor{lightblue}{rgb}{0,0.5,1}
+\definecolor{white}{rgb}{1,1,1}
+\definecolor{bluegreen}{rgb}{0,0.5,0.5}
+\definecolor{violet}{rgb}{0.5,0,0.5}
+\definecolor{ZurichBlue}{rgb}{.35,.35,.73}
+\definecolor{TUred}{rgb}{0.7,0,0}
+% \definecolor{red}{rgb}{1,0,0}
+% \definecolor{blue}{rgb}{0,0,1}
+% \definecolor{green}{rgb}{0.2,0.6,0.15}
+% \definecolor{darkgreen}{rgb}{0,0.5,0}
+% \definecolor{lightblue}{rgb}{0,0.5,1}
+% %\definecolor{white}{rgb}{0,0,0}
+% \definecolor{bluegreen}{rgb}{0,0.5,0.5}
+% \definecolor{violet}{rgb}{0.5,0,0.5}
+% \definecolor{ZurichBlue}{rgb}{.35,.35,.73}
+
+\setbeamercolor{highlightbox}{fg=black,bg=ZurichBlue}
+
+% no frame counting in appendix, use together with 'noframenumbering' as frame option
+\makeatletter
+\preto{\appendix}{%
+  \patchcmd{\beamer@continueautobreak}{\refstepcounter{framenumber}}{}{}{}}
+\makeatother
+
+% Keep the frame title, if there is a framebreak
+\setbeamertemplate{frametitle continuation}{}
+% Break frame within a theorem
+\newcommand*{\theorembreak}{\usebeamertemplate{theorem end}\framebreak\usebeamertemplate{theorem begin}}
+% Definitions highlighting
+\newcommand<>{\define}[1]{{\color#2{green} #1}}
+
+\newcommand{\citeref}[1]{{\tiny{\color{gray}#1}}}
+
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{proposition}{Proposition}
+
+
+% ------------- Settings
+
+\mode<presentation>{
+	\usetheme{Boadilla}
+% 	\useoutertheme{infolines}
+% 	\useinnertheme{rounded}
+	\usecolortheme{beaver}
+	\setbeamercovered{transparent}
+	
+% Make the default 'red' of beaver darker
+	\definecolor{darkred}{rgb}{.65,0,0}
+	\setbeamercolor{structure}{fg=ZurichBlue}
+	
+	\setbeamercolor{block title}{use=structure,fg=white,bg=darkred!80!white}
+	\setbeamercolor{block body}{use=structure,fg=black,bg=gray!20!white}
+	
+	
+	\setbeamercolor{frametitle}{bg=gray!20!white}
+	
+	% Frame title with logo in the right corner
+	\setbeamertemplate{frametitle}
+	{
+		\nointerlineskip
+		\begin{beamercolorbox}[sep=0.3cm,wd=\paperwidth]{frametitle}
+			\vbox{}\vskip-1ex%
+			\strut\insertframetitle\strut \hfill 
+			\vskip-1.5ex%
+		\end{beamercolorbox}
+	}
+
+% 	\setbeamertemplate{footline}[default]
+% 	\setbeameroption{show notes on second screen}
+% 	\setbeameroption{show notes}
+	\setbeamercovered{invisible}
+}
+
+\beamertemplatenavigationsymbolsempty
+
+\makeatletter
+% add a macro that saves its argument
+\newcommand{\footlineextra}[1]{\gdef\insertfootlineextra{#1}}
+\newbox\footlineextrabox
+
+% add a beamer template that sets the saved argument in a box.
+% The * means that the beamer font and color "footline extra" are automatically added. 
+\defbeamertemplate*{footline extra}{default}{
+    \begin{beamercolorbox}[ht=2.25ex,dp=1ex,leftskip=\Gm@lmargin]{footline extra}
+    \insertfootlineextra
+    %\par\vspace{2.5pt}
+    \end{beamercolorbox}
+}
+
+\addtobeamertemplate{footline}{%
+    % set the box with the extra footline material but make it add no vertical space
+    \setbox\footlineextrabox=\vbox{\usebeamertemplate*{footline extra}}
+    \vskip -\ht\footlineextrabox
+    \vskip -\dp\footlineextrabox
+    \box\footlineextrabox%
+}
+{}
+
+% patch \begin{frame} to reset the footline extra material
+\let\beamer@original@frame=\frame
+\def\frame{\gdef\insertfootlineextra{}\beamer@original@frame}
+\footlineextra{}
+\makeatother
+
+\newcommand<>{\uncoverubrace}[2]{%
+  \onslide#3 \underbrace{ \onslide<1->%
+  #1%
+  \onslide#3 }_{#2} \onslide<1->%
+}
+
+\setbeamertemplate{itemize items}[triangle]

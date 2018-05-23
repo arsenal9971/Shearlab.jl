@@ -1,0 +1,28 @@
+% \pdfminorversion=4 
+\documentclass[
+	usepdftitle=false,
+% 	handout,
+% 	notes,
+% 	fleqn,
+]{beamer}
+
+%%% Encoding of files
+\usepackage[utf8]{inputenc}
+
+%%% Preamble (packages, definitions, settings)
+\input{preamble}
+%%% Math macros
+\input{math}
+\input{content/content-macros}
+
+\begin{document}
+
+\tikzstyle{every picture}+=[remember picture]
+
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{3pt}
+
+\input{content/title}
+\input{content/content}
+
+\end{document}
