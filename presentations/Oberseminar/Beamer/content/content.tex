@@ -1,7 +1,7 @@
 \begin{frame}{CT Reconstruction}
 
 \begin{block}{Forward model}
-Given by the X-ray transform $\mathcal{R}$:
+Given by the X-ray transform $\mathcal{R}: L^2(\mathbb{R}^2)\longrightarrow L^2(\mathbb{S}^1\times\mathbb{R})$:
 $$
 g = \mathcal{R}f(\theta,s)= \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}f(x,y)\delta(x\cos\theta+y\sin\theta-s)dxdy
 $$
@@ -45,18 +45,59 @@ Minimizing the miss-fit against data:
 $$
 \min_{f} \mathcal{L}(\mathcal{R}(f),g)
 $$
-e.g. $\mathcal{L}(\mathcal{R}(f),g)=||\mathcal{R}(f)-g||_2^2$.
+e.g. $\mathcal{L}(\mathcal{R}(f),g)=||\mathcal{R}(f)-g||_2^2$. \textbf{Downside:} Ill-posedness results on overfitting.
 \end{block}
 
-\textbf{Three classical techniques:}
+\bigskip
+\pause
+
+\textbf{Approaches to address overfitting?:}
 \begin{itemize}
-\item Pseudo-inverse of $\mathcal{T}$ using a mollifier.
-\item Iterative regularization, starting with a fixed point iteration scheme for minimizing (iterative hard thresholding), and stop iterates before over-fitting.
-\item Variational regularization, by introducing a functional $\mathcal{S}:X\longrightarrow \mathbb{R}$, that encodes a-priori information about $f_{\text{true}}$, e.g.\ sparsity under some dictionary.
-$$
-\min_{f\in X} [\mathcal{L}(\mathcal{T}f,g)+\lambda \mathcal{S}f] \quad \text{for fixed}\quad \lambda\geq 0
-$$
-$\lambda$ (regularization parameter) governs the influence of the a priori knowledge, choosing it is a problem.
+\item \textbf{Knowledge-driven regularization:} Model prescribed beforehand using first principles, data used to calibrate the model.
+\item \textbf{Data-driven regularization:} Model learned from data, without any prior first principles.
+\item \textbf{Hybrid:} Best of both worlds. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Knowledge-driven regularization}
+\begin{block}{\textbf{Pros \Smiley{}}}
+\begin{itemize}
+\item Guided by first principles (laws encoded by equations), tested and validated independently.
+\item Not much data required.
+\item Simple concepts, aiding the understanding.
+\end{itemize}
+\end{block}
+\pause
+\begin{block}{\textbf{Cons \Frowny{}}}
+\begin{itemize}
+\item Requires explicit description of causal relations, not always a good model exists.
+\item Not straigtht forward, uncertainty quantification.
+\end{itemize}
+\end{block}
+\pause
+\begin{itemize}
+\item \textbf{Examples:} Analytic pseudoinverse (e.g. FBP), Iterative methods with early stopping (e.g. ART), Variational methods (e.g. TV, $\ell^1$). 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Data-driven regularization}
+\begin{block}{\textbf{Pros \Smiley{}}}
+\begin{itemize}
+\item Deep understanding of the problem is not needed, just a lot of data.
+\item Can capture complicated causal relations without making limiting assumptions.
+\end{itemize}
+\end{block}
+
+\begin{block}{\textbf{Cons \Frowny{}}}
+\begin{itemize}
+\item Does not provide any conceptual simplification (not much conceptual understanding is acquired).
+\item Not easy to incorporate a-priori knowledge. 
+\item Computationally exhaustive.
+\end{itemize}
+\end{block}
+
+\begin{itemize}
+\item \textbf{Basic idea:} Parametrized $\mathcal{R}^{\dagger}_{\theta}: L^2(\mathbb{S}^1\times\mathbb{R})\longrightarrow L^2(\mathbb{R}^2)$ s.t. $\mathcal{R}^{\dagger}_{\theta}(g)=f_{\text{true}}$ $\forall \theta\in\Theta$ whenever $\mathcal{R}(f_{\text{true}})=g$. It estimates $\theta$ minimizing a loss $L:\Theta\longrightarrow \mathbb{R}^+_{0}$.
 \end{itemize}
 \end{frame}
 
