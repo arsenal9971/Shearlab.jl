@@ -155,10 +155,10 @@ $$
 \begin{frame}{Learned primal-dual algorithm (\"Oktem et al.\, 2017)}
 \begin{algorithm}[H]
 \begin{algorithmic}[1]
-\STATE Given $f_0\in L^2(\mathcal{R}^2)$, $h_0\in L^2(\mathcal{S}^1\times \mathbb{R})$
+\STATE Given $f_0\in L^2(\mathbb{R}^2)$, $h_0\in L^2(\mathbb{S}^1\times \mathbb{R})$
 \FOR{$i=1, \ldots, I$}
-\STATE $h_{i+1}\longleftarrow \Gamma_{\theta_{i+1}^d} (h_i,\mathcal{R}(f_i),g)$
-\STATE $f_{i+1}\longleftarrow \Lambda_{\theta_{i+1}^p} (f_i,[\partial\mathcal{R}(f_i)]^*(h_{i+1}))$
+\STATE $h_{i+1}\longleftarrow \Gamma_{\theta_{i+1}^d} (h_i,\mathbb{R}(f_i),g)$
+\STATE $f_{i+1}\longleftarrow \Lambda_{\theta_{i+1}^p} (f_i,[\partial\mathbb{R}(f_i)]^*(h_{i+1}))$
 \ENDFOR
 \end{algorithmic}
 \caption{Learned primal-dual algorithm}
@@ -249,11 +249,11 @@ $$
 \end{block}
 \end{frame}
 
-\begin{frame}{Resolution of the WF set with Shearlets}
+\begin{frame}{Resolution of the WF with Shearlets}
 
 \begin{theorem}[Grohs, 2011] 
 \label{thm:Resolution2}
-Let $\psi$ be a Schwartz function with infinitely many vanishing moments in $x_2$-direction and $\{\psi_{a,s,t}\}$ a CSF\@. Let $f$ be a tempered distribution and $\mathcal{D}=\mathcal{D}_1\cup\mathcal{D}_2$, where
+Let $\psi$ be a Schwartz function with infinitely many vanishing moments in $x_2$-direction and $\{\psi_{a,s,t}\}_{(a,s,t)}$ a Continuous Shearlet frame of the associated space. Let $f$ be a tempered distribution and $\mathcal{D}=\mathcal{D}_1\cup\mathcal{D}_2$, where
 
 $$
 \begin{aligned}
@@ -266,7 +266,7 @@ and
 
 $$
 \begin{aligned}
-\mathcal{D}_2=\{ (t_0,s_0)\in\mathbb{R}^2\times [1,\infty)|& \text{for $(1/s,t)$ in a neighbourhood $U$ of $(s_0,t_0)$},\\
+\mathcal{D}_2=\{ (t_0,s_0)\in\mathbb{R}^2\times [1,\infty]|& \text{for $(1/s,t)$ in a neighbourhood $U$ of $(s_0,t_0)$},\\
 &|\mathcal{SH}_{\tilde{\psi}}f(a,s,t)|=O(a^k), \forall k\in \mathbb{N} \}
 \end{aligned}
 $$
@@ -279,7 +279,7 @@ $$
 \end{frame}
 
 \begin{frame}
-\begin{block}{Canonical relation (\"Oktem, Quinto; 2008)}
+\begin{block}{Canonical relation}
 Let $f\in D'(\mathbb{R}^2)$, and assume $\mathbb{R}(\theta,s)$ is given on an open set $U\subset [0,\pi)\times\mathbb{R}$. Let $(
 \theta_0,s)\in U$, let 
 $$\xi_0 = \xi_s e_s+\xi_{\sigma}\sigma(\theta_0) \perp (\cos(\theta_0),\sin(\theta_0))$$
@@ -324,67 +324,6 @@ is a Continuous Shearlet frame for $L^2(\mathbb{S}^1\times\mathbb{R})$.
 
 \begin{frame}{Modified learned primal-dual}
 
- Modified problem:
-$$
-\min_{f\in L^2(\mathbb{R}^2)} \mathcal{L}(\mathcal{R}(SH_{\psi}^{-1}\tilde{f}),g) \quad \text{s.t. \textbf{C}$(WF(SH_{\psi}^{-1}\tilde{f})))$=$WF(g)$}
-$$
-
-\begin{algorithm}[H]
-\begin{algorithmic}[1]
-\STATE Given $\tilde{f}_0\in L^2(\mathbb{R}^2)$, $h_0\in L^2(\mathbb{S}^1\times \mathbb{R})$
-\FOR{$i=1, \ldots, I$}
-\STATE $h_{i+1}\longleftarrow \Gamma_{\theta_{i+1}^d} (h_i,\mathcal{R}(SH_{\psi}^{-1}\tilde{f}_i)),g)$
-\STATE $\tilde{f}_{i+1}\longleftarrow \Lambda_{\theta_{i+1}^p} (f_i,[\partial\mathcal{R}(SH_{\psi}^{-1}\tilde{f_i}))]^*(h_{i+1}))$
-\STATE \textbf{C}$(WF(SH_{\psi}^{-1}\tilde{f}_{i+1})))$=$WF(h_{i+1})$
-\ENDFOR
-\end{algorithmic}
-\caption{Modified learned primal-dual algorithm}
-\label{alg:seq}
-\end{algorithm}
-
-\pause
-\bigskip
-
-Are we done? \pause \textbf{Of course not!. Where is the code?!}
-\end{frame}
-
-\begin{frame}{Implementation}
-\begin{itemize}
-\item Learned primal dual on the Shearlet coefficients. \checked
-
-\pause
-\bigskip
-
-\item Wavefront set computation:
-\pause 
-
-\begin{itemize}
-
-\bigskip
-
-\item Theory works on continuous distributions.
-
-\pause
-\bigskip
-
-\item One needs infinite number of shearlet coefficients.
-
-\pause
-\bigskip
-
-\item There is no faithful digital Wavefront set version (Petersen, 2018).
-
-\pause
-\bigskip
-
-\item Learned Wavefront set extractor (in progress).
-\end{itemize}
-
-\bigskip
-\pause
-
-\item \textbf{Lesson:} Don't assume the continuous theory will work in the computer \Frowny{}.
-\end{itemize}
 \end{frame}
 
 \begin{frame}{Thanks!}
