@@ -2,7 +2,7 @@
 
 #### Slide 1: Presentation.
 
-- Contributions by Philipp, Gitta and Ozan.
+- Contributions by Philipp, Gitta and Ozan. and side contribution of Jonas Adler who has helped me with the training part.
 
 #### Slide 2: Slide 3 and 4.
 
