@@ -1,6 +1,6 @@
 \begin{frame}{Inverse problems in Imaging}
 \begin{block}{\textbf{Goal}}
-Recover parameters characterizing a system under investigation from measurements (recover image from data).
+Recover parameters characterizing a system under investigation from measurements (e.g.\ recover image from data).
 \end{block}
 \pause
 \bigskip
@@ -10,7 +10,7 @@ Recover $f_{\text{true}}\in X$ from data
 $$
 g = \mathcal{T}(f_{\text{true}})+\delta g
 $$
-where $y\in Y$,$\mathcal{T}:X\longrightarrow Y$ and $\delta g\in Y$.
+where $g\in Y$,$\mathcal{T}:X\longrightarrow Y$ and $\delta g\in Y$.
 \end{block}
 
 \pause
@@ -22,7 +22,7 @@ Minimization of the miss-fit against data:
 $$
 \min_{f\in X}\mathcal{L}(\mathcal{T}(f),g)
 $$
-$\mathcal{L}:Y\times Y\longrightarrow \mathbb{R}$ is a transformation of the negative data log-likelihood, e.g. $L(f)=||\mathcal{T}(f)-g||_2^2$.
+$\mathcal{L}:Y\times Y\longrightarrow \mathbb{R}$ is a transformation of the negative data log-likelihood ($-\log P(f|g)$), e.g. $\mathcal{L}(f)=||\mathcal{T}(f)-g||_2^2$.
 \end{itemize}
 \end{frame}
 
@@ -30,13 +30,13 @@ $\mathcal{L}:Y\times Y\longrightarrow \mathbb{R}$ is a transformation of the neg
 
 
 \begin{block}{Hadamard well-posedness}
- Existance and uniqueness of solution for all data, and continuous dependence of solution on the data.
+ Existance and uniqueness of solution for all data and continuous dependence of solution on the data.
 \end{block}
 
 \bigskip
 \pause
 \begin{itemize}
-\item Ill-posed problems produce overfitting when minimizing the data miss-fit, but they are the most common in applications (CT, EEG, MRI,...).
+\item Ill-posed problems tend to produce overfitting when minimizing the data miss-fit, but they are the most common in applications (CT, EEG, MRI,...).
 
 \bigskip
 \pause
@@ -116,7 +116,7 @@ $$
 
 \begin{frame}{Image denoising}
 \begin{block}{\textbf{Goal}}
- Recover an image $f\in X= \mathcal{E}^2(\mathbb{R}^2)$ from noisy data:
+ Recover an image $f\in X$ from noisy data:
 $$
 g = f+\delta g
 $$
@@ -148,9 +148,9 @@ $$
 \begin{frame}{Minimax MSE}
 
 \begin{block}{Frame}
-A frame for $\mathcal{E}^2(\mathbb{R}^2)$ is a collection $\Psi=\{\psi_i\}_{i\in\mathcal{I}}\subset\mathcal{E}^2(\mathbb{R}^2)$ satisfying
+A frame for a Hilbert space $X$ is a collection $\Psi=\{\psi_i\}_{i\in\mathcal{I}}\subset X$ satisfying
 $$
-A ||f||_2^2\leq ||\{\langle f,\psi_i\rangle\}_{i\in\mathcal{I}}||^2_{\ell^2(\mathcal{I})}\leq B||f||_2^2 \quad \forall\in \mathcal{E}^2(\mathbb{R}^2)
+A ||f||_2\leq ||\{\langle f,\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^2(\mathcal{I})}\leq B||f||_2  \quad \forall f\in X
 $$
 for some $0<A\leq B<\infty$.
 \end{block}
@@ -173,11 +173,11 @@ $$
 \begin{itemize}
 
 \begin{block}{\textbf{Goal}}
- Recover an image $f\in \mathcal{E}^2(\mathbb{R}^2)$ from known data:
+ Recover an image $f\in X$ from known data:
 $$
 g = P_K(f)
 $$
-where $P_K$ is and orthogonal projection onto the known subspace $(\mathcal{E}^2(\mathbb{R}^2))_K$.
+where $P_K$ is and orthogonal projection onto the known subspace $X_K\triangleleft X$.
 \end{block}
 
 \pause
@@ -185,7 +185,7 @@ where $P_K$ is and orthogonal projection onto the known subspace $(\mathcal{E}^2
 
 \item  \textbf{Compressed sensing result:} If a signal (image) is sparse within a frame $\Psi$, it can be recovered from highly underdetermined, non-adaptive linear measurements by $\ell^1$-regularization (Davenport et al., 2012), i.e.
 $$
-\min_{\tilde{f}\in \mathcal{E}^2(\mathbb{R}^2)}||\{\langle\tilde{f},\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})} \quad \text{s.t. }P_K(\tilde{f})=g=P_K(f)
+\min_{\tilde{f}\in X}||\{\langle\tilde{f},\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})} \quad \text{s.t. }P_K(\tilde{f})=g=P_K(f)
 $$
 
 \end{itemize}
@@ -194,32 +194,29 @@ $$
 
 \begin{frame}
 \begin{block}{Error estimate}
-Let $\delta>0$ and $\Lambda\subset \mathcal{I}$ be a $\mathbf{\delta}$-\textbf{cluster} for $f$ with respect to $\Psi$. 
-
-\bigskip
-If $\mu_c(\Lambda, P_M\Psi)<1/2$ and $f^*$ is the minimizer of the problem, then
+Let $\delta>0$ and $\Lambda\subset \mathcal{I}$ be a $\mathbf{\delta}$-\textbf{cluster} for $f$ with respect to a frame $\Psi$ (i.e.\ $||\mathbbm{1}_{\Lambda^c}T_{\Psi}f||_{\ell^1}\leq \delta$). If $\mu_c(\Lambda, P_M\Psi)<1/2$ and $f^*$ is the minimizer of the problem, then
 $$
 ||\{\langle f^*-f,\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})}\leq \frac{2\delta}{1-\mu_c(\Lambda,P_M\Psi)}
 $$
 
-\bigskip
-where $P_M$ is the projection onto the missing subspace and $\mu_c(\Lambda,P_M\Psi)$ the \textbf{cluster coherence}, defined by
+\medskip
+where $P_M$ is the projection onto the missing subspace $X_M$ and $\mu_c(\Lambda,P_M\Psi)$ the \textbf{cluster coherence}, defined by
 
-\bigskip
+\medskip
 $$
 \mu_c(\Lambda,P_M\Psi) :=\max_{j\in\mathcal{I}} \sum_{i\in \Lambda} |\langle P_M\psi_i,P_M\psi_j\rangle|
 $$
 \end{block}
 
 \pause
-\bigskip
+\medskip
 
 \begin{itemize}
-\item \textbf{Conclusion:} A sparsifying frame for images allows you to perform image denoising and inpainting, the reconstruction quality depends on the sparsifying level. \textbf{Problem:} Pick a good frame.
+\item \textbf{Conclusion:} An sparsifying frame for images allows you to perform image denoising and inpainting, the reconstruction quality depends on the sparsifying level. \textbf{Problem:} Pick a good frame for the image space.
 \end{itemize}
 \end{frame} 
 
-\begin{frame}{Cartoon-like functions}
+\begin{frame}{Image space: Cartoon-like functions}
 \begin{definition}
 Let $f:\mathbb{R}^2\longrightarrow\mathbb{C}$, $f\in\mathcal{E}^2(\mathbb{R}^2)$ if $f= f_0+\chi_B f_1$, with $B\subset [0,1]^2$, $\partial B\in C^2$ and with bounded curvature. Moreover, $f_i\in C^2(\mathbb{R}^2)$ with $||f_i||_{C^2}\leq 1$ and $\text{supp} f_i\subset [0,1]^2$ for $i=0,1$. 
 \end{definition}
@@ -262,7 +259,7 @@ $$
 \pause
 \begin{block}{Error of 2D-wavelets}
 $$
-\sigma_N(f,\{\psi_{j,m}\}_{j,m})\sim N^{-1/2}
+\sigma_N(f,\{\psi_{\lambda}\}_{\Lambda})\sim N^{-1/2}
 $$
 \end{block}
 \pause
@@ -338,14 +335,14 @@ $$
 \begin{itemize}
 \item{Matlab}
 \begin{itemize}
-	\item FFST- Fast Finite Shearlet Transform (H\"auser, Steidl,TU Keiserlautern)\\ \url{http://www.mathematik.uni-kl.de/imagepro/software/ffst/}
+	\item FFST- Fast Finite Shearlet Transform (H\"auser, Steidl,TU Keiserslautern)\\ \url{http://www.mathematik.uni-kl.de/imagepro/software/ffst/}
 	\item 2D/3D Shearlet Toolbox (D. Labate, University of Houston)\\ \url{https://www.math.uh.edu/~dlabate/software.html}
-	\item \textbf{Shearlab3D} (G. Kutyniok, W.-Q.Lim, R. Reisenhoffer, TU Berlin)\\\url{http://www.shearlab.org/}
+	\item \textbf{Shearlab3D} (G. Kutyniok, W.-Q.Lim, R. Reisenhofer, TU Berlin)\\\url{http://www.shearlab.org/}
 \end{itemize}
 
 \item{Python}
 \begin{itemize}
-	\item pyShearLab (Stefan Loock, U G\"otingen) \\ \url{http://na.math.uni-goettingen.de/pyshearlab/}
+	\item pyShearLab (Stefan Loock, U G\"ottingen) \\ \url{http://na.math.uni-goettingen.de/pyshearlab/}
 \end{itemize}
 
 \item{\textbf{Julia}}
