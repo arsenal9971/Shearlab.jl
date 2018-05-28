@@ -1,4 +1,4 @@
-### Notes on presentation: Tomographic Reconstruction and Wavefront set.
+### Notes on presentation: Learned Tomographic Reconstruction and Wavefront set.
 
 #### Slide 1: Presentation.
 
