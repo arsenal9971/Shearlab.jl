@@ -1,3 +1,24 @@
+\begin{frame}
+
+\begin{figure}[!tbp]
+  \centering
+  \begin{minipage}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Images/sinogram_head.png}
+  \end{minipage}
+\pause
+  \hfill
+  \begin{minipage}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{Images/brain_tumor.jpg}
+  \end{minipage}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\begin{figure}[!tbp]
+\includegraphics[width=0.9\textwidth]{Images/CT_scan.jpg}
+\end{figure}
+\end{frame}
+
 \begin{frame}{CT Reconstruction}
 
 \begin{block}{Forward model}
@@ -71,7 +92,7 @@ e.g. $\mathcal{L}(\mathcal{R}(f),g)=||\mathcal{R}(f)-g||_2^2$. \textbf{Downside:
 \begin{block}{\textbf{Cons \Frowny{}}}
 \begin{itemize}
 \item Requires explicit description of causal relations, not always a good model exists.
-\item Not straigtht forward, uncertainty quantification.
+\item Hard to account uncertainty quantification.
 \end{itemize}
 \end{block}
 \pause
@@ -101,7 +122,7 @@ e.g. $\mathcal{L}(\mathcal{R}(f),g)=||\mathcal{R}(f)-g||_2^2$. \textbf{Downside:
 \pause
 
 \begin{itemize}
-\item \textbf{Basic idea:} Parametrized $\mathcal{R}^{\dagger}_{\theta}: L^2(\mathbb{S}^1\times\mathbb{R})\longrightarrow L^2(\mathbb{R}^2)$ s.t. $\mathcal{R}^{\dagger}_{\theta}(g)=f_{\text{true}}$ $\forall \theta\in\Theta$ whenever $\mathcal{R}(f_{\text{true}})=g$. It estimates $\theta$ minimizing a loss $L:\Theta\longrightarrow \mathbb{R}^+_{0}$.
+\item \textbf{Basic idea:} Parametrized $\mathcal{R}^{\dagger}_{\theta}: L^2(\mathbb{S}^1\times\mathbb{R})\longrightarrow L^2(\mathbb{R}^2)$ s.t. $\mathcal{R}^{\dagger}_{\theta}(g)\approx f_{\text{true}}$ $\forall \theta\in\Theta$ whenever $\mathcal{R}(f_{\text{true}})=g$. It estimates $\theta$ minimizing a loss $L:\Theta\longrightarrow \mathbb{R}^+_{0}$.
 \end{itemize}
 \end{frame}
 
@@ -191,7 +212,7 @@ $$
 \begin{frame}{Benchmarks (Adler,\"Oktem)}
 \begin{figure}[!tbp]
   \centering
-    \includegraphics[width= 0.85\textwidth]{Images/lpdrec.png}
+    \includegraphics[width= 0.68\textwidth]{Images/lpdrec.png}
 \end{figure}
 \end{frame}
 
