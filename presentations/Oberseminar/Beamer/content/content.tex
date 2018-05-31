@@ -13,9 +13,9 @@ where $f\in \mathcal{D}'(\mathbb{R}^2)$.
 
 \textbf{Ill-posedness:}    
 \begin{itemize}
-\item Filtered back projection ($R^{-1}$) involves differentiation $\longrightarrow$ increases singularities and noise.
+\item Filtered back projection ($\mathcal{R}^{-1}$) involves differentiation $\longrightarrow$ increases singularities and noise.
  
-\item $R^{-1}$ is unbounded $\longrightarrow$ two far apart images can have very close X-ray transform.
+\item $\mathcal{R}^{-1}$ is unbounded $\longrightarrow$ two far apart images can have very close X-ray transform.
 \end{itemize}
 \end{frame}
 
@@ -137,8 +137,8 @@ $$
 \begin{algorithmic}[1]
 \STATE Given $\sigma, \tau>0$ s.t. $\sigma\tau||\mathcal{R}||<1$, $\gamma\in [0,1]$ and $f_0\in L^2(\mathbb{R}^2)$, $h_0\in L^2(\mathbb{S}^1\times\mathbb{R})$: 
 \FOR{$i=1, \ldots, I$}
-\STATE $h_{i+1}\longleftarrow \text{prox}_{\sigma\mathcal{L}} (h_i+\sigma \mathbb{R}(\overline{f}_i))$
-\STATE $f_{i+1}\longleftarrow \text{prox}_{\tau \mathcal{S}}(f_i-\tau[\partial\mathbb{R}(f_i)]^*(h_{i+1}))$
+\STATE $h_{i+1}\longleftarrow \text{prox}_{\sigma\mathcal{L}} (h_i+\sigma \mathcal{R}(\overline{f}_i))$
+\STATE $f_{i+1}\longleftarrow \text{prox}_{\tau \mathcal{S}}(f_i-\tau[\partial\mathcal{R}(f_i)]^*(h_{i+1}))$
 \STATE $\overline{f}_{i+1}\longleftarrow f_{i+1}+\gamma (f_{i+1}-f_i)$
 \ENDFOR
 \end{algorithmic}

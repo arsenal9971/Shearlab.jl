@@ -1,4 +1,4 @@
-## Notes for thesis defence beamer.
+# Notes for SIAM IS presentation.
 
 - [Presentation of myself and thanks for the public].
 
