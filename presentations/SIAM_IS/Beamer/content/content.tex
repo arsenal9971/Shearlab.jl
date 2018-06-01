@@ -1,3 +1,28 @@
+\begin{frame}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{./Images/denoise.jpg}
+\end{figure}
+\pause
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.9\textwidth]{./Images/inpaint.jpg}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{./Images/deblurr.jpg}
+\end{figure}
+\pause
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.7\textwidth]{./Images/CT.png}
+\end{figure}
+\end{frame}
+
 \begin{frame}{Inverse problems in Imaging}
 \begin{block}{\textbf{Goal}}
 Recover parameters characterizing a system under investigation from measurements (e.g.\ recover image from data).
@@ -30,21 +55,21 @@ $\mathcal{L}:Y\times Y\longrightarrow \mathbb{R}$ is a transformation of the neg
 
 
 \begin{block}{Hadamard well-posedness}
- Existance and uniqueness of solution for all data and continuous dependence of solution on the data.
+ Existence and uniqueness of solution for all data and continuous dependence of solution on the data.
+\end{block}
+
+\begin{block}{}
+Ill-posed problems tend to produce overfitting when minimizing the data miss-fit, but they are the most common in applications (CT, EEG, MRI,...).
 \end{block}
 
 \bigskip
 \pause
 \begin{itemize}
-\item Ill-posed problems tend to produce overfitting when minimizing the data miss-fit, but they are the most common in applications (CT, EEG, MRI,...).
-
-\bigskip
-\pause
 \item \textbf{Regularization:} Set of methods to avoid overfitting by slightly modify the original problem to increase its regularity.
 
 \bigskip
 \pause
-\item \textbf{Variational regularization:} Introduces a "regularization functional" $\mathcal{S}:X\longrightarrow \mathbb{R}$ to encode a priori information about $f_{\text{true}}$, obtaining a new objective functional to minimize:
+\item \textbf{Variational regularization:} Uses a functional $\mathcal{S}:X\longrightarrow \mathbb{R}$ (e.g. $||\cdot||_1$) to encode a priori information about $f_{\text{true}}$, obtaining:
 $$
 \min_{f\in X}\left[\mathcal{L}(\mathcal{T}(f),g)+\lambda \mathcal{S}(f)\right]\quad \text{for a fixed $\lambda\geq 0$}
 $$
@@ -53,66 +78,6 @@ $$
 \end{frame}
 
 
-\begin{frame}{}
-  \centering \Large
-  \textbf{Some examples}
-\end{frame}
-
-\begin{frame}{Denoising}
-$$
-\mathcal{T}(f)(x) = f(x)+\delta g(x)
-$$
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{./Images/denoise.jpg}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Inpainting}
-
-$$
-\mathcal{T}(f)  = P_K(f)
-$$
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\textwidth]{./Images/inpaint.jpg}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Deconvolution}
-$$
-\mathcal{T}(f)(x) = (h \circledast f)(x)
-$$
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{./Images/deblurr.jpg}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Computarized Tomography (CT)}
-$$
-\mathcal{T}(f) (\theta,s) = \int_{-\infty}^{\infty}f(x_1,x_2)\delta(x_1\cos(\theta)+x_2\sin(\theta)-s)dx_1dx_2
-$$
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{./Images/CT.png}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Magnetic Resonance Imaging (MRI)}
-$$
-\mathcal{T}(f)= \text{(k-space sampling)} f
-$$
-\begin{figure}
-\centering
-\includegraphics[width=0.8\textwidth]{./Images/MRI.jpg}
-\end{figure}
-\end{frame}
 
 \begin{frame}{Image denoising}
 \begin{block}{\textbf{Goal}}
@@ -155,22 +120,18 @@ $$
 for some $0<A\leq B<\infty$.
 \end{block}
 
+\
 \pause
 
-\begin{itemize}
-\bigskip
-
-\bigskip
-\item It is proven (Labate et al.,2012): If an image is sparse within a frame $\{\psi_i\}_{i\in \mathcal{I}}$, one can obtain a \textit{Minimax} MSE estimator by thresholding the coefficients in the expansion of the noisy data:
+\begin{theorem}[(Labate et al., 2012)]
+"If an image is sparse within a frame $\{\psi_i\}_{i\in \mathcal{I}}$, one can obtain a \textit{Minimax} MSE estimator by thresholding the coefficients in the expansion of the noisy data:
 $$
-g = \sum_{i\in\mathcal{I}}\langle g,\psi_i\rangle\psi_i
+g = \sum_{i\in\mathcal{I}}\langle g,\psi_i\rangle\psi_i \quad "
 $$
-\end{itemize}
+\end{theorem}
 \end{frame}
 
 \begin{frame}{Image inpainting}
-
-\begin{itemize}
 
 \begin{block}{\textbf{Goal}}
  Recover an image $f\in X$ from known data:
@@ -183,26 +144,29 @@ where $P_K$ is and orthogonal projection onto the known subspace $X_K\trianglele
 \pause
 \bigskip
 
-\item  \textbf{Compressed sensing result:} If a signal (image) is sparse within a frame $\Psi$, it can be recovered from highly underdetermined, non-adaptive linear measurements by $\ell^1$-regularization (Davenport et al., 2012), i.e.
+\begin{block}{\textbf{Sparse Regularization/CS approach (Genzel, Kutyniok):}}
+ " If a signal (image) is sparse within a frame $\Psi$, it can be recovered from highly underdetermined, non-adaptive linear measurements by $\ell^1$-regularization (Davenport et al., 2012), i.e.
 $$
-\min_{\tilde{f}\in X}||\{\langle\tilde{f},\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})} \quad \text{s.t. }P_K(\tilde{f})=g=P_K(f)
+\min_{\tilde{f}\in X}||\{\langle\tilde{f},\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})} \quad \text{s.t. }P_K(\tilde{f})=g=P_K(f) \quad "
 $$
 
-\end{itemize}
+\end{block}
 
 \end{frame}
 
 \begin{frame}
-\begin{block}{Error estimate}
+
+\begin{theorem}[Genzel, Kutyniok; 2014]
 Let $\delta>0$ and $\Lambda\subset \mathcal{I}$ be a $\mathbf{\delta}$-\textbf{cluster} for $f$ with respect to a frame $\Psi$ (i.e.\ $||\mathbbm{1}_{\Lambda^c}T_{\Psi}f||_{\ell^1}\leq \delta$). If $\mu_c(\Lambda, P_M\Psi)<1/2$ and $f^*$ is the minimizer of the problem, then
 $$
 ||\{\langle f^*-f,\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})}\leq \frac{2\delta}{1-\mu_c(\Lambda,P_M\Psi)}
 $$
 
-\medskip
-where $P_M$ is the projection onto the missing subspace $X_M$ and $\mu_c(\Lambda,P_M\Psi)$ the \textbf{cluster coherence}, defined by
+\end{theorem}
 
 \medskip
+
+\begin{block}{Cluster coherence}
 $$
 \mu_c(\Lambda,P_M\Psi) :=\max_{j\in\mathcal{I}} \sum_{i\in \Lambda} |\langle P_M\psi_i,P_M\psi_j\rangle|
 $$
@@ -210,9 +174,11 @@ $$
 
 \pause
 \medskip
-
 \begin{itemize}
-\item \textbf{Conclusion:} An sparsifying frame for images allows you to perform image denoising and inpainting, the reconstruction quality depends on the sparsifying level. \textbf{Problem:} Pick a good frame for the image space.
+
+\item \textbf{Conclusion:} One can use sparsifying frames on images to perform denoising and inpainting. The quality depends on the level of sparsity. 
+
+\item \textbf{Problem:} Pick a good frame for the image space.
 \end{itemize}
 \end{frame} 
 
@@ -263,33 +229,6 @@ $$
 $$
 \end{block}
 \pause
-\begin{minipage}{0.5\textwidth}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.9\textwidth]{./Images/anisotropic_isotropic.jpg}
-\end{figure}
-\end{minipage}\hfill
-\begin{minipage}{0.49 \textwidth}
-$$
-A_j:=
-\left(
-\begin{matrix}
-2^j & 0 \\
-0 & 2^{j/2}
-\end{matrix}
-\right)
-$$
-\bigskip
-$$
-S_k:=
-\left(
-\begin{matrix}
-1 & k \\
-0 & 1
-\end{matrix}
-\right)
-$$
-\end{minipage}
 \end{frame}
 
 
@@ -311,23 +250,23 @@ $$
 \end{figure}
 \end{frame}
 
-\begin{frame}{Cone-adapted shearlet transform}
+\begin{frame}{Cone-adapted shearlet transform and optimal sparsity}
 $$
 \mathcal{SH}(\phi,\psi,\tilde{\psi},c):=\mathcal{P}_{\mathcal{R}}\Phi(\phi,c1)\cup\mathcal{P}_{\mathcal{C}_1}\Psi(\psi,c)\cup\mathcal{P}_{\mathcal{C}_2}\tilde{\Psi}(\tilde{\psi,c})
 $$
 
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{./Images/tiling_cone}
+\includegraphics[width=0.6\textwidth]{./Images/tiling_cone}
 \end{figure}
 
 \pause
-\begin{itemize}
-\item Best $N$-term approximation error
+\begin{block}{\textbf{Cone shearlets sparsity} (Band limited case: Lim, Labate; 2006), (Compactly supported case: Kutyniok, Lim, 2011)}
+Best $N$-term approximation error
 $$
 \sigma_N(f,\{\psi_{j,k,m}\}_{j,k,m})\sim N^{-1}(\log(N))^{3/2}
 $$
-\end{itemize}
+\end{block}
 \end{frame}
 
 
@@ -349,24 +288,10 @@ $$
 \begin{itemize}
 \item \textbf{Shearlab.jl} (H. Andrade, TU Berlin) \\ \url{https://github.com/arsenal9971/Shearlab.jl}
 \end{itemize}
-\end{itemize}
-\end{frame}
 
-\begin{frame}{Why Julia?}
-\begin{itemize}
-\item Extensive use of \lstinline[language=julia]{fft}, well implemented in Julia.
+\pause
 
-\bigskip
-
-\item Fast vectorization and loops as well as JIT-compilation.
-
-\bigskip
-
-\item Plenty of image filtering, import and rescaling functions with  \lstinline[language=julia]{Images.jl, Wavelets.jl}.
-
-\bigskip
-
-\item Support of multithreading and painless GPU processing with  \lstinline[language=julia]{ArrayFire.jl}.
+\item \textbf{Lets code!}
 \end{itemize}
 \end{frame}
 

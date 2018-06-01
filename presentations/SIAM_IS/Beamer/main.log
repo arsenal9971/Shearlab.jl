@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.14)  27 MAY 2018 17:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.5.14)  1 JUN 2018 17:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1582,333 +1582,317 @@ ogo.pdf> <./Images/AFG.pdf
 pdfTeX warning: pdflatex (file ./Images/AFG.pdf): PDF inclusion: multiple pdfs 
 with page group included in a single page
 >]) (./content/content.tex
-<./Images/TU_logo.pdf, id=46, 4742.41782pt x 3529.24529pt>
+<./Images/denoise.jpg, id=43, 803.0pt x 273.02pt>
+File: ./Images/denoise.jpg Graphic file (type jpg)
+<use ./Images/denoise.jpg>
+Package pdftex.def Info: ./Images/denoise.jpg  used on input line 11.
+(pdftex.def)             Requested size: 308.06367pt x 104.74434pt.
+<./Images/inpaint.jpg, id=44, 343.2825pt x 118.5228pt>
+File: ./Images/inpaint.jpg Graphic file (type jpg)
+<use ./Images/inpaint.jpg>
+Package pdftex.def Info: ./Images/inpaint.jpg  used on input line 11.
+(pdftex.def)             Requested size: 308.06367pt x 106.36206pt.
+<./Images/TU_logo.pdf, id=45, 4742.41782pt x 3529.24529pt>
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 27.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 11.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [2
 
- <./Images/TU_logo.pdf>]
+ <./Images/TU_logo.pdf> <./Images/denoise.jpg> <./Images/inpaint.jpg>]
+File: ./Images/denoise.jpg Graphic file (type jpg)
+<use ./Images/denoise.jpg>
+Package pdftex.def Info: ./Images/denoise.jpg  used on input line 11.
+(pdftex.def)             Requested size: 308.06367pt x 104.74434pt.
+File: ./Images/inpaint.jpg Graphic file (type jpg)
+<use ./Images/inpaint.jpg>
+Package pdftex.def Info: ./Images/inpaint.jpg  used on input line 11.
+(pdftex.def)             Requested size: 308.06367pt x 106.36206pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 27.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 11.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [3
 
 ]
+<./Images/deblurr.jpg, id=60, 391.4625pt x 191.71625pt>
+File: ./Images/deblurr.jpg Graphic file (type jpg)
+<use ./Images/deblurr.jpg>
+Package pdftex.def Info: ./Images/deblurr.jpg  used on input line 24.
+(pdftex.def)             Requested size: 239.60567pt x 117.3475pt.
+<./Images/CT.png, id=61, 372.64218pt x 191.21437pt>
+File: ./Images/CT.png Graphic file (type png)
+<use ./Images/CT.png>
+Package pdftex.def Info: ./Images/CT.png  used on input line 24.
+(pdftex.def)             Requested size: 239.60567pt x 122.94864pt.
+
+Overfull \vbox (5.81615pt too high) detected at line 24
+ []
+
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 27.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 24.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [4
+[4
+
+ <./Images/deblurr.jpg> <./Images/CT.png>]
+File: ./Images/deblurr.jpg Graphic file (type jpg)
+<use ./Images/deblurr.jpg>
+Package pdftex.def Info: ./Images/deblurr.jpg  used on input line 24.
+(pdftex.def)             Requested size: 239.60567pt x 117.3475pt.
+File: ./Images/CT.png Graphic file (type png)
+<use ./Images/CT.png>
+Package pdftex.def Info: ./Images/CT.png  used on input line 24.
+(pdftex.def)             Requested size: 239.60567pt x 122.94864pt.
+
+Overfull \vbox (5.81615pt too high) detected at line 24
+ []
+
+File: ./Images/TU_logo.pdf Graphic file (type pdf)
+<use ./Images/TU_logo.pdf>
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 24.
+(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
+[5
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 53.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [5
-
-]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 53.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 52.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [6
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 53.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 52.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [7
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 53.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 52.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-[8
+ [8
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 59.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 78.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [9
 
 ]
-<./Images/denoise.jpg, id=104, 803.0pt x 273.02pt>
-File: ./Images/denoise.jpg Graphic file (type jpg)
-<use ./Images/denoise.jpg>
-Package pdftex.def Info: ./Images/denoise.jpg  used on input line 70.
-(pdftex.def)             Requested size: 308.06367pt x 104.74434pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 70.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 78.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [10
 
- <./Images/denoise.jpg>]
-<./Images/inpaint.jpg, id=111, 343.2825pt x 118.5228pt>
-File: ./Images/inpaint.jpg Graphic file (type jpg)
-<use ./Images/inpaint.jpg>
-Package pdftex.def Info: ./Images/inpaint.jpg  used on input line 83.
-(pdftex.def)             Requested size: 308.06367pt x 106.36206pt.
+]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 83.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 78.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [11
 
- <./Images/inpaint.jpg>]
-<./Images/deblurr.jpg, id=118, 391.4625pt x 191.71625pt>
-File: ./Images/deblurr.jpg Graphic file (type jpg)
-<use ./Images/deblurr.jpg>
-Package pdftex.def Info: ./Images/deblurr.jpg  used on input line 94.
-(pdftex.def)             Requested size: 273.83728pt x 134.11562pt.
+]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 94.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 111.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [12
 
- <./Images/deblurr.jpg>]
-<./Images/CT.png, id=125, 400.49625pt x 191.9672pt>
-File: ./Images/CT.png Graphic file (type png)
-<use ./Images/CT.png>
-Package pdftex.def Info: ./Images/CT.png  used on input line 105.
-(pdftex.def)             Requested size: 273.83728pt x 131.26239pt.
+]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 105.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 111.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [13
 
- <./Images/CT.png>]
-<./Images/MRI.jpg, id=136, 461.8053pt x 223.3143pt>
-File: ./Images/MRI.jpg Graphic file (type jpg)
-<use ./Images/MRI.jpg>
-Package pdftex.def Info: ./Images/MRI.jpg  used on input line 115.
-(pdftex.def)             Requested size: 273.83728pt x 132.42215pt.
+]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 115.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 111.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [14
 
- <./Images/MRI.jpg>]
+]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 146.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 132.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [15
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 146.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 132.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [16
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 146.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 155.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [17
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 169.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 155.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-
-[18
+ [18
 
 ]
+
+LaTeX Font Warning: Font shape `OT1/cmss/bx/it' undefined
+(Font)              using `OT1/cmss/bx/n' instead on input line 183.
+
+LaTeX Font Info:    Try loading font information for U+bbm on input line 183.
+(/net/TeXLive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
+File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
+)
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 169.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 183.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [19
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 193.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 183.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [20
 
 ]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 193.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [21
-
-]
-LaTeX Font Info:    Try loading font information for U+bbm on input line 217.
- (/net/TeXLive/2018/texmf-dist/tex/latex/bbm-macros/ubbm.fd
-File: ubbm.fd 1999/03/15 V 1.2 Font definition for bbm font - TH
-)
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 217.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-[22
-
-]
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 217.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [23
-
-]
-<./Images/cartoon-like.jpg, id=202, 274.02374pt x 261.97874pt>
+<./Images/cartoon-like.jpg, id=182, 274.02374pt x 261.97874pt>
 File: ./Images/cartoon-like.jpg Graphic file (type jpg)
 <use ./Images/cartoon-like.jpg>
-Package pdftex.def Info: ./Images/cartoon-like.jpg  used on input line 228.
+Package pdftex.def Info: ./Images/cartoon-like.jpg  used on input line 194.
 (pdftex.def)             Requested size: 136.91603pt x 130.9011pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 228.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 194.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [24
+ [21
 
  <./Images/cartoon-like.jpg>]
 File: ./Images/cartoon-like.jpg Graphic file (type jpg)
 <use ./Images/cartoon-like.jpg>
-Package pdftex.def Info: ./Images/cartoon-like.jpg  used on input line 228.
+Package pdftex.def Info: ./Images/cartoon-like.jpg  used on input line 194.
 (pdftex.def)             Requested size: 136.91603pt x 130.9011pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 228.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 194.
+(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
+ [22
+
+]
+<./Images/STFTWave.png, id=195, 1270.7475pt x 551.05875pt>
+File: ./Images/STFTWave.png Graphic file (type png)
+<use ./Images/STFTWave.png>
+Package pdftex.def Info: ./Images/STFTWave.png  used on input line 215.
+(pdftex.def)             Requested size: 273.82587pt x 130.23875pt.
+File: ./Images/TU_logo.pdf Graphic file (type pdf)
+<use ./Images/TU_logo.pdf>
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 215.
+(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
+ [23
+
+ <./Images/STFTWave.png>]
+File: ./Images/TU_logo.pdf Graphic file (type pdf)
+<use ./Images/TU_logo.pdf>
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 232.
+(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
+ [24
+
+]
+File: ./Images/TU_logo.pdf Graphic file (type pdf)
+<use ./Images/TU_logo.pdf>
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 232.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [25
 
 ]
-<./Images/STFTWave.png, id=216, 1270.7475pt x 551.05875pt>
-File: ./Images/STFTWave.png Graphic file (type png)
-<use ./Images/STFTWave.png>
-Package pdftex.def Info: ./Images/STFTWave.png  used on input line 249.
-(pdftex.def)             Requested size: 273.82587pt x 130.23875pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 249.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 232.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
  [26
 
- <./Images/STFTWave.png>]
-<./Images/anisotropic_isotropic.jpg, id=224, 720.6925pt x 373.395pt>
-File: ./Images/anisotropic_isotropic.jpg Graphic file (type jpg)
-<use ./Images/anisotropic_isotropic.jpg>
-Package pdftex.def Info: ./Images/anisotropic_isotropic.jpg  used on input line
- 293.
-(pdftex.def)             Requested size: 154.03183pt x 79.79976pt.
+]
+<./Images/tiling_nocone.jpg, id=222, 461.725pt x 342.27875pt>
+File: ./Images/tiling_nocone.jpg Graphic file (type jpg)
+<use ./Images/tiling_nocone.jpg>
+Package pdftex.def Info: ./Images/tiling_nocone.jpg  used on input line 251.
+(pdftex.def)             Requested size: 136.91603pt x 101.49362pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 293.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 251.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
 
 [27
 
- <./Images/anisotropic_isotropic.jpg>]
-File: ./Images/anisotropic_isotropic.jpg Graphic file (type jpg)
-<use ./Images/anisotropic_isotropic.jpg>
-Package pdftex.def Info: ./Images/anisotropic_isotropic.jpg  used on input line
- 293.
-(pdftex.def)             Requested size: 154.03183pt x 79.79976pt.
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 293.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [28
-
-]
-File: ./Images/anisotropic_isotropic.jpg Graphic file (type jpg)
-<use ./Images/anisotropic_isotropic.jpg>
-Package pdftex.def Info: ./Images/anisotropic_isotropic.jpg  used on input line
- 293.
-(pdftex.def)             Requested size: 154.03183pt x 79.79976pt.
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 293.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [29
-
-]
-<./Images/tiling_nocone.jpg, id=243, 461.725pt x 342.27875pt>
-File: ./Images/tiling_nocone.jpg Graphic file (type jpg)
-<use ./Images/tiling_nocone.jpg>
-Package pdftex.def Info: ./Images/tiling_nocone.jpg  used on input line 312.
-(pdftex.def)             Requested size: 136.91603pt x 101.49362pt.
-File: ./Images/TU_logo.pdf Graphic file (type pdf)
-<use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 312.
-(pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [30
-
  <./Images/tiling_nocone.jpg>]
-<./Images/tiling_cone.jpg, id=250, 812.03375pt x 424.58624pt>
+<./Images/tiling_cone.jpg, id=229, 812.03375pt x 424.58624pt>
 File: ./Images/tiling_cone.jpg Graphic file (type jpg)
 <use ./Images/tiling_cone.jpg>
-Package pdftex.def Info: ./Images/tiling_cone.jpg  used on input line 331.
-(pdftex.def)             Requested size: 239.60567pt x 125.27777pt.
+Package pdftex.def Info: ./Images/tiling_cone.jpg  used on input line 270.
+(pdftex.def)             Requested size: 205.37926pt x 107.38371pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 331.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 270.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [31
+ [28
 
  <./Images/tiling_cone.jpg>]
 File: ./Images/tiling_cone.jpg Graphic file (type jpg)
 <use ./Images/tiling_cone.jpg>
-Package pdftex.def Info: ./Images/tiling_cone.jpg  used on input line 331.
-(pdftex.def)             Requested size: 239.60567pt x 125.27777pt.
+Package pdftex.def Info: ./Images/tiling_cone.jpg  used on input line 270.
+(pdftex.def)             Requested size: 205.37926pt x 107.38371pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 331.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 270.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [32
+ [29
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+fvm on input line 353.
+LaTeX Font Info:    Try loading font information for OT1+fvm on input line 296.
 
-LaTeX Font Info:    No file OT1fvm.fd. on input line 353.
+LaTeX Font Info:    No file OT1fvm.fd. on input line 296.
 
 
 LaTeX Font Warning: Font shape `OT1/fvm/m/n' undefined
-(Font)              using `OT1/cmr/m/n' instead on input line 353.
+(Font)              using `OT1/cmr/m/n' instead on input line 296.
 
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 353.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 296.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
-[33
+[30
 
 ]
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 371.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 296.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [34
+ [31
 
 ]
-<./Images/obama_compressed.jpg, id=283, 662.475pt x 173.64874pt>
+<./Images/obama_compressed.jpg, id=267, 662.475pt x 173.64874pt>
 File: ./Images/obama_compressed.jpg Graphic file (type jpg)
 <use ./Images/obama_compressed.jpg>
-Package pdftex.def Info: ./Images/obama_compressed.jpg  used on input line 381.
+Package pdftex.def Info: ./Images/obama_compressed.jpg  used on input line 306.
 
 (pdftex.def)             Requested size: 342.2953pt x 89.72289pt.
 File: ./Images/TU_logo.pdf Graphic file (type pdf)
 <use ./Images/TU_logo.pdf>
-Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 381.
+Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 306.
 (pdftex.def)             Requested size: 19.89992pt x 15.61703pt.
- [35
+ [32
 
  <./Images/obama_compressed.jpg>])
 \tf@nav=\write6
@@ -1922,7 +1906,13 @@ Package pdftex.def Info: ./Images/TU_logo.pdf  used on input line 381.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 29.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 29.
- (./main.aux)
+ (./main.aux
+*************************************************
+* pdfbase warning: "rerun"
+* 
+* Rerun to get internal references right!
+*************************************************
+)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 29.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 29.
 Package rerunfilecheck Info: File `main.out' has not changed.
@@ -1933,13 +1923,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 36893 strings out of 493825
- 728835 string characters out of 6162074
- 866605 words of memory out of 5000000
- 39803 multiletter control sequences out of 15000+600000
- 557881 words of font info for 109 fonts, out of 8000000 for 9000
+ 36552 strings out of 493825
+ 725884 string characters out of 6162074
+ 865605 words of memory out of 5000000
+ 39471 multiletter control sequences out of 15000+600000
+ 557236 words of font info for 107 fonts, out of 8000000 for 9000
  523 hyphenation exceptions out of 8191
- 61i,16n,78p,771b,1258s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 61i,16n,77p,771b,596s stack positions out of 5000i,500n,10000p,200000b,80000s
  </net/TeXLive/texfonts/pk/ljfour/public/bbm/bbm10.657pk></net/TeXLive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></net/TeXLive/2018/texmf-di
 st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></net/TeXLive/2018/texmf-dist/font
@@ -1955,10 +1945,10 @@ ve/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></net/TeXLive/2018
 ist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></net/TeXLive/2018/texmf-dist/font
 s/type1/public/amsfonts/symbols/msam10.pfb></net/TeXLive/2018/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (35 pages, 780325 bytes).
+Output written on main.pdf (32 pages, 645662 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 275 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 137 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 343 PDF objects out of 1000 (max. 8388607)
+ 262 compressed objects within 3 object streams
+ 65 named destinations out of 1000 (max. 500000)
+ 127 words of extra memory for PDF output out of 10000 (max. 10000000)
 
