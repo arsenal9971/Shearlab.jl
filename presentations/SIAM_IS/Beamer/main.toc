@@ -1,1 +1,2 @@
-\babel@toc {english}{}
+\beamer@endinputifotherversion {3.36pt}
+\select@language {english}
