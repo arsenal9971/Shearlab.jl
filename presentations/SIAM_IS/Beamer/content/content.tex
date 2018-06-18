@@ -14,12 +14,7 @@
 \begin{frame}
 \begin{figure}[h!]
 \centering
-\includegraphics[width=0.7\textwidth]{./Images/deblurr.jpg}
-\end{figure}
-\pause
-\begin{figure}[h!]
-\centering
-\includegraphics[width=0.7\textwidth]{./Images/CT.png}
+\includegraphics[width=0.7\textwidth]{../Notebooks/julia.png}
 \end{figure}
 \end{frame}
 
@@ -59,7 +54,7 @@ $\mathcal{L}:Y\times Y\longrightarrow \mathbb{R}$ is a transformation of the neg
 \end{block}
 
 \begin{block}{}
-Ill-posed problems tend to produce overfitting when minimizing the data miss-fit, but they are the most common in applications (CT, EEG, MRI,...).
+Ill-posed problems tend to produce overfitting when minimizing the data miss-fit, but they are the most common in applications (CT, EEG, MRI,\textellipsis).
 \end{block}
 
 \bigskip
@@ -123,7 +118,7 @@ for some $0<A\leq B<\infty$.
 \
 \pause
 
-\begin{theorem}[(Labate et al., 2012)]
+\begin{theorem}[Labate et al., 2012]
 "If an image is sparse within a frame $\{\psi_i\}_{i\in \mathcal{I}}$, one can obtain a \textit{Minimax} MSE estimator by thresholding the coefficients in the expansion of the noisy data:
 $$
 g = \sum_{i\in\mathcal{I}}\langle g,\psi_i\rangle\psi_i \quad "
@@ -144,8 +139,8 @@ where $P_K$ is and orthogonal projection onto the known subspace $X_K\trianglele
 \pause
 \bigskip
 
-\begin{block}{\textbf{Sparse Regularization/CS approach (Genzel, Kutyniok):}}
- " If a signal (image) is sparse within a frame $\Psi$, it can be recovered from highly underdetermined, non-adaptive linear measurements by $\ell^1$-regularization (Davenport et al., 2012), i.e.
+\begin{block}{\textbf{Sparse Regularization/CS approach (Genzel, Kutyniok, 2014):}}
+ " If a signal (image) is sparse within a frame $\Psi$, it can be recovered from highly underdetermined, non-adaptive linear measurements by $\ell^1$-regularization, i.e.
 $$
 \min_{\tilde{f}\in X}||\{\langle\tilde{f},\psi_i\rangle\}_{i\in\mathcal{I}}||_{\ell^1(\mathcal{I})} \quad \text{s.t. }P_K(\tilde{f})=g=P_K(f) \quad "
 $$
@@ -295,13 +290,5 @@ $$
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Thanks!}
-\begin{center}
-\Large{Questions?}
-\end{center}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=1\textwidth]{./Images/obama_compressed.jpg}
-\end{figure}
-\end{frame}
+
 
