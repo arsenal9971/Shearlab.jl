@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.18)  26 JUN 2018 18:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.6.18)  26 JUN 2018 18:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2200,16 +2200,52 @@ Package pdftex.def Info: ./images/dmap.png  used on input line 354.
  [44
 
 ]
-<./images/lf-vr.jpg, id=349, 651.43375pt x 479.7925pt>
-File: ./images/lf-vr.jpg Graphic file (type jpg)
-<use ./images/lf-vr.jpg>
-Package pdftex.def Info: ./images/lf-vr.jpg  used on input line 365.
-(pdftex.def)             Requested size: 273.83728pt x 201.68716pt.
+<./images/rpi-cam.jpg, id=349, 1204.5pt x 903.375pt>
+File: ./images/rpi-cam.jpg Graphic file (type jpg)
+<use ./images/rpi-cam.jpg>
+Package pdftex.def Info: ./images/rpi-cam.jpg  used on input line 364.
+(pdftex.def)             Requested size: 266.98991pt x 200.2456pt.
 
-Overfull \vbox (13.21658pt too high) detected at line 365
+Overfull \vbox (12.77502pt too high) detected at line 364
  []
 
 [45
+
+ <./images/rpi-cam.jpg>]
+<./images/livingroomwire.jpg, id=357, 932.48375pt x 763.85374pt>
+File: ./images/livingroomwire.jpg Graphic file (type jpg)
+<use ./images/livingroomwire.jpg>
+Package pdftex.def Info: ./images/livingroomwire.jpg  used on input line 379.
+(pdftex.def)             Requested size: 167.72658pt x 137.39449pt.
+<./images/backfacingoff.jpg, id=358, 932.48375pt x 763.85374pt>
+File: ./images/backfacingoff.jpg Graphic file (type jpg)
+<use ./images/backfacingoff.jpg>
+Package pdftex.def Info: ./images/backfacingoff.jpg  used on input line 379.
+(pdftex.def)             Requested size: 171.14764pt x 140.1918pt.
+ [46
+
+ <./images/livingroomwire.jpg> <./images/backfacingoff.jpg>]
+File: ./images/livingroomwire.jpg Graphic file (type jpg)
+<use ./images/livingroomwire.jpg>
+Package pdftex.def Info: ./images/livingroomwire.jpg  used on input line 379.
+(pdftex.def)             Requested size: 167.72658pt x 137.39449pt.
+File: ./images/backfacingoff.jpg Graphic file (type jpg)
+<use ./images/backfacingoff.jpg>
+Package pdftex.def Info: ./images/backfacingoff.jpg  used on input line 379.
+(pdftex.def)             Requested size: 171.14764pt x 140.1918pt.
+ [47
+
+]
+<./images/lf-vr.jpg, id=371, 651.43375pt x 479.7925pt>
+File: ./images/lf-vr.jpg Graphic file (type jpg)
+<use ./images/lf-vr.jpg>
+Package pdftex.def Info: ./images/lf-vr.jpg  used on input line 389.
+(pdftex.def)             Requested size: 273.83728pt x 201.68716pt.
+
+Overfull \vbox (13.21658pt too high) detected at line 389
+ []
+
+[48
 
  <./images/lf-vr.jpg>])
 \tf@nav=\write6
@@ -2236,30 +2272,30 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 38271 strings out of 493822
- 754569 string characters out of 6162015
+ 38310 strings out of 493822
+ 755276 string characters out of 6162015
  914491 words of memory out of 5000000
- 41168 multiletter control sequences out of 15000+600000
- 554619 words of font info for 95 fonts, out of 8000000 for 9000
+ 41197 multiletter control sequences out of 15000+600000
+ 558079 words of font info for 106 fonts, out of 8000000 for 9000
  523 hyphenation exceptions out of 8191
  61i,16n,77p,771b,693s stack positions out of 5000i,500n,10000p,200000b,80000s
 </net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></net
 /TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></net/TeXLiv
-e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></net/TeXLive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></net/TeXLive/2018/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmss12.pfb></net/TeXLive/2018/texmf-dist/font
-s/type1/public/amsfonts/cm/cmss8.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmssbx10.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmssi10.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmssi8.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy10.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.
-pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
-b></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-
-Output written on main.pdf (45 pages, 6869011 bytes).
+e/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></net/TeXLive/2018/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></net/TeXLive/2018/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmss10.pfb></net/TeXLive/2018/texmf-dist/font
+s/type1/public/amsfonts/cm/cmss12.pfb></net/TeXLive/2018/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmss8.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmssbx10.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmssi10.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmssi8.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></net/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></n
+et/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></net
+/TeXLive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (48 pages, 8235802 bytes).
 PDF statistics:
- 422 PDF objects out of 1000 (max. 8388607)
- 307 compressed objects within 4 object streams
- 92 named destinations out of 1000 (max. 500000)
- 212 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 448 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
+ 98 named destinations out of 1000 (max. 500000)
+ 227 words of extra memory for PDF output out of 10000 (max. 10000000)
 

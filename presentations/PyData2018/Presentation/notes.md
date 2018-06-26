@@ -142,6 +142,31 @@
 
 - Show the example of an EPI, with the horizontal strip of points in the EPI, corresponding to different features. Show the continuous EPIs that uses all the views, and the sparse that we used, that uses a 7th of views.
 
+- Show the form of the code on Jupyter notebook.
+
 ## Slide 20: Results on EPIs inpainting
 
+- For the same example show the inpainting results. Mention that the other strips have the same performance.
 
+## Slide 21: Results on line detection
+
+- Once we inpainted the EPIs we then use the OpenCV implementation of the Hough Line Transform to detect the lines on the inpainted EPIs, compute the slope and then the depth map.
+
+- Show one snapshot of the obtained depth map.
+
+- Explain that the process is slightly faster than the commercial ones.
+
+## Slide 22: Open hardware implementation
+
+- So once I have all the tools, all of them can be deploy in a raspberry pi.
+- Raspberry pi has also a camera module that you can connect to the board, so I could implement a open hardware light field camera.
+- I am still working on this, since I needed to do some tricks due the lack of memory on the rpi. 
+- Show the prototype.
+
+## Slide 23: Future work
+
+- Light Field rendering, once you have the depth map, you can implement a lot of nice tricks on the picture, like refocusing, or even create a 3D model of the picture. This is the final goal for immersive imaging. Google is implementing this right now to interact with VR devices (like oculus rift).
+
+## Slide 24: Thanks!
+
+- Any question.
