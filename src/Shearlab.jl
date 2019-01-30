@@ -1,6 +1,7 @@
+__precompile__()
 module Shearlab
 
-using Images
+# using Images
 using Wavelets
 using PyPlot
 #using ArrayFire

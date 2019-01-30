@@ -47,7 +47,13 @@ function padarray(array::AbstractArray{T},newSize,gpu = 0) where {T<:Number}
     if gpu == 1
         paddedArray[[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...] = array[idbig...]
     else
+<<<<<<< HEAD
         view(paddedArray,[idbig[1].+padSizes[1],idbig[2].+padSizes[2]]...) .= view(array,idbig...)
+=======
+        # println("size(paddedArray)=$(size(paddedArray))")
+        # println("idbig[1]=$(idbig[1])")
+        view(paddedArray,[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...) .= view(array,idbig...)
+>>>>>>> 321ae1bb8233c434aee76619e6f2eef0cdb1b0a4
     end
     return paddedArray
 end #padarray
@@ -259,3 +265,32 @@ function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,
     end
     filterSetup[kk]
 end #checkfiltersizes
+
+
+function describeConfig(kk::Int)
+    if kk==1
+        # the requested settings are available
+        return "you shouldn't see this"
+    elseif kk==2
+        # Configuration 2
+        return "the scaling shearlet as both scaling function and  and and directional shearlet"
+    elseif kk==3
+        # Configuration 3
+        return "the scaling shearlet and the 2nd directional shearlet"
+    elseif kk==4
+        # Configuration 4
+        return "the scaling shearlet and the 2nd directional shearlet"
+    elseif kk==5
+        # Configuration 5
+        return "the Coiflet1 scaling function, the mirrored scaling shearlet as the wavelet, and the 2nd directional shearlet"
+    elseif kk==6
+        # Configuration 6
+        return "the Daubechies2 scaling function, the mirrored version as the wavelet, and the 2nd directional shearlet"
+    elseif kk==7
+        # Configuration 7
+        return "the Daubechies2 scaling function, the mirrored version as the wavelet, and the 3nd directional shearlet"
+    elseif kk==8
+        # Configuration 8
+        return "the Haar scaling function, the mirrored version as the wavelet, and the 3nd directional shearlet"
+    end
+end
