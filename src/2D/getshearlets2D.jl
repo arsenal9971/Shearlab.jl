@@ -3,7 +3,7 @@
 
 ######################################################################
 ## ype of Filterconfigsuration to check the sizes
-immutable Filterswedgebandlow
+struct Filterswedgebandlow
     wedge::AbstractArray
     bandpass::AbstractArray
     lowpass::AbstractArray
@@ -19,12 +19,11 @@ generates the Wedge, Bandpass and LowspassFilter of size rows x cols
 """
 function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,directionalFilter = filt_gen("directional_shearlet"),scalingFilter = filt_gen("scaling_shearlet"),waveletFilter = mirror(scalingFilter),
                                                    scalingFilter2 = scalingFilter,gpu = 0)
-    FFTW.set_num_threads(Sys.CPU_CORES)
+    FFTW.set_num_threads(Sys.CPU_THREADS)
     # Make shearLevels integer
     shearLevels = map(Int,shearLevels);
     # The number of scales
     NScales = length(shearLevels);
-
     # Initialize the bandpass and wedge filter
     # Bandpass filters partion the frequency plane into different scales
     if gpu == 1
@@ -32,11 +31,11 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
         bandpass = AFArray(bandpass+im*zeros(bandpass));
     else
         bandpass = zeros(Float64,rows,cols,NScales);
-        bandpass = bandpass+im*zeros(bandpass);
+        bandpass = bandpass+im*zeros(size(bandpass));
     end
 
     # Wedge filters partition the frequency plane into different directions
-    wedge = Array{Any}(1,round(Int64,maximum(shearLevels)+1));
+    wedge = Array{Any}(undef, 1, round(Int64,maximum((shearLevels) .+ 1)));
 
     # normalize the directional filter directional filter
     if gpu == 1
@@ -48,9 +47,9 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
     # Compute 1D high and lowpass filters at different scales
 
     # filterHigh{NScales} = g, and filterHigh{1} = g_J (analogous with filterLow)
-    filterHigh = Array{Any}(1,NScales);
-    filterLow = Array{Any}(1,NScales);
-    filterLow2 = Array{Any}(1,round(Int64,maximum(shearLevels)+1));
+    filterHigh = Array{Any}(undef, 1,NScales);
+    filterLow = Array{Any}(undef, 1,NScales);
+    filterLow2 = Array{Any}(undef, 1,round(Int64,maximum(shearLevels)+1));
 
     # Initialize wavelet highpass and lowpass filters
     if gpu == 1
@@ -175,6 +174,7 @@ function getwedgebandpasslowpassfilters2D(rows::Int,cols::Int,shearLevels,direct
 
             wedgeHelp = conv2(directionalFilterUpsampled, filterLow2[size(filterLow2,2)-shearLevel][:,:])
             wedgeHelp = padarray(wedgeHelp,[rows,cols]);
+
             #please note that wedgeHelp now corresponds to
             #conv(p_j,h_(J-j*alpha_j/2)') in the language of the paper. to see
             #this, consider the definition of p_j on page 14, the definition of w_j
@@ -226,7 +226,7 @@ end #getwedgebandpasslowpassfilters2D
 
 ##############################################################
 # Create a type for the Preparedfilters
-immutable Preparedfilters
+struct Preparedfilters
     size
     shearLevels
     cone1
@@ -311,7 +311,7 @@ function getshearletidxs2D(shearLevels, full=0, restriction_type = [],restrictio
     end
 
     shearletIdxs = transpose(reshape(shearletIdxs,3,Int(length(shearletIdxs)/3)))
-    if convert(Bool,includeLowpass) || convert(Bool,sum(0.==scales)) || convert(Bool,sum(0.==cones))
+    if convert(Bool,includeLowpass) || convert(Bool,sum(0 .== scales)) || convert(Bool,sum(0 .== cones))
         shearletIdxs = [shearletIdxs;[0 0 0]];
     end
     return shearletIdxs
@@ -319,7 +319,7 @@ end # getshearletidxs2D
 
 ####################################################################
 # Type of shearletsystem in 2D
-immutable Shearletsystem2D
+struct Shearletsystem2D
     shearlets
     size
     shearLevels
@@ -346,7 +346,7 @@ function getshearletsystem2D(rows,cols,nScales,
                                 quadratureMirrorFilter= filt_gen("scaling_shearlet"),gpu=0)
 
     # Set default value generates the desired shearlet systems
-    shearLevels = map(Int,shearLevels)
+    shearLevels = Int.(shearLevels)
 
     #Generate prepared Filters and indices
     Preparedfilters = preparefilters2D(rows,cols,nScales,shearLevels,directionalFilter,quadratureMirrorFilter,mirror(quadratureMirrorFilter),quadratureMirrorFilter, gpu);
@@ -359,7 +359,7 @@ function getshearletsystem2D(rows,cols,nScales,
     if gpu == 1
         shearlets = AFArray(zeros(Complex{Float32},rows,cols,nShearlets));
     else
-        shearlets = zeros(rows,cols,nShearlets)+im*zeros(rows,cols,nShearlets);
+        shearlets = zeros(rows,cols,nShearlets)+im .* zeros(rows,cols,nShearlets);
     end
     # Compute shearlets
     for j = 1:nShearlets
@@ -380,24 +380,25 @@ function getshearletsystem2D(rows,cols,nScales,
             shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
         end
     end
-	RMS =  transpose(sum(reshape(sum(real(abs.(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
+
+	RMS =  transpose(sum(reshape(sum(real.(abs.(shearlets)).^2, dims=1), size(shearlets, 2), size(shearlets, 3)), dims=1));
     if gpu == 1
         RMS = (sqrt.(RMS)/convert(Float32,sqrt.(rows*cols)));
-        dualFrameWeights = sum(real(abs.(shearlets)).^2,3);
+        dualFrameWeights = sum(real(abs.(shearlets)).^2,dims=3);
     else
         RMS = (sqrt.(RMS)/sqrt.(rows*cols));
-        dualFrameWeights = squeeze(sum(abs.(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
+        dualFrameWeights = dropdims(sum(abs.(shearlets).^2,dims=3),dims=3); # need to stream to host before they fix abs of comples AFArray
     end
     #return the system
-    return Shearletsystem2D(shearlets,Preparedfilters.size,
-    Preparedfilters.shearLevels,full,size(shearletIdxs,1),
-    shearletIdxs,dualFrameWeights,RMS,0,gpu)
+    return Shearletsystem2D(shearlets, Preparedfilters.size,
+    Preparedfilters.shearLevels, full, size(shearletIdxs,1),
+    shearletIdxs, dualFrameWeights, RMS, 0, gpu)
 end #getshearletsystem2D
 
 
 
 # type for individual shearlets2D
-immutable Shearlets2D
+struct Shearlets2D
 		shearlets
 		RMS
 		dualFrameWeights
@@ -440,13 +441,13 @@ function getshearlets2D(Preparedfilters, shearletIdxs = getshearletidxs2D(Prepar
             shearlets[:,:,j] = permutedims(Preparedfilters.cone2.wedge[Preparedfilters.shearLevels[scale]+1][:,:,shearing+2^Preparedfilters.shearLevels[scale]+1].*conj(Preparedfilters.cone2.bandpass[:,:,scale]),[2,1]);
         end
     end
-		RMS =  transpose(sum(reshape(sum(real(abs.(shearlets)).^2,1),size(shearlets,2),size(shearlets,3)),1));
+		RMS =  transpose(sum(reshape(sum(real(abs.(shearlets)).^2,dims=1),size(shearlets,2),size(shearlets,3)),dims=1));
     if gpu == 1
         RMS = (sqrt.(RMS)/convert(Float32,sqrt.(rows*cols)));
-        dualFrameWeights = sum(real(abs.(shearlets)).^2,3);
+        dualFrameWeights = sum(real(abs.(shearlets)).^2,dims=3);
     else
         RMS = (sqrt.(RMS)/sqrt.(rows*cols));
-        dualFrameWeights = squeeze(sum(abs.(shearlets).^2,3),3); # need to stream to host before they fix abs of comples AFArray
+        dualFrameWeights = dropdims(sum(abs.(shearlets).^2,dims=3),3); # need to stream to host before they fix abs of comples AFArray
     end
 		return Shearlets2D(shearlets, RMS, dualFrameWeights,gpu)
 end #getshearlets2D

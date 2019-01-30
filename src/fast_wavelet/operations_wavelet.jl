@@ -95,16 +95,6 @@ function cconvol(x,h,d=1)
 	return y;
 end # cconvol
 
-#####################################
-# Function that flips a vector
-"""
-...
-reverse(x::Array) flips a vector
-...
-"""
-function reverse(x)
-	return x[length(x):-1:1];
-end  # function x = reverse(x)
 
 #####################################
 # Function that computes the mirror

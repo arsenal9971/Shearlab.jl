@@ -1,0 +1,14 @@
+name = "Shearlab"
+uuid = "bd728e11-17d4-5679-9a00-f24958f87a1c"
+keywords = ["package", "management"]
+license = "GNU"
+esc = "The next-generation Julia package manager."
+version = "1.0.0"
+
+[deps]
+DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
+FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
+Images = "916415d5-f1e6-5110-898d-aaa5f9f070e0"
+PyCall = "438e738f-606a-5dbb-bf0a-cddfbfd45ab0"
+PyPlot = "d330b81b-6aea-500a-939a-2ce795aea3ee"
+Wavelets = "29a6e085-ba6d-5f35-a997-948ac2efa89a"

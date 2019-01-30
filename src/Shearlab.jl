@@ -5,6 +5,7 @@ using Wavelets
 using PyPlot
 #using ArrayFire
 using DSP
+using FFTW
 
 export
 			WT, filt_gen, resize_image, load_image, imageplot,
@@ -16,8 +17,8 @@ export
 			Shearlets2D, getshearlets2D,
 			sheardec2D, shearrec2D,
 			Serialpreparedfilters, prepareserial2D, Sheardecserial2D, sheardecserial2D,
-			shearrecserial2D, finishserial2D,
-			AFArray
+			shearrecserial2D, finishserial2D#,
+			# AFArray
 
 include("util/operations.jl")
 include("2D/getshearlets2D.jl")
