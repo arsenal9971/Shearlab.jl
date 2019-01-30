@@ -24,7 +24,7 @@ function sheardec2D(X,shearletSystem)
     #not that pointwise multiplication in the fourier domain equals convolution
     #in the time-domain
     for j = 1:shearletSystem.nShearlets
-        coeffs[:,:,j] = fftshift(ifft(ifftshift(Xfreq.*conj(shearletSystem.shearlets[:,:,j]))));  
+        coeffs[:,:,j] = fftshift(ifft(ifftshift(Xfreq.*conj(shearletSystem.shearlets[:,:,j]))));
     end
     return coeffs
 end # sheardec2D
@@ -48,7 +48,7 @@ function shearrec2D(coeffs,shearletSystem)
     for j = 1:shearletSystem.nShearlets
         X = X+fftshift(fft(ifftshift(coeffs[:,:,j]))).*shearletSystem.shearlets[:,:,j];
     end
-    return real(fftshift(ifft(ifftshift((1./shearletSystem.dualFrameWeights).*X))))
+    return real(fftshift(ifft(ifftshift((1 ./ shearletSystem.dualFrameWeights).*X))))
 end# shearrec2D
 
 ##############################################################################
@@ -70,7 +70,7 @@ function sheardecadjoint2D(coeffs,shearletSystem)
     for j = 1:shearletSystem.nShearlets
         X = X+fftshift(fft(ifftshift(coeffs[:,:,j]))).*conj(shearletSystem.shearlets[:,:,j]);
     end
-    return real(fftshift(ifft(ifftshift((1./shearletSystem.dualFrameWeights).*X))))
+    return real(fftshift(ifft(ifftshift((1 ./shearletSystem.dualFrameWeights).*X))))
 
 end # sheardecadjoint2D
 
@@ -97,8 +97,7 @@ function shearrecadjoint2D(X,shearletSystem)
     #not that pointwise multiplication in the fourier domain equals convolution
     #in the time-domain
     for j = 1:shearletSystem.nShearlets
-        coeffs[:,:,j] = fftshift(ifft(ifftshift(Xfreq.*shearletSystem.shearlets[:,:,j])));  
+        coeffs[:,:,j] = fftshift(ifft(ifftshift(Xfreq.*shearletSystem.shearlets[:,:,j])));
     end
     return coeffs
 end # shearrecadjoint2D
-

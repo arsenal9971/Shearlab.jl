@@ -4,7 +4,7 @@ f = rand(n,n);
 
 h = filt_gen(WT.db2)
 
-g = cat(1, 0, h[length(h):-1:2]) .* ( (-1).^(1:length(h)) );
+g = cat(0, h[length(h):-1:2], dims=1) .* ( (-1).^(1:length(h)) );
 
 Jmax = round(Int64,log2(n))-1;
 Jmin = 1;
@@ -15,7 +15,7 @@ for j=Jmax:-1:Jmin
     for d=1:2
         Coarse = subsampling(cconvol(A,h,d),d);
         Detail = subsampling(cconvol(A,g,d),d);
-        A = cat(d, Coarse, Detail );
+        A = cat(Coarse, Detail,dims=d);
     end
     fW[1:2^(j+1),1:2^(j+1)] = A;
     j1 = Jmax-j;
@@ -31,7 +31,7 @@ for j=Jmin:Jmax
             Detail = A[2^j+1:2^(j+1),:];
         else
             Coarse = A[:,1:2^j];
-            Detail = A[:,2^j+1:2^(j+1)];                
+            Detail = A[:,2^j+1:2^(j+1)];
         end
         Coarse = cconvol(upsampling(Coarse,d),Shearlab.reverse(h),d);
         Detail = cconvol(upsampling(Detail,d),Shearlab.reverse(g),d);

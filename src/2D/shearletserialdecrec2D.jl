@@ -2,7 +2,7 @@
 
 # Type for the shearlet serial prepared filters
 
-immutable Serialpreparedfilters
+struct Serialpreparedfilters
 		Xfreq
 		Xrec
 		preparedFilters
@@ -37,7 +37,7 @@ directionalFilter = filt_gen("directional_shearlet") , quadratureMirrorFilter = 
 end #prepareserial2D
 
 # Type for the 2D serial sheralet decompostion
-immutable Sheardecserial2D
+struct Sheardecserial2D
 		coeffs
 		shearlet
 		dualFrameWeightsNew
@@ -81,5 +81,5 @@ finishserial2D(Xrec,dualFrameWeightsCurr) serial recovery of coefficients with c
 ...
 """
 function finishserial2D(Xcurr, dualFrameWeights)
-		return fftshift(ifft(ifftshift((1./dualFrameWeights).*Xcurr)))
+		return fftshift(ifft(ifftshift((1 ./dualFrameWeights).*Xcurr)))
 end # shearrecserial2D

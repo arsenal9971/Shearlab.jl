@@ -11,7 +11,7 @@ is bigger than the targeted size, it will centered it at zero
 and cut it off to fit
 ...
 """
-function padarray{T<:Number}(array::AbstractArray{T},newSize,gpu = 0)
+function padarray(array::AbstractArray{T},newSize,gpu = 0) where {T<:Number}
     # If you want to use gpu via ArrayFire array needs to be ArrayFire.AFArray{Float32,2}
     # Small patch if the array is one dimensional
     if size([size(array)...])[1]==1
@@ -47,7 +47,7 @@ function padarray{T<:Number}(array::AbstractArray{T},newSize,gpu = 0)
     if gpu == 1
         paddedArray[[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...] = array[idbig...]
     else
-        view(paddedArray,[idbig[1]+padSizes[1],idbig[2]+padSizes[2]]...) .= view(array,idbig...)
+        view(paddedArray,[idbig[1].+padSizes[1],idbig[2].+padSizes[2]]...) .= view(array,idbig...)
     end
     return paddedArray
 end #padarray
@@ -59,8 +59,8 @@ end #padarray
 fliplr(array,gpu) flips an array from left to right in the second dimension
 ...
 """
-function fliplr{T<:Number}(array::AbstractArray{T},gpu = 0)
-    return flipdim(array,2)
+function fliplr(array::AbstractArray{T},gpu = 0) where {T<:Number}
+    return reverse(array,dims=2)
 end #fliplr
 
 ##################################################################
@@ -72,7 +72,7 @@ upsample(array,dims,nZeros,gpu) upsample an array, in the dimensions dims
 with nZeros
 ...
 """
-function upsample{T<:Number}(array::AbstractArray{T},dims::Integer,nZeros::Integer, gpu = 0)
+function upsample(array::AbstractArray{T},dims::Integer,nZeros::Integer, gpu = 0) where {T<:Number}
     sz = [size(array)...]
     szUpsampled = sz
     szUpsampled[dims] = (szUpsampled[dims]-1).*(nZeros+1)+1
@@ -97,7 +97,7 @@ end #upsample
 fix(x) rounds a number x to the nearest integer towards zero
 ...
 """
-function fix{T<:Number}(x::T)
+function fix(x::T) where {T<:Number}
     if x < 0
         fixed = ceil(x)
     else
@@ -115,7 +115,7 @@ dshear(array,k,axis,gpu) shears and array in order k in the direction of
 axis
 ...
 """
-function dshear{T<:Number}(array::AbstractArray{T},k::Integer,axis::Integer, gpu = 0)
+function dshear(array::AbstractArray{T},k::Integer,axis::Integer, gpu = 0) where {T<:Number}
     if gpu == 1
         array = Array(array)
     end
@@ -143,7 +143,7 @@ end #dshear
 
 ######################################################################
 ## Type of filter configurations
-immutable Filterconfigs
+struct Filterconfigs
     directionalFilter
     scalingFilter
     waveletFilter
@@ -219,7 +219,7 @@ function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,
                                     waveletFilter,scalingFilter2));
 
     # Check the sizes of the filters in comparison with the rows and cols
-		kk = 0;
+    kk = 0;
     success1 = 0;
     for k = 1:8
         ## check 1
@@ -248,14 +248,43 @@ function checkfiltersizes(rows,cols,shearLevels,directionalFilter,scalingFilter,
             continue;
         end
         success1 = 1;
-				kk = k;
+		kk = k;
         break;
     end
     if success1 == 0
-        error("The specified Shearlet system was not available for data of size "* string(rows) *"x",string(cols)* ". Filters were automatically set to configuration "*string(kk)* "(see operations.jl).");
+        @error "The specified Shearlet system was not available for data of size "* string(rows) *"x",string(cols)* ". Filters were not set (see operations.jl)."
     end
     if success1 == 1 && kk > 1
-        warn("The specified Shearlet system was not available for data of size "*string(rows)*"x"*string(cols)*". Filters were automatically set to configuration "*string(kk)*"(see operations.jl).");
+        @warn "The specified Shearlet system was not available for data of size "*string(rows)*"x"*string(cols)*". Filters were automatically set to configuration "*string(kk)*" (see operations.jl)."
     end
     filterSetup[kk]
 end #checkfiltersizes
+
+
+function describeConfig(kk::Int)
+    if kk==1
+        # the requested settings are available
+        return "you shouldn't see this"
+    elseif kk==2
+        # Configuration 2
+        return "the scaling shearlet as both scaling function and  and and directional shearlet"
+    elseif kk==3
+        # Configuration 3
+        return "the scaling shearlet and the 2nd directional shearlet"
+    elseif kk==4
+        # Configuration 4
+        return "the scaling shearlet and the 2nd directional shearlet"
+    elseif kk==5
+        # Configuration 5
+        return "the Coiflet1 scaling function, the mirrored scaling shearlet as the wavelet, and the 2nd directional shearlet"
+    elseif kk==6
+        # Configuration 6
+        return "the Daubechies2 scaling function, the mirrored version as the wavelet, and the 2nd directional shearlet"
+    elseif kk==7
+        # Configuration 7
+        return "the Daubechies2 scaling function, the mirrored version as the wavelet, and the 3nd directional shearlet"
+    elseif kk==8
+        # Configuration 8
+        return "the Haar scaling function, the mirrored version as the wavelet, and the 3nd directional shearlet"
+    end
+end
