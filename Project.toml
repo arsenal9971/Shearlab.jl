@@ -1,9 +1,8 @@
 name = "Shearlab"
 uuid = "bd728e11-17d4-5679-9a00-f24958f87a1c"
-keywords = ["package", "management"]
 license = "GNU"
-esc = "The next-generation Julia package manager."
-version = "1.0.0"
+esc = "Shearlet transforms implemented in Julia."
+version = "0.3.1"
 
 [deps]
 DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
